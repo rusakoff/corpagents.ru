@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Corp Agents — соединяем бизнес-системы и сокращаем рутину с помощью ИИ-агентов.">
+  <title>Corp Agents — Соединим системы. Сократим рутину.</title>
+  <style>html, body { margin: 0; }</style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<!-- CORPAGENTS HERO — START. All styles are scoped to .ca-site. -->
+<div class="ca-site" id="ca-top">
+  <!-- Icon sprite: no icon fonts, external assets or requests. -->
+  <svg class="ca-svg-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ca-icon-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="ca-icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+    <symbol id="ca-icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="ca-icon-doc" viewBox="0 0 24 24"><path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10z"/><path d="M13 3v7h7M8 15h8M8 18h6"/></symbol>
+    <symbol id="ca-icon-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8.5" ry="3.5"/><path d="M3.5 5.5v13c0 2 3.8 3.5 8.5 3.5s8.5-1.5 8.5-3.5v-13M3.5 12c0 2 3.8 3.5 8.5 3.5s8.5-1.5 8.5-3.5"/></symbol>
+    <symbol id="ca-icon-status" viewBox="0 0 24 24"><circle cx="5.5" cy="5" r="2"/><circle cx="18.5" cy="18.5" r="2"/><circle cx="5.5" cy="18.5" r="2"/><path d="M7.5 5h5a5 5 0 0 1 5 5v6.5M7.5 18.5H16"/></symbol>
+    <symbol id="ca-icon-list" viewBox="0 0 24 24"><path d="m3.5 6 1.5 1.5L8 4m3 2h9M3.5 13 5 14.5 8 11m3 2h9M3.5 20 5 21.5 8 18m3 2h9"/></symbol>
+    <symbol id="ca-icon-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="ca-icon-spark" viewBox="0 0 24 24"><path d="m12 2 1.7 7.2L21 11l-7.3 1.8L12 20l-1.7-7.2L3 11l7.3-1.8L12 2Z"/><path d="m19 17 .6 2.4L22 20l-2.4.6L19 23l-.6-2.4L16 20l2.4-.6L19 17Z"/></symbol>
+    <symbol id="ca-icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></symbol>
+    <symbol id="ca-icon-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></symbol>
+    <symbol id="ca-icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  </svg>
+
+  <header class="ca-header">
+    <a class="ca-brand" href="#ca-top" aria-label="Corp Agents — на главную">
+      <svg class="ca-brand__mark" viewBox="0 0 42 42" fill="none" aria-hidden="true">
+        <path d="M21 4v34M4 21h34M9 9l24 24M33 9 9 33" stroke="currentColor" stroke-width="2.65" stroke-linecap="round"/>
+      </svg>
+      <span>corpagents</span>
+    </a>
+
+    <nav class="ca-header__nav" id="ca-navigation" aria-label="Основное меню">
+      <div class="ca-nav__item ca-nav__item--dropdown">
+        <button class="ca-nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="ca-menu-solutions">
+          Решения <svg class="ca-icon"><use href="#ca-icon-chevron"/></svg>
+        </button>
+        <div class="ca-nav__menu" id="ca-menu-solutions" hidden>
+          <a href="#ca-demo">Обработка обращений</a>
+          <a href="#ca-demo">Интеграции с 1С и CRM</a>
+          <a href="#ca-demo">Работа с документами</a>
+        </div>
+      </div>
+      <div class="ca-nav__item ca-nav__item--dropdown">
+        <button class="ca-nav__toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="ca-menu-resources">
+          Материалы <svg class="ca-icon"><use href="#ca-icon-chevron"/></svg>
+        </button>
+        <div class="ca-nav__menu" id="ca-menu-resources" hidden>
+          <a href="#cases">Кейсы</a>
+          <a href="#articles">Статьи</a>
+          <a href="#faq">Частые вопросы</a>
+        </div>
+      </div>
+      <a href="#pilot">Как работаем</a>
+      <a href="#about">О нас</a>
+      <a class="ca-header__mobile-contact" href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="ca-header__actions">
+      <a class="ca-header__contact" href="#contacts">Контакты</a>
+      <a class="ca-button ca-button--primary ca-button--header" href="#contacts">Обсудить пилот</a>
+      <button class="ca-menu-button" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="ca-navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="ca-hero" aria-labelledby="ca-hero-title">
+      <div class="ca-hero__intro">
+        <h1 id="ca-hero-title"><span class="ca-hero__line">Соединим системы.</span><span class="ca-hero__line">Сократим <span class="ca-hero__highlight"><span class="ca-hero__dot" aria-hidden="true"></span>рутину.</span></span></h1>
+        <p>Связываем 1С, CRM, почту и документы — и проверяем результат на пилоте.</p>
+        <div class="ca-hero__actions">
+          <a class="ca-button ca-button--primary ca-button--large" href="#solutions">Найти свою задачу <svg class="ca-icon"><use href="#ca-icon-arrow"/></svg></a>
+          <a class="ca-button ca-button--ghost ca-button--large" href="#pilot"><svg class="ca-icon"><use href="#ca-icon-play"/></svg> Как устроен пилот</a>
+        </div>
+      </div>
+
+      <div class="ca-showcase" aria-label="Иллюстрация системы Corp Agents: ИИ-агент обрабатывает заявку и переносит её в CRM">
+        <!-- Soft wave landscape connects badges and the dashboard. -->
+        <div class="ca-showcase__background" aria-hidden="true">
+          <svg class="ca-showcase__waves" viewBox="0 0 1600 620" preserveAspectRatio="xMidYMid slice" role="presentation">
+            <defs>
+              <linearGradient id="ca-wave-a" x1="0" y1="0" x2="1" y2=".6"><stop stop-color="#e9f3ff"/><stop offset=".45" stop-color="#d4e5ff"/><stop offset="1" stop-color="#eaf2ff"/></linearGradient>
+              <linearGradient id="ca-wave-b" x1="0" y1=".3" x2="1" y2="1"><stop stop-color="#e2edff"/><stop offset=".5" stop-color="#c8dcfc"/><stop offset="1" stop-color="#a8c5f4"/></linearGradient>
+              <linearGradient id="ca-wave-c" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9fbff"/><stop offset=".65" stop-color="#ecf5ff"/><stop offset="1" stop-color="#d7e7ff"/></linearGradient>
+            </defs>
+            <path d="M0 153C149 103 177 288 363 305s328-72 488-22 323-25 489 3 205 6 260 42V620H0Z" fill="url(#ca-wave-a)" opacity=".83"/>
+            <path d="M0 345c161-82 293 69 457 52 171-17 268-111 420-85 155 27 206 120 384 81 166-36 237-35 339 21v206H0Z" fill="url(#ca-wave-b)" opacity=".48"/>
+            <path d="M0 454c173-25 230-119 404-52 127 48 248 89 410 34s232-43 356 21c144 74 272-14 430 17v146H0Z" fill="url(#ca-wave-c)" opacity=".86"/>
+            <path d="M0 494c162-14 259 102 445 58 135-32 295-89 476-57 171 30 280 17 414-23 116-34 202 24 265 49v99H0Z" fill="#cbdfff" opacity=".55"/>
+            <path d="M0 520c173-25 295 35 430 44 170 11 350-55 482-30 164 32 406 5 688-21" fill="none" stroke="white" stroke-width="2" opacity=".58"/>
+          </svg>
+          <svg class="ca-showcase__connections" viewBox="0 0 1600 620" preserveAspectRatio="xMidYMid meet" role="presentation">
+            <g stroke="#8abaff" stroke-width="1.5" stroke-dasharray="5 5" fill="none" opacity=".68">
+              <path d="M155 160C150 228 194 236 283 220"/>
+              <path d="M126 272c30 40 97 72 157 58"/>
+              <path d="M190 370c38-29 72-21 110-15"/>
+              <path d="M1318 236c71-63 126-45 164-105"/>
+              <path d="M1328 298c64 6 91 23 130-21"/>
+              <path d="M1330 365c87-2 124-21 171-1"/>
+            </g>
+            <g stroke="#b9d6ff" stroke-width="1.2" fill="none" opacity=".7">
+              <path d="M0 349c71-93 150-105 214-62"/>
+              <path d="M1303 497c122-59 191-28 297 21"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="ca-note ca-note--left" aria-hidden="true">
+          <span>Все процессы<br>в одном месте</span>
+          <svg viewBox="0 0 105 52" fill="none"><path d="M3 2c20 33 53 35 89 34m-13-12 13 12-16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="ca-note ca-note--right" aria-hidden="true">
+          <span>ИИ работает.<br>Вы контролируете.</span>
+          <svg viewBox="0 0 95 65" fill="none"><path d="M4 57c27-1 54-19 68-45m-16 3L73 9l2 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <!-- Friendly outline mascot peeking behind the app. -->
+        <div class="ca-mascot" aria-hidden="true">
+          <div class="ca-mascot__eye"></div><div class="ca-mascot__eye"></div>
+          <i></i><i></i><i></i>
+        </div>
+
+        <!-- Integration icons are vector/UI elements, not parts of a flat screenshot. -->
+        <div class="ca-integration ca-integration--one-c" title="1С" aria-hidden="true">
+          <svg viewBox="0 0 66 55"><path d="m10 31 18-7 8 7 20-8" fill="none" stroke="#e9333a" stroke-width="5" stroke-linecap="round"/><path d="M10 40h45M10 15l11-5v33" fill="none" stroke="#e9333a" stroke-width="5" stroke-linecap="round"/><text x="27" y="37" font-family="Arial,sans-serif" font-size="29" font-weight="800" fill="#e9333a">C</text></svg>
+        </div>
+        <div class="ca-integration ca-integration--gmail" title="Gmail" aria-hidden="true">
+          <svg viewBox="0 0 64 50"><path d="M7 40V11l25 18 25-18v29" stroke="#4285F4" stroke-width="9" fill="none" stroke-linejoin="round"/><path d="M7 11v29" stroke="#34A853" stroke-width="9"/><path d="m7 11 25 18" stroke="#EA4335" stroke-width="9"/><path d="M57 11v29" stroke="#4285F4" stroke-width="9"/><path d="M32 29 57 11" stroke="#FBBC04" stroke-width="9"/></svg>
+        </div>
+        <div class="ca-integration ca-integration--docs" title="Документы" aria-hidden="true">
+          <svg viewBox="0 0 56 64"><path d="M11 3h22l12 12v44H11a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z" fill="#4285F4"/><path d="M33 3v12h12" fill="#9bc3ff"/><path d="M17 29h20M17 37h20M17 45h14" stroke="white" stroke-width="3.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="ca-integration ca-integration--salesforce" title="CRM" aria-hidden="true">
+          <svg viewBox="0 0 83 58"><path d="M25 13c5-9 21-8 27 0 8-3 18 4 18 13 7 5 4 17-6 19H20C5 44 3 29 12 22c-1-8 5-12 13-9Z" fill="#13a6df"/><text x="41.5" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="11" fill="white">salesforce</text></svg>
+        </div>
+        <div class="ca-integration ca-integration--database" title="Базы данных" aria-hidden="true">
+          <svg viewBox="0 0 72 72"><ellipse cx="36" cy="16" rx="19" ry="9" fill="#f0f5ff" stroke="#628ac9" stroke-width="4"/><path d="M17 16v39c0 12 38 12 38 0V16" fill="#c9dafa" stroke="#628ac9" stroke-width="4"/><path d="M17 28c0 12 38 12 38 0M17 41c0 12 38 12 38 0" fill="none" stroke="#628ac9" stroke-width="4"/></svg>
+        </div>
+        <div class="ca-integration ca-integration--excel" title="Excel" aria-hidden="true">
+          <svg viewBox="0 0 72 72"><rect x="25" y="9" width="37" height="54" rx="4" fill="#20a967"/><path d="M25 26h37M25 42h37M44 9v54" stroke="#8ee2b0" stroke-width="2.5"/><path d="M10 16 38 9v54l-28-6Z" fill="#087943"/><text x="24" y="45" text-anchor="middle" fill="white" font-size="27" font-family="Arial,sans-serif" font-weight="700">X</text></svg>
+        </div>
+
+        <svg class="ca-big-star" viewBox="0 0 150 150" aria-hidden="true">
+          <defs><linearGradient id="ca-star-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7eabff"/><stop offset=".43" stop-color="#347dff"/><stop offset="1" stop-color="#3c54ec"/></linearGradient><filter id="ca-star-shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#306cf2" flood-opacity=".27"/></filter></defs>
+          <g stroke="url(#ca-star-gradient)" stroke-linecap="round" stroke-width="19" filter="url(#ca-star-shadow)">
+            <path d="M75 18v114M18 75h114M35 35l80 80M115 35l-80 80"/>
+          </g>
+          <path d="M75 20v34M20 75h33M36 36l23 23" stroke="#b7d2ff" stroke-width="5" stroke-linecap="round" opacity=".6"/>
+        </svg>
+
+        <!-- The dashboard is real semantic HTML with interactive, accessible tabs. -->
+        <div class="ca-app" id="ca-demo">
+          <div class="ca-app__chrome" aria-label="Демонстрационный интерфейс Corp Agents">
+            <div class="ca-app__traffic" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>Corp Agents</span>
+          </div>
+          <div class="ca-app__body">
+            <aside class="ca-app__sidebar" aria-label="Разделы приложения">
+              <div class="ca-app__workspace"><span class="ca-app__workspace-icon">ca</span><strong>Процессы</strong><svg class="ca-icon"><use href="#ca-icon-chevron"/></svg></div>
+              <div class="ca-app__navigation">
+                <div class="ca-app__sidebar-item ca-app__sidebar-item--active"><svg class="ca-icon"><use href="#ca-icon-mail"/></svg><span>Входящие обращения</span></div>
+                <div class="ca-app__sidebar-item"><svg class="ca-icon"><use href="#ca-icon-db"/></svg><span>Данные 1С</span></div>
+                <div class="ca-app__sidebar-item"><svg class="ca-icon"><use href="#ca-icon-doc"/></svg><span>Документы</span></div>
+                <div class="ca-app__sidebar-item"><svg class="ca-icon"><use href="#ca-icon-status"/></svg><span>Статусы</span></div>
+              </div>
+              <div class="ca-app__sidebar-secondary">
+                <div class="ca-app__sidebar-item"><svg class="ca-icon"><use href="#ca-icon-list"/></svg><span>Критерии пилота</span></div>
+                <div class="ca-app__sidebar-item"><svg class="ca-icon"><use href="#ca-icon-history"/></svg><span>История действий</span></div>
+              </div>
+              <div class="ca-app__online"><span></span>Агент работает <svg class="ca-icon"><use href="#ca-icon-chevron"/></svg></div>
+            </aside>
+
+            <div class="ca-app__main">
+              <div class="ca-app__heading-row">
+                <div class="ca-app__heading-text"><h2>Входящие обращения <svg class="ca-icon"><use href="#ca-icon-mail"/></svg></h2><p>От письма клиента до проверенной карточки в CRM.</p></div>
+                <div class="ca-app__users"><div class="ca-app__search"><svg class="ca-icon"><use href="#ca-icon-search"/></svg><span>Поиск...</span></div><span class="ca-avatar ca-avatar--peach">А</span><span class="ca-avatar ca-avatar--blue">М</span><span class="ca-avatar ca-avatar--lavender">К</span><span class="ca-avatar ca-avatar--more">+</span></div>
+              </div>
+              <div class="ca-app__tabs" role="tablist" aria-label="Этапы обработки обращения">
+                <button class="ca-app__tab" type="button" id="ca-tab-mail" role="tab" data-scene="mail" aria-selected="true" aria-controls="ca-app-panel" tabindex="0">Почта → CRM</button>
+                <button class="ca-app__tab" type="button" id="ca-tab-erp" role="tab" data-scene="erp" aria-selected="false" aria-controls="ca-app-panel" tabindex="-1">Справочники 1С</button>
+                <button class="ca-app__tab" type="button" id="ca-tab-docs" role="tab" data-scene="docs" aria-selected="false" aria-controls="ca-app-panel" tabindex="-1">Документы</button>
+                <button class="ca-app__tab" type="button" id="ca-tab-status" role="tab" data-scene="status" aria-selected="false" aria-controls="ca-app-panel" tabindex="-1">Статусы</button>
+              </div>
+              <div class="ca-app__panel" id="ca-app-panel" role="tabpanel" aria-labelledby="ca-tab-mail">
+                <div class="ca-app__scroll-hint" aria-hidden="true">Листайте карточки →</div>
+                <div class="ca-app__lanes" id="ca-app-lanes">
+                  <article class="ca-lane">
+                    <div class="ca-lane__status"><span class="ca-lane__status-dot ca-lane__status-dot--red"></span><span data-lane-status="0">Сейчас</span></div>
+                    <div class="ca-ticket"><span class="ca-ticket__badge ca-ticket__badge--red" data-ticket-badge="0">Новое письмо</span><h3 data-ticket-title="0">Запрос на поставку</h3><p data-ticket-description="0">Крепёж М10, 500 шт. Нужна цена и срок.</p><svg class="ca-ticket__arrow ca-icon"><use href="#ca-icon-arrow"/></svg></div>
+                  </article>
+                  <article class="ca-lane">
+                    <div class="ca-lane__status"><span class="ca-lane__status-dot ca-lane__status-dot--amber"></span><span data-lane-status="1">Подготовлено</span></div>
+                    <div class="ca-ticket"><span class="ca-ticket__badge ca-ticket__badge--amber" data-ticket-badge="1">Черновик от ИИ</span><h3 data-ticket-title="1">Данные извлечены</h3><p data-ticket-description="1">Контакт, позиции и тип обращения собраны.</p><svg class="ca-ticket__arrow ca-icon"><use href="#ca-icon-arrow"/></svg></div>
+                  </article>
+                  <article class="ca-lane">
+                    <div class="ca-lane__status"><span class="ca-lane__status-dot ca-lane__status-dot--blue"></span><span data-lane-status="2">В работе</span></div>
+                    <div class="ca-ticket"><span class="ca-ticket__badge ca-ticket__badge--blue" data-ticket-badge="2">Подтверждено</span><h3 data-ticket-title="2">Заявка в CRM</h3><p data-ticket-description="2">Карточка создана, назначен ответственный.</p><svg class="ca-ticket__arrow ca-icon"><use href="#ca-icon-arrow"/></svg></div>
+                  </article>
+                </div>
+              </div>
+              <div class="ca-app__explanation"><svg class="ca-icon"><use href="#ca-icon-spark"/></svg><span>Критичные действия остаются за сотрудником: ИИ готовит, человек подтверждает.</span><span class="ca-app__learn">Под контролем <svg class="ca-icon"><use href="#ca-icon-check"/></svg></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ca-mini-result" aria-hidden="true">
+          <div class="ca-mini-result__icon"><span></span><span></span><span></span></div>
+          <div><strong>Меньше рутины</strong><span>Больше важного</span></div>
+        </div>
+        <div class="ca-showcase__ground" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+</div>
+<!-- CORPAGENTS HERO — END -->
+</body>
+</html>
