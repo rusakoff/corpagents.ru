@@ -10,11 +10,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css?v=3" />
-    <link rel="stylesheet" href="./sections.css?v=28" />
+    <link rel="stylesheet" href="./styles.css?v=10" />
+    <link rel="stylesheet" href="./sections.css?v=36" />
     <link rel="stylesheet" href="./Hero%20block/styles.css" />
     <link rel="stylesheet" href="./hero-adaptation.css?v=8" />
-    <script src="./script.js?v=4" defer></script>
+    <script src="./script.js?v=5" defer></script>
     <script src="./remaining.js?v=14" defer></script>
   </head>
   <body>
@@ -133,9 +133,9 @@
         <div class="container">
           <div class="section-heading"><div><h2 id="scenarios-title">Какая ручная работа забирает время?</h2></div><p>Выберите похожую задачу: покажем, что можно автоматизировать и как проверить результат.</p></div>
           <div class="scenario-grid">
-            <button class="scenario-card scenario-card-featured card-yellow" type="button" data-scenario="inbox" aria-label="Подробнее: обращения теряются в почте">
-              <span class="scenario-feature-copy"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span></span><span class="card-content"><strong>Обращения теряются<br />в почте?</strong><span>Из письма и вложений готовится черновик в CRM. Сотрудник проверяет данные и назначает ответственного.</span></span><span class="card-bottom"><span class="card-link">Как это работает <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></span>
-              <svg class="scenario-feature-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 220" fill="none" aria-hidden="true" focusable="false"><g transform="rotate(-5 91 103)"><rect x="13" y="35" width="154" height="137" rx="11" fill="#fff" stroke="#111" stroke-opacity=".12"/><rect x="33" y="55" width="114" height="55" rx="7" fill="#F6F5F4"/><path d="M49 69h82v29H49zM49 70l41 25 41-25" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 126h86M34 141h62" stroke="#111" stroke-opacity=".23" stroke-width="6" stroke-linecap="round"/></g><path d="M176 106h37m-11-11 11 11-11 11" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(4 296 106)"><rect x="224" y="19" width="151" height="166" rx="11" fill="#fff" stroke="#111" stroke-opacity=".12"/><rect x="245" y="40" width="48" height="8" rx="4" fill="#111" fill-opacity=".2"/><circle cx="252" cy="72" r="9" fill="#E6F3FE"/><circle cx="252" cy="103" r="9" fill="#E6F3FE"/><circle cx="252" cy="134" r="9" fill="#E6F3FE"/><path d="m248 72 3 3 5-6m-8 34 3 3 5-6m-8 34 3 3 5-6" stroke="#0075DE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M277 72h72m-72 31h54m-54 31h65" stroke="#111" stroke-opacity=".28" stroke-width="7" stroke-linecap="round"/></g></svg>
+            <button class="scenario-card scenario-card-featured card-yellow" type="button" data-scenario="inbox" aria-label="Подробнее: письма с заявками разбираете вручную">
+              <span class="scenario-feature-copy"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span></span><span class="card-content"><strong>Письма с заявками<br />разбираете вручную?</strong><span>ИИ собирает данные из письма и вложений в черновик сделки. Сотрудник проверяет их и создаёт сделку в CRM.</span></span><span class="card-bottom"><span class="card-link">Как это работает <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></span>
+              <img class="scenario-feature-art" src="./assets/inbox-to-crm.png" width="1733" height="907" alt="" aria-hidden="true" decoding="async" />
             </button>
             <button class="scenario-card card-white" type="button" data-scenario="catalog" aria-label="Подробнее: дубли в 1С"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/grid-2x2.svg" alt="" /></span></span><span class="card-content"><strong>В 1С много<br />похожих позиций?</strong><span>Система предлагает возможные дубли. Ответственный решает, какие записи объединять.</span></span><span class="card-bottom"><span class="card-link">Как это работает <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></button>
             <button class="scenario-card card-white" type="button" data-scenario="knowledge" aria-label="Подробнее: поиск по документам"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/file-search.svg" alt="" /></span></span><span class="card-content"><strong>Ответ спрятан<br />в документах?</strong><span>Помощник находит пункт регламента и показывает источник, по которому можно проверить ответ.</span></span><span class="card-bottom"><span class="card-link">Как это работает <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></button>
@@ -190,24 +190,20 @@
                 <li><strong>Срок и стоимость</strong><p>Фиксируем объём, доступы, ответственных и условия пилота.</p></li>
               </ul>
             </div>
-            <article class="process-pilot">
-              <p class="process-pilot-label">Ограниченный пилот</p>
-              <div class="process-duration"><strong>2–4</strong><span>недели</span></div>
-              <p>Ориентир для небольшого сценария после согласования доступов.</p>
-              <p class="process-pilot-note">Срок сложной интеграции рассчитываем отдельно.</p>
+            <article class="process-pilot" aria-label="Срок пилота">
+              <div class="process-duration"><strong>2<span class="process-duration-separator">–</span>4</strong><span>недели</span></div>
+              <p>Обычно этого хватает для небольшого сценария после согласования доступов. Сложную интеграцию оцениваем отдельно.</p>
             </article>
             <article class="process-decision">
-              <p class="process-decision-label">На выходе: демонстрация и сравнение показателей</p>
               <h3>Решаем, что делать дальше.</h3>
               <div class="process-options">
                 <div><strong>Масштабировать</strong><span>эффект подтверждён</span></div>
                 <div><strong>Доработать</strong><span>нужна дополнительная настройка</span></div>
                 <div><strong>Остановиться</strong><span>эффект не оправдывает затраты</span></div>
               </div>
-              <p class="process-decision-note">Решение о внедрении принимаем по итогам измерений.</p>
             </article>
           </div>
-          <div class="process-outcome"><div><strong>Что вы получаете после пилота</strong><p>Демонстрацию рабочего сценария, сравнение показателей с исходным процессом, ограничения и рекомендации для следующего шага.</p></div><a class="button button-ghost" href="#contact">Подготовить запрос</a></div>
+          <div class="process-outcome"><p>Вы получите демонстрацию рабочего сценария, сравнение показателей и рекомендации по следующему шагу.</p><a class="button button-ghost" href="#contact">Подготовить запрос</a></div>
         </div>
       </section>
 
@@ -215,47 +211,66 @@
         <div class="container">
           <div class="cases-intro">
             <h2 id="cases-title">Как может выглядеть<br />пилот на вашей задаче.</h2>
-            <p>Три примера показывают исходную работу, результат и показатели для проверки. Это возможные сценарии, а не завершённые клиентские проекты.</p>
+            <p>Это пример типового сценария. Под каждый бизнес мы подбираем свои данные, процессы и критерии успеха.</p>
           </div>
-          <div class="case-accordion">
-            <details class="case-item" name="case-start" open>
-              <summary>
-                <span class="case-source"><span class="case-icon" aria-hidden="true"><img src="./icons/receipt-text.svg" alt="" /></span><span>Закупки и бухгалтерия</span></span>
-                <span class="case-task"><strong>Найти расхождения до оплаты</strong><small>Заказ, счёт и поступление сверяются между собой</small></span>
-                <span class="case-result"><small>На выходе</small><strong>Список несовпадений</strong></span>
-                <span class="case-toggle" aria-hidden="true"><img src="./icons/chevron-down.svg" alt="" /></span>
-              </summary>
-              <div class="case-detail">
-                <div class="case-example"><span>Что делает пилот</span><p>Сравнивает позиции, количество, суммы и реквизиты в трёх документах.</p></div>
-                <div class="case-check"><span>Как оцениваем</span><p>Число найденных расхождений и время ручной сверки до и после.</p></div>
+          <div class="case-list">
+            <article class="case-item case-item--green">
+              <div class="case-source"><span class="case-source-icon"><img src="./icons/receipt-text.svg" alt="" /></span><span>Закупки<br />и бухгалтерия</span></div>
+              <div class="case-task"><h3>Найти расхождения до оплаты</h3><p>Сверяем заказ, счёт и поступление по позициям, количеству, суммам и реквизитам.</p></div>
+              <div class="case-flow case-flow--documents" aria-label="Заказ, счёт и поступление проверяются на расхождения">
+                <div class="case-document"><span class="case-document-icon">▤</span><span>Заказ</span><i></i></div><span class="case-operator" aria-hidden="true">+</span>
+                <div class="case-document"><span class="case-document-icon">▤</span><span>Счёт</span><i></i></div><span class="case-operator" aria-hidden="true">+</span>
+                <div class="case-document"><span class="case-document-icon">▣</span><span>Поступление</span><i></i></div><span class="case-arrow" aria-hidden="true">→</span>
+                <div class="case-outcome case-outcome--success"><span class="case-status-icon">✓</span><strong>Расхождений<br />не найдено</strong></div>
               </div>
-            </details>
-            <details class="case-item" name="case-start">
-              <summary>
-                <span class="case-source"><span class="case-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span><span>Отдел продаж</span></span>
-                <span class="case-task"><strong>Собрать запрос клиента в задачу</strong><small>Письмо и вложения превращаются в заполненную карточку</small></span>
-                <span class="case-result"><small>На выходе</small><strong>Черновик в CRM</strong></span>
-                <span class="case-toggle" aria-hidden="true"><img src="./icons/chevron-down.svg" alt="" /></span>
-              </summary>
-              <div class="case-detail">
-                <div class="case-example"><span>Что делает пилот</span><p>Извлекает контакт, позиции и сроки, затем предлагает маршрут обработки.</p></div>
-                <div class="case-check"><span>Как оцениваем</span><p>Полноту карточки, точность маршрута и время регистрации обращения.</p></div>
+            </article>
+            <article class="case-item case-item--blue">
+              <div class="case-source"><span class="case-source-icon"><img src="./icons/mail.svg" alt="" /></span><span>Отдел<br />продаж</span></div>
+              <div class="case-task"><h3>Собрать запрос из письма</h3><p>Из письма и вложений готовим карточку: контакт, позиции, сроки и маршрут.</p></div>
+              <div class="case-flow case-flow--mail" aria-label="Запрос из письма превращается в черновик карточки CRM">
+                <div class="case-mail-card"><span class="case-mail-mark" aria-hidden="true">M</span><span class="case-mail-copy"><strong>Запрос на поставку</strong><small>client@company.ru</small></span><span class="case-attachments">♧&nbsp; 3 вложения</span></div>
+                <span class="case-arrow" aria-hidden="true">→</span>
+                <div class="case-crm-card"><span class="case-crm-title"><span class="case-crm-icon">▣</span> Карточка в CRM</span><span class="case-skeleton case-skeleton--long"></span><span class="case-skeleton"></span><span class="case-crm-create">Создать</span></div>
               </div>
-            </details>
-            <details class="case-item" name="case-start">
-              <summary>
-                <span class="case-source"><span class="case-icon" aria-hidden="true"><img src="./icons/workflow.svg" alt="" /></span><span>Руководитель процесса</span></span>
-                <span class="case-task"><strong>Показать, где работа остановилась</strong><small>Статусы из 1С и CRM собираются в один список</small></span>
-                <span class="case-result"><small>На выходе</small><strong>Этап задержки и ответственный</strong></span>
-                <span class="case-toggle" aria-hidden="true"><img src="./icons/chevron-down.svg" alt="" /></span>
-              </summary>
-              <div class="case-detail">
-                <div class="case-example"><span>Что делает пилот</span><p>Находит заказы без движения и показывает этап задержки. Причину указываем, если она есть в данных.</p></div>
-                <div class="case-check"><span>Как оцениваем</span><p>Полноту списка отклонений и скорость подготовки ежедневной сводки.</p></div>
+            </article>
+            <article class="case-item case-item--violet">
+              <div class="case-source"><span class="case-source-icon"><img src="./icons/workflow.svg" alt="" /></span><span>Руководитель<br />процесса</span></div>
+              <div class="case-task"><h3>Найти задержки в заказах</h3><p>Сводим статусы из 1С и CRM и находим заказы без движения.</p></div>
+              <div class="case-flow case-flow--status" aria-label="Этапы заказа: создан, в работе, задержка, готов. Найдено 12 заказов без движения">
+                <div class="case-timeline"><span class="case-timeline-line"></span><span class="case-stage"><i></i>Создан</span><span class="case-stage case-stage--active"><i></i>В работе</span><span class="case-stage case-stage--delay"><i>!</i>Задержка</span><span class="case-stage"><i></i>Готов</span></div>
+                <span class="case-arrow" aria-hidden="true">→</span>
+                <div class="case-outcome case-outcome--alert"><span class="case-status-icon">!</span><strong>12 заказов<br />без движения</strong></div>
               </div>
-            </details>
+            </article>
+            <article class="case-item case-item--amber">
+              <div class="case-source"><span class="case-source-icon"><img src="./icons/chart-no-axes-combined.svg" alt="" /></span><span>Аналитик<br />и финансы</span></div>
+              <div class="case-task"><h3>Список несовпадений</h3><p>Сравниваем число расхождений и время ручной сверки до и после.</p></div>
+              <div class="case-flow case-flow--compare" aria-label="На 100 документов: ручная проверка около 4 часов, с пилотом около 10 минут, возможная экономия до 95 процентов времени">
+                <div class="case-time-card"><span>Ручная проверка</span><strong>◷&nbsp; ≈ 4 ч</strong><small>на 100 документов</small></div><span class="case-arrow" aria-hidden="true">→</span>
+                <div class="case-time-card case-time-card--pilot"><span>С пилотом</span><strong>ϟ&nbsp; ≈ 10 мин</strong><small>на 100 документов</small></div>
+                <div class="case-outcome case-outcome--success"><span class="case-status-icon">ϟ</span><strong>Экономия<br />до 95% времени</strong></div>
+              </div>
+            </article>
+            <article class="case-item case-item--coral">
+              <div class="case-source"><span class="case-source-icon"><img src="./icons/list-checks.svg" alt="" /></span><span>Операционный<br />отдел</span></div>
+              <div class="case-task"><h3>Этап и ответственный</h3><p>Проверяем полноту списка и время подготовки ежедневной сводки.</p></div>
+              <div class="case-flow case-flow--summary" aria-label="Сотрудник готовит сводку, затем проверяет готовый результат">
+                <div class="case-summary-task"><span>Подготовить сводку</span><span class="case-people"><i>А</i><i>ИИ</i><b>✓</b></span></div><span class="case-arrow" aria-hidden="true">→</span>
+                <div class="case-outcome case-outcome--success"><span class="case-status-icon">✓</span><span><strong>Сводка готова</strong><small>Сегодня, 10:24</small></span></div>
+                <details class="case-preview"><summary><span class="case-preview-icon">›</span>Посмотреть<br />пример сводки</summary><div class="case-preview-panel"><strong>Ежедневная сводка</strong><p>12 заказов без движения. Для каждого указаны текущий этап, ответственный и срок следующего действия.</p><span>Пример формата · данные условные</span></div></details>
+              </div>
+            </article>
+            <article class="case-item case-item--teal">
+              <div class="case-source"><span class="case-source-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 14 3 3 7-7c2-2 3-5 3-7-2 0-5 1-7 3l-7 7Z" /><path d="m7 14-4 1 2-4 3-2m2 8-1 4 4-2 2-3M14 10h.01M5 19l-2 2" /></svg></span><span>Итог</span></div>
+              <div class="case-task"><h3>Оценить результат</h3><p>Фиксируем метрики: точность, скорость и экономический эффект.</p></div>
+              <div class="case-flow case-flow--metrics" aria-label="Пример метрик пилота: точность 99 процентов, скорость в 20 раз выше, экономия до 80 процентов затрат">
+                <div class="case-metric case-metric--accuracy"><span class="case-metric-glyph">▂▅█</span><span>Точность<strong>99%</strong></span></div><span class="case-metric-arrow" aria-hidden="true">→</span>
+                <div class="case-metric case-metric--speed"><span class="case-metric-glyph">◷</span><span>Скорость<strong>в 20 раз быстрее</strong></span></div><span class="case-metric-arrow" aria-hidden="true">→</span>
+                <div class="case-metric case-metric--savings"><span class="case-metric-glyph">◉</span><span>Экономия<strong>до 80% затрат</strong></span></div>
+              </div>
+            </article>
           </div>
-          <p class="cases-note">Конкретную задачу и критерии пилота определяем вместе с вашей командой.</p>
+          <p class="cases-note">Это возможные сценарии, а не завершённые клиентские проекты. Цифры на схемах — иллюстрация, не обещание результата. Задачу и критерии пилота определяем вместе с вашей командой.</p>
         </div>
       </section>
 
@@ -288,7 +303,7 @@
 
             <div class="security-canvas">
               <div class="security-svg-wrap" id="security-svg-wrap" aria-busy="true">
-                <object class="security-svg" id="security-svg" type="image/svg+xml" data="./assets/ai-system-interactive.svg?v=12" aria-label="Интерактивная схема согласованного контура ИИ">
+                <object class="security-svg" id="security-svg" type="image/svg+xml" data="./assets/ai-system-interactive.svg?v=13" aria-label="Интерактивная схема согласованного контура ИИ">
                   <img src="./assets/ai-control-loop.png" alt="Согласованные источники передают данные ИИ-модулю. Правила ограничивают обработку, человек подтверждает критические действия, а результат возвращается в контур." />
                 </object>
                 <p class="security-load-status" id="security-load-status" role="status">Загружаем схему…</p>
@@ -421,13 +436,13 @@
     <dialog class="info-dialog" id="scenario-dialog" aria-labelledby="scenario-dialog-title">
       <button type="button" class="dialog-close" aria-label="Закрыть окно" data-close-dialog><img src="./icons/x.svg" alt="" aria-hidden="true" /></button>
       <div class="dialog-content">
-        <h2 id="scenario-dialog-title">Обращения теряются в почте</h2>
-        <p class="dialog-intro" id="dialog-intro">Выбираем один входящий ящик и согласованные типы писем.</p>
+        <h2 id="scenario-dialog-title">Письма с заявками разбираете вручную</h2>
+        <p class="dialog-intro" id="dialog-intro">Выбираем один входящий ящик и согласованные типы заявок.</p>
         <div class="dialog-compare">
-          <div><span>Сейчас</span><p id="dialog-before">Менеджер переносит данные вручную.</p></div>
-          <div><span>На пилоте</span><p id="dialog-after">ИИ готовит карточку, сотрудник проверяет.</p></div>
+          <div><span>Сейчас</span><p id="dialog-before">Менеджер вручную переносит данные из письма в карточку сделки.</p></div>
+          <div><span>На пилоте</span><p id="dialog-after">ИИ готовит черновик сделки, сотрудник проверяет данные.</p></div>
         </div>
-        <div class="dialog-measure"><span>Что проверяем</span><p id="dialog-metric">Время регистрации и полноту карточки.</p></div>
+        <div class="dialog-measure"><span>Что проверяем</span><p id="dialog-metric">Время создания сделки и полноту карточки.</p></div>
         <a class="button button-primary dialog-next" href="#contact" data-scenario-contact data-close-dialog>Подготовить запрос по этой задаче</a>
       </div>
     </dialog>
