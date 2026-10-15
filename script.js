@@ -90,7 +90,11 @@ function selectBoard(id) {
     tab.setAttribute('aria-selected', String(active));
     tab.tabIndex = active ? 0 : -1;
   });
-  sidebarItems.forEach((item, index) => item.classList.toggle('is-current', tabs[index]?.dataset.board === id));
+  sidebarItems.forEach((item, index) => {
+    const active = tabs[index]?.dataset.board === id;
+    item.classList.toggle('is-current', active);
+    item.classList.toggle('ca-app__sidebar-item--active', active);
+  });
 }
 
 tabs.forEach((tab, index) => {
@@ -132,6 +136,32 @@ document.querySelectorAll('[data-close-dialog]').forEach(button => {
 });
 
 const navDropdowns = [...document.querySelectorAll('.nav-dropdown')];
+const mobileMenuButton = document.querySelector('.mobile-menu-button');
+const mainNavigation = document.getElementById('main-navigation');
+
+function closeMobileMenu() {
+  if (!mobileMenuButton || !mainNavigation) return;
+  mobileMenuButton.setAttribute('aria-expanded', 'false');
+  mobileMenuButton.setAttribute('aria-label', 'Открыть меню');
+  mainNavigation.classList.remove('is-open');
+}
+
+if (mobileMenuButton && mainNavigation) {
+  mobileMenuButton.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    const open = mobileMenuButton.getAttribute('aria-expanded') !== 'true';
+    mobileMenuButton.setAttribute('aria-expanded', String(open));
+    mobileMenuButton.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+    mainNavigation.classList.toggle('is-open', open);
+    if (!open) navDropdowns.forEach(dropdown => { dropdown.open = false; });
+  });
+
+  mainNavigation.addEventListener('click', event => {
+    if (event.target instanceof Element && event.target.closest('a')) closeMobileMenu();
+  });
+}
+
 navDropdowns.forEach(dropdown => {
   dropdown.addEventListener('toggle', () => {
     if (dropdown.open) navDropdowns.filter(other => other !== dropdown).forEach(other => { other.open = false; });
@@ -145,10 +175,14 @@ document.addEventListener('click', event => {
   if (event.target instanceof Element && !event.target.closest('.main-nav')) {
     navDropdowns.forEach(dropdown => { dropdown.open = false; });
   }
+  if (event.target instanceof Element && !event.target.closest('.main-nav') && !event.target.closest('.mobile-menu-button')) closeMobileMenu();
 });
 
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') navDropdowns.forEach(dropdown => { dropdown.open = false; });
+  if (event.key === 'Escape') {
+    navDropdowns.forEach(dropdown => { dropdown.open = false; });
+    closeMobileMenu();
+  }
 });
 
 selectBoard('inbox');

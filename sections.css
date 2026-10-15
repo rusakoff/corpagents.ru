@@ -316,8 +316,14 @@ main > section[class] {
   --section-to: #eff3f4;
 }
 
-.economics-section {
+.security-section {
   --section-from: #eff3f4;
+  --section-fill: #eef4f6;
+  --section-to: #f1f5f7;
+}
+
+.economics-section {
+  --section-from: #f1f5f7;
   --section-fill: #f2f5f6;
   --section-to: #eaf0f4;
 }
@@ -328,14 +334,8 @@ main > section[class] {
   --section-to: #e9f0f3;
 }
 
-.security-section {
-  --section-from: #e9f0f3;
-  --section-fill: #eef4f6;
-  --section-to: #f1f5f7;
-}
-
 .about-section {
-  --section-from: #f1f5f7;
+  --section-from: #e9f0f3;
   --section-fill: #f3f5f4;
   --section-to: #f4f5f2;
 }

@@ -12,14 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./sections.css?v=25" />
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./Hero%20block/styles.css" />
+    <link rel="stylesheet" href="./hero-adaptation.css?v=6" />
+    <script src="./script.js?v=2" defer></script>
     <script src="./remaining.js?v=12" defer></script>
   </head>
   <body>
     <header class="site-header">
       <div class="container header-content">
         <a class="wordmark" href="#top" aria-label="Corpagents, наверх"><span class="wordmark-symbol" aria-hidden="true"><img src="./icons/asterisk.svg" alt="" /></span><span>corpagents</span></a>
-        <nav class="main-nav" aria-label="Основная навигация">
+        <nav class="main-nav" id="main-navigation" aria-label="Основная навигация">
           <details class="nav-dropdown">
             <summary>Решения <span class="nav-chevron" aria-hidden="true"></span></summary>
             <div class="nav-menu"><a href="#solutions">Все решения</a><a href="#scenarios">С чего начать</a><a href="#departments">Для отделов</a></div>
@@ -31,12 +33,16 @@
           <a href="#process">Как работаем</a>
           <a href="#about">О нас</a>
         </nav>
-        <div class="header-actions"><a class="header-contact" href="#contact">Контакты</a><a class="nav-action" href="#contact">Обсудить пилот</a></div>
+        <div class="header-actions">
+          <a class="header-contact" href="#contact">Контакты</a>
+          <a class="nav-action" href="#contact">Обсудить пилот</a>
+          <button class="mobile-menu-button" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span><span></span></button>
+        </div>
       </div>
     </header>
 
     <main>
-      <section class="hero" id="top" aria-labelledby="hero-title">
+      <section class="hero ca-hero" id="top" aria-labelledby="hero-title">
         <div class="container hero-content">
           <h1 id="hero-title">Соединим системы.<br />Сократим <span class="highlight-pill">рутину.</span></h1>
           <p class="hero-subhead">Связываем 1С, CRM, почту и документы, затем проверяем результат на пилоте.</p>
@@ -44,41 +50,75 @@
             <a class="button button-primary" href="#scenarios">Найти свою задачу</a>
             <button class="button button-ghost" type="button" data-open-pilot>Как устроен пилот</button>
           </div>
-          <div class="hero-stage">
-          <span class="hero-doodle hero-doodle-spark" aria-hidden="true">✳</span>
-          <span class="hero-doodle hero-doodle-face" aria-hidden="true"><i></i><i></i><b></b></span>
-          <div class="workspace-shell" id="workspace" aria-label="Демонстрация рабочего процесса">
-            <div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Corp Agents</span></div>
-            <div class="workspace-layout">
-              <aside class="workspace-sidebar" aria-label="Разделы примера интерфейса">
-                <div class="workspace-identity"><span class="workspace-avatar">ca</span><span><strong>Процессы</strong></span><span class="workspace-chevron" aria-hidden="true"><img src="./icons/chevron-down.svg" alt="" /></span></div>
-                <div class="sidebar-item is-current"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span> Входящие обращения</div>
-                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/database.svg" alt="" /></span> Данные 1С</div>
-                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/files.svg" alt="" /></span> Документы</div>
-                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/workflow.svg" alt="" /></span> Статусы</div>
+          <div class="hero-stage ca-showcase">
+          <svg class="ca-svg-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <symbol id="hero-icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7" /></symbol>
+            <symbol id="hero-icon-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z" /></symbol>
+          </svg>
+          <div class="ca-showcase__background" aria-hidden="true">
+            <svg class="ca-showcase__waves" viewBox="0 0 1600 620" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="hero-wave-a" x1="0" y1="0" x2="1" y2=".6"><stop stop-color="#e9f3ff" /><stop offset=".45" stop-color="#d4e5ff" /><stop offset="1" stop-color="#eaf2ff" /></linearGradient>
+                <linearGradient id="hero-wave-b" x1="0" y1=".3" x2="1" y2="1"><stop stop-color="#e2edff" /><stop offset=".5" stop-color="#c8dcfc" /><stop offset="1" stop-color="#a8c5f4" /></linearGradient>
+                <linearGradient id="hero-wave-c" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9fbff" /><stop offset=".65" stop-color="#ecf5ff" /><stop offset="1" stop-color="#d7e7ff" /></linearGradient>
+              </defs>
+              <path d="M0 153C149 103 177 288 363 305s328-72 488-22 323-25 489 3 205 6 260 42V620H0Z" fill="url(#hero-wave-a)" opacity=".83" />
+              <path d="M0 345c161-82 293 69 457 52 171-17 268-111 420-85 155 27 206 120 384 81 166-36 237-35 339 21v206H0Z" fill="url(#hero-wave-b)" opacity=".48" />
+              <path d="M0 454c173-25 230-119 404-52 127 48 248 89 410 34s232-43 356 21c144 74 272-14 430 17v146H0Z" fill="url(#hero-wave-c)" opacity=".86" />
+              <path d="M0 494c162-14 259 102 445 58 135-32 295-89 476-57 171 30 280 17 414-23 116-34 202 24 265 49v99H0Z" fill="#cbdfff" opacity=".55" />
+              <path d="M0 520c173-25 295 35 430 44 170 11 350-55 482-30 164 32 406 5 688-21" fill="none" stroke="#fff" stroke-width="2" opacity=".58" />
+            </svg>
+            <svg class="ca-showcase__connections" viewBox="0 0 1600 620" preserveAspectRatio="xMidYMid meet">
+              <g stroke="#8abaff" stroke-width="1.5" stroke-dasharray="5 5" fill="none" opacity=".68"><path d="M155 160C150 228 194 236 283 220" /><path d="M126 272c30 40 97 72 157 58" /><path d="M190 370c38-29 72-21 110-15" /><path d="M1318 236c71-63 126-45 164-105" /><path d="M1328 298c64 6 91 23 130-21" /><path d="M1330 365c87-2 124-21 171-1" /></g>
+            </svg>
+          </div>
+
+          <div class="ca-note ca-note--left" aria-hidden="true"><span>Все процессы<br />в одном месте</span><svg viewBox="0 0 105 52" fill="none"><path d="M3 2c20 33 53 35 89 34m-13-12 13 12-16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+          <div class="ca-note ca-note--right" aria-hidden="true"><span>ИИ работает.<br />Вы контролируете.</span><svg viewBox="0 0 95 65" fill="none"><path d="M4 57c27-1 54-19 68-45m-16 3L73 9l2 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+
+          <div class="ca-mascot" aria-hidden="true"><div class="ca-mascot__eye"></div><div class="ca-mascot__eye"></div><i></i><i></i><i></i></div>
+
+          <div class="ca-integration ca-integration--one-c" title="1С" aria-hidden="true"><img src="./assets/1c-company-logo.svg" alt="" /></div>
+          <div class="ca-integration ca-integration--gmail" title="Почта" aria-hidden="true"><svg viewBox="0 0 64 50"><path d="M7 40V11l25 18 25-18v29" stroke="#4285F4" stroke-width="9" fill="none" stroke-linejoin="round" /><path d="M7 11v29" stroke="#34A853" stroke-width="9" /><path d="m7 11 25 18" stroke="#EA4335" stroke-width="9" /><path d="M57 11v29" stroke="#4285F4" stroke-width="9" /><path d="M32 29 57 11" stroke="#FBBC04" stroke-width="9" /></svg></div>
+          <div class="ca-integration ca-integration--docs" title="Документы" aria-hidden="true"><svg viewBox="0 0 56 64"><path d="M11 3h22l12 12v44H11a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z" fill="#4285F4" /><path d="M33 3v12h12" fill="#9bc3ff" /><path d="M17 29h20M17 37h20M17 45h14" stroke="#fff" stroke-width="3.5" stroke-linecap="round" /></svg></div>
+          <div class="ca-integration ca-integration--salesforce" title="CRM" aria-hidden="true"><svg viewBox="0 0 83 58"><path d="M25 13c5-9 21-8 27 0 8-3 18 4 18 13 7 5 4 17-6 19H20C5 44 3 29 12 22c-1-8 5-12 13-9Z" fill="#13a6df" /><text x="41.5" y="33" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="11" fill="#fff">CRM</text></svg></div>
+          <div class="ca-integration ca-integration--database" title="Базы данных" aria-hidden="true"><svg viewBox="0 0 72 72"><ellipse cx="36" cy="16" rx="19" ry="9" fill="#f0f5ff" stroke="#628ac9" stroke-width="4" /><path d="M17 16v39c0 12 38 12 38 0V16" fill="#c9dafa" stroke="#628ac9" stroke-width="4" /><path d="M17 28c0 12 38 12 38 0M17 41c0 12 38 12 38 0" fill="none" stroke="#628ac9" stroke-width="4" /></svg></div>
+          <div class="ca-integration ca-integration--excel" title="Таблицы" aria-hidden="true"><svg viewBox="0 0 72 72"><rect x="25" y="9" width="37" height="54" rx="4" fill="#20a967" /><path d="M25 26h37M25 42h37M44 9v54" stroke="#8ee2b0" stroke-width="2.5" /><path d="M10 16 38 9v54l-28-6Z" fill="#087943" /><text x="24" y="45" text-anchor="middle" fill="#fff" font-size="27" font-family="Arial,sans-serif" font-weight="700">X</text></svg></div>
+          <div class="workspace-shell ca-app" id="workspace" aria-label="Демонстрация рабочего процесса">
+            <div class="window-bar ca-app__chrome"><span class="window-dots ca-app__traffic" aria-hidden="true"><i></i><i></i><i></i></span><span>Corp Agents</span></div>
+            <div class="workspace-layout ca-app__body">
+              <aside class="workspace-sidebar ca-app__sidebar" aria-label="Разделы примера интерфейса">
+                <div class="workspace-identity ca-app__workspace"><span class="workspace-avatar ca-app__workspace-icon">ca</span><span><strong>Процессы</strong></span><span class="workspace-chevron" aria-hidden="true"><img src="./icons/chevron-down.svg" alt="" /></span></div>
+                <div class="sidebar-item ca-app__sidebar-item ca-app__sidebar-item--active is-current"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span> Входящие обращения</div>
+                <div class="sidebar-item ca-app__sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/database.svg" alt="" /></span> Данные 1С</div>
+                <div class="sidebar-item ca-app__sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/files.svg" alt="" /></span> Документы</div>
+                <div class="sidebar-item ca-app__sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/workflow.svg" alt="" /></span> Статусы</div>
                 <div class="sidebar-divider"></div>
-                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/list-checks.svg" alt="" /></span> Критерии пилота</div>
-                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/history.svg" alt="" /></span> История действий</div>
+                <div class="sidebar-item ca-app__sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/list-checks.svg" alt="" /></span> Критерии пилота</div>
+                <div class="sidebar-item ca-app__sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/history.svg" alt="" /></span> История действий</div>
                 <div class="sidebar-bottom"><span class="sidebar-bottom-dot"></span> Один процесс в работе</div>
               </aside>
 
-              <div class="workspace-main">
-                <div class="workspace-heading"><div><h2 id="board-title">Входящие обращения <img src="./icons/mail.svg" alt="" aria-hidden="true" /></h2><p id="board-description">От письма клиента до проверенной карточки в CRM.</p></div><div class="workspace-people" aria-hidden="true"><span>А</span><span>М</span><span>+</span></div></div>
-                <div class="board-tabs" role="tablist" aria-label="Примеры рабочих процессов">
-                  <button type="button" role="tab" aria-selected="true" aria-controls="board-panel" data-board="inbox">Почта → CRM</button>
-                  <button type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="catalog">Справочник 1С</button>
-                  <button type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="knowledge">Документы</button>
-                  <button type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="reports">Статусы</button>
+              <div class="workspace-main ca-app__main">
+                <div class="workspace-heading ca-app__heading-row"><div class="ca-app__heading-text"><h2 id="board-title">Входящие обращения <img src="./icons/mail.svg" alt="" aria-hidden="true" /></h2><p id="board-description">От письма клиента до проверенной карточки в CRM.</p></div><div class="workspace-people ca-app__users" aria-hidden="true"><span>А</span><span>М</span><span>+</span></div></div>
+                <div class="board-tabs ca-app__tabs" role="tablist" aria-label="Примеры рабочих процессов">
+                  <button class="ca-app__tab" type="button" role="tab" aria-selected="true" aria-controls="board-panel" data-board="inbox">Почта → CRM</button>
+                  <button class="ca-app__tab" type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="catalog">Справочник 1С</button>
+                  <button class="ca-app__tab" type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="knowledge">Документы</button>
+                  <button class="ca-app__tab" type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="reports">Статусы</button>
                 </div>
-                <div class="board-panel" id="board-panel" role="tabpanel" aria-live="polite">
-                  <div class="board-column"><div class="column-header"><span class="column-marker marker-coral"></span> Сейчас</div><div class="kanban-card"><span class="kanban-label label-coral" id="board-before-label">Новое письмо</span><strong id="board-before-title">Запрос на поставку</strong><p id="board-before-copy">Крепёж М10, 500 шт. Нужна цена и срок.</p></div></div>
-                  <div class="board-column"><div class="column-header"><span class="column-marker marker-yellow"></span> Подготовлено</div><div class="kanban-card"><span class="kanban-label label-yellow" id="board-middle-label">Черновик от ИИ</span><strong id="board-middle-title">Данные извлечены</strong><p id="board-middle-copy">Контакт, позиции и тип обращения собраны.</p></div></div>
-                  <div class="board-column"><div class="column-header"><span class="column-marker marker-blue"></span> В работе</div><div class="kanban-card"><span class="kanban-label label-blue" id="board-after-label">Подтверждено</span><strong id="board-after-title">Заявка в CRM</strong><p id="board-after-copy">Карточка создана, назначен ответственный.</p></div></div>
+                <div class="board-panel ca-app__lanes" id="board-panel" role="tabpanel" aria-live="polite">
+                  <div class="board-column ca-lane"><div class="column-header ca-lane__status"><span class="column-marker marker-coral ca-lane__status-dot ca-lane__status-dot--red"></span> Сейчас</div><div class="kanban-card ca-ticket"><span class="kanban-label label-coral ca-ticket__badge ca-ticket__badge--red" id="board-before-label">Новое письмо</span><strong id="board-before-title">Запрос на поставку</strong><p id="board-before-copy">Крепёж М10, 500 шт. Нужна цена и срок.</p><span class="ca-ticket__arrow" aria-hidden="true">→</span></div></div>
+                  <div class="board-column ca-lane"><div class="column-header ca-lane__status"><span class="column-marker marker-yellow ca-lane__status-dot ca-lane__status-dot--amber"></span> Подготовлено</div><div class="kanban-card ca-ticket"><span class="kanban-label label-yellow ca-ticket__badge ca-ticket__badge--amber" id="board-middle-label">Черновик от ИИ</span><strong id="board-middle-title">Данные извлечены</strong><p id="board-middle-copy">Контакт, позиции и тип обращения собраны.</p><span class="ca-ticket__arrow" aria-hidden="true">→</span></div></div>
+                  <div class="board-column ca-lane"><div class="column-header ca-lane__status"><span class="column-marker marker-blue ca-lane__status-dot ca-lane__status-dot--blue"></span> В работе</div><div class="kanban-card ca-ticket"><span class="kanban-label label-blue ca-ticket__badge ca-ticket__badge--blue" id="board-after-label">Подтверждено</span><strong id="board-after-title">Заявка в CRM</strong><p id="board-after-copy">Карточка создана, назначен ответственный.</p><span class="ca-ticket__arrow" aria-hidden="true">→</span></div></div>
                 </div>
-                <div class="board-note"><span class="board-note-icon" aria-hidden="true"><img src="./icons/sparkles.svg" alt="" /></span><span id="board-note">Критичные действия остаются за сотрудником: ИИ готовит, человек подтверждает.</span></div>
+                <div class="board-note ca-app__explanation"><span class="board-note-icon" aria-hidden="true"><img src="./icons/sparkles.svg" alt="" /></span><span id="board-note">Критичные действия остаются за сотрудником: ИИ готовит, человек подтверждает.</span><strong class="ca-app__learn">Под контролем ✓</strong></div>
               </div>
             </div>
           </div>
+          <svg class="ca-big-star" viewBox="0 0 150 150" aria-hidden="true"><defs><linearGradient id="hero-star-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7eabff" /><stop offset=".43" stop-color="#347dff" /><stop offset="1" stop-color="#3c54ec" /></linearGradient></defs><g stroke="url(#hero-star-gradient)" stroke-linecap="round" stroke-width="19"><path d="M75 18v114M18 75h114M35 35l80 80M115 35l-80 80" /></g><path d="M75 20v34M20 75h33M36 36l23 23" stroke="#b7d2ff" stroke-width="5" stroke-linecap="round" opacity=".6" /></svg>
+          <div class="ca-mini-result" aria-hidden="true"><div class="ca-mini-result__icon"><span></span><span></span><span></span></div><div><strong>Меньше рутины</strong><span>Больше важного</span></div></div>
+          <div class="ca-showcase__ground" aria-hidden="true"></div>
           </div>
           <p class="mockup-caption">Это пример интерфейса пилота, не клиентский кейс.</p>
         </div>
@@ -213,6 +253,43 @@
         </div>
       </section>
 
+      <section class="content-section security-section" id="security" aria-labelledby="security-title">
+        <div class="container">
+          <div class="security-heading">
+            <div>
+              <h2 id="security-title">Сначала задаём границы.<br />Потом подключаем ИИ.</h2>
+            </div>
+          </div>
+
+          <div class="security-workbench" id="security-workbench">
+            <div class="security-canvas">
+              <div class="security-svg-wrap" id="security-svg-wrap" aria-busy="true">
+                <object class="security-svg" id="security-svg" type="image/svg+xml" data="./assets/ai-system-interactive.svg?v=12" aria-label="Интерактивная схема согласованного контура ИИ">
+                  <img src="./assets/ai-control-loop.png" alt="Согласованные источники передают данные ИИ-модулю. Правила ограничивают обработку, человек подтверждает критические действия, а результат возвращается в контур." />
+                </object>
+                <p class="security-load-status" id="security-load-status" role="status">Загружаем схему…</p>
+              </div>
+            </div>
+
+            <aside class="security-inspector" aria-label="Решения до запуска">
+              <div class="security-questions" role="group" aria-label="Вопросы для настройки контура">
+                <button type="button" class="security-question is-active" data-security-question="placement" aria-pressed="true"><strong>Где работает?</strong></button>
+                <button type="button" class="security-question" data-security-question="data" aria-pressed="false"><strong>Какие данные получает?</strong></button>
+                <button type="button" class="security-question" data-security-question="audit" aria-pressed="false"><strong>Что проверяем до запуска?</strong></button>
+                <button type="button" class="security-question" data-security-question="access" aria-pressed="false"><strong>Кто видит результат?</strong></button>
+                <button type="button" class="security-question" data-security-question="log" aria-pressed="false"><strong>Что остаётся в журнале?</strong></button>
+                <button type="button" class="security-question" data-security-question="human" aria-pressed="false"><strong>Кто принимает решение?</strong></button>
+              </div>
+              <div class="security-detail" id="security-detail" aria-live="polite" aria-atomic="true">
+                <h3 id="security-detail-title">Где будет работать ИИ?</h3>
+                <p id="security-detail-copy">В инфраструктуре клиента или согласованном облаке. Вариант размещения фиксируем до пилота.</p>
+                <div class="security-detail-map"><span aria-hidden="true"><svg viewBox="0 0 20 20"><path d="m5.5 10 3 3 6-7" /></svg></span><strong id="security-detail-map">На схеме: ИИ-модуль и границы</strong></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
       <section class="content-section economics-section" id="economics" aria-labelledby="economics-title">
         <div class="container">
           <div class="economics-intro">
@@ -280,43 +357,6 @@
             <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/chart-no-axes-combined.svg" alt="" /></span><h3>Руководство</h3><p>Получить сводку по статусам, отклонениям и просрочкам.</p></article>
           </div>
           <p class="industry-line">Подход применим в производстве, оптовой торговле, дистрибуции, логистике и сервисных компаниях.</p>
-        </div>
-      </section>
-
-      <section class="content-section security-section" id="security" aria-labelledby="security-title">
-        <div class="container">
-          <div class="security-heading">
-            <div>
-              <h2 id="security-title">Сначала задаём границы.<br />Потом подключаем ИИ.</h2>
-            </div>
-          </div>
-
-          <div class="security-workbench" id="security-workbench">
-            <div class="security-canvas">
-              <div class="security-svg-wrap" id="security-svg-wrap" aria-busy="true">
-                <object class="security-svg" id="security-svg" type="image/svg+xml" data="./assets/ai-system-interactive.svg?v=12" aria-label="Интерактивная схема согласованного контура ИИ">
-                  <img src="./assets/ai-control-loop.png" alt="Согласованные источники передают данные ИИ-модулю. Правила ограничивают обработку, человек подтверждает критические действия, а результат возвращается в контур." />
-                </object>
-                <p class="security-load-status" id="security-load-status" role="status">Загружаем схему…</p>
-              </div>
-            </div>
-
-            <aside class="security-inspector" aria-label="Решения до запуска">
-              <div class="security-questions" role="group" aria-label="Вопросы для настройки контура">
-                <button type="button" class="security-question is-active" data-security-question="placement" aria-pressed="true"><strong>Где работает?</strong></button>
-                <button type="button" class="security-question" data-security-question="data" aria-pressed="false"><strong>Какие данные получает?</strong></button>
-                <button type="button" class="security-question" data-security-question="audit" aria-pressed="false"><strong>Что проверяем до запуска?</strong></button>
-                <button type="button" class="security-question" data-security-question="access" aria-pressed="false"><strong>Кто видит результат?</strong></button>
-                <button type="button" class="security-question" data-security-question="log" aria-pressed="false"><strong>Что остаётся в журнале?</strong></button>
-                <button type="button" class="security-question" data-security-question="human" aria-pressed="false"><strong>Кто принимает решение?</strong></button>
-              </div>
-              <div class="security-detail" id="security-detail" aria-live="polite" aria-atomic="true">
-                <h3 id="security-detail-title">Где будет работать ИИ?</h3>
-                <p id="security-detail-copy">В инфраструктуре клиента или согласованном облаке. Вариант размещения фиксируем до пилота.</p>
-                <div class="security-detail-map"><span aria-hidden="true"><svg viewBox="0 0 20 20"><path d="m5.5 10 3 3 6-7" /></svg></span><strong id="security-detail-map">На схеме: ИИ-модуль и границы</strong></div>
-              </div>
-            </aside>
-          </div>
         </div>
       </section>
 
