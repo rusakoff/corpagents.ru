@@ -1,14 +1,14 @@
 const solutionDetails = {
   data: {
-    title: 'Порядок в данных и номенклатуре 1С',
+    title: 'Справочник 1С',
     problem: 'Одни и те же позиции заведены под разными названиями. Сотрудникам сложно искать товары и сопоставлять записи.',
     action: 'Проверяем справочник, находим возможные дубли, нормализуем названия и согласуем правила классификации.',
-    result: 'Единый согласованный словарь и правила ведения данных.',
+    result: 'Список возможных дублей и согласованные правила ведения одной категории.',
     pilot: 'На пилоте берём одну товарную категорию: готовим список кандидатов на объединение, отчёт и согласованные изменения.',
     metric: 'Измеряем долю дублей, точность сопоставления и время поиска позиции.'
   },
   integrations: {
-    title: 'Интеграция 1С, Битрикс24 и других CRM',
+    title: 'Обмен 1С и CRM',
     problem: 'Заявки, заказы и статусы приходится переносить вручную между системами.',
     action: 'Настраиваем обмен справочниками и событиями, контроль ошибок и повторные попытки передачи.',
     result: 'Данные переходят между системами, а ошибки обмена видны ответственным.',
@@ -16,7 +16,7 @@ const solutionDetails = {
     metric: 'Измеряем время передачи, число ручных действий и долю успешных обменов.'
   },
   requests: {
-    title: 'Автоматизация входящих обращений',
+    title: 'Обработка обращений',
     problem: 'Обращения приходят в разные каналы, часть из них теряется или долго остаётся без ответа.',
     action: 'Собираем обращения, извлекаем ключевые поля, классифицируем и готовим карточку для ответственного.',
     result: 'Обращение зарегистрировано и направлено в работу.',
@@ -24,23 +24,23 @@ const solutionDetails = {
     metric: 'Измеряем время регистрации, полноту карточки и точность классификации.'
   },
   knowledge: {
-    title: 'Корпоративная база знаний',
+    title: 'Поиск по документам',
     problem: 'Регламенты и ответы разбросаны по документам. Поиск занимает время, а найденному ответу трудно доверять.',
     action: 'Организуем поиск и ответы с указанием источников с учётом прав доступа.',
     result: 'Сотрудник получает проверяемый ответ по доступным ему документам.',
-    pilot: 'На пилоте проверяем одну базу документов и 30-50 типовых вопросов.',
+    pilot: 'На пилоте проверяем одну базу документов и 30–50 типовых вопросов.',
     metric: 'Измеряем корректность ответов, время поиска и долю корректных отказов при отсутствии данных.'
   },
   agents: {
-    title: 'ИИ-агенты для сотрудников',
+    title: 'Помощник сотрудника',
     problem: 'Повторяющиеся операции в продажах, снабжении, юридическом отделе, HR и финансах отнимают время.',
     action: 'Создаём помощника для одной роли: подготовка материалов, сверка, поиск или черновики документов.',
     result: 'Сотрудник получает подготовленный результат и проверяет его перед использованием.',
-    pilot: 'На пилоте запускаем одного помощника с 2-3 функциями. Рискованные действия выполняются только после подтверждения человека.',
+    pilot: 'На пилоте запускаем одного помощника с 2–3 функциями. Рискованные действия выполняются только после подтверждения человека.',
     metric: 'Измеряем время выполнения, точность и долю результатов, принятых сотрудниками.'
   },
   training: {
-    title: 'Обучение работе с ИИ',
+    title: 'Обучение команды',
     problem: 'Сотрудники используют ИИ бессистемно и не всегда понимают ограничения при работе с данными.',
     action: 'Проводим практику по ролям, готовим инструкции, шаблоны и правила обращения с информацией.',
     result: 'Команда умеет применять ИИ в согласованных задачах и проверять результат.',
@@ -48,10 +48,10 @@ const solutionDetails = {
     metric: 'Измеряем частоту использования, время выполнения и качество результата.'
   },
   processes: {
-    title: 'Автоматизация процессов и аналитика',
+    title: 'Контроль процесса и отчёты',
     problem: 'Согласования и отчёты ведутся вручную, статусы непрозрачны, отклонения замечают поздно.',
     action: 'Настраиваем маршруты, статусы, панели показателей и сводки по событиям процесса.',
-    result: 'Ход работы и данные для принятия решений видны в одном контуре.',
+    result: 'Ход работы и отклонения видны в общей сводке.',
     pilot: 'На пилоте проверяем один процесс или одну аналитическую панель.',
     metric: 'Измеряем время цикла, количество ошибок и просрочек, трудозатраты.'
   }
@@ -98,6 +98,7 @@ function selectSolution(id) {
 function openSolution(id) {
   const detail = solutionDetails[id];
   if (!detail) return;
+  solutionDialog.dataset.activeSolution = id;
   for (const [field, element] of Object.entries(solutionFields)) {
     element.textContent = detail[field];
   }
@@ -158,7 +159,32 @@ const contactForm = document.getElementById('contact-form');
 const draftResult = document.getElementById('draft-result');
 const draftText = document.getElementById('draft-text');
 const formStatus = document.getElementById('form-status');
+const contactInterest = document.getElementById('contact-interest');
+const contactInterestValue = document.getElementById('contact-interest-value');
+const contactTask = contactForm.elements.namedItem('task');
 const contactRequiredFields = [...contactForm.querySelectorAll('[required]')];
+
+function setContactInterest(value, helper) {
+  contactInterestValue.value = value;
+  contactInterest.textContent = `Вы выбрали: ${value}. Коротко опишите, как эта работа устроена у вас.`;
+  contactInterest.hidden = false;
+  if (!contactTask.value.trim()) contactTask.placeholder = helper;
+}
+
+document.querySelector('[data-scenario-contact]').addEventListener('click', () => {
+  const scenario = scenarios[scenarioDialog.dataset.activeScenario];
+  if (scenario) setContactInterest(scenario.dialogTitle, 'Например: сейчас сотрудник переносит данные вручную между почтой и CRM.');
+});
+
+document.querySelector('[data-solution-contact]').addEventListener('click', () => {
+  const solution = solutionDetails[solutionDialog.dataset.activeSolution];
+  if (solution) setContactInterest(solution.title, 'Напишите, как этот процесс устроен у вашей команды сейчас.');
+});
+
+document.getElementById('calculator-cta').addEventListener('click', () => {
+  const hours = document.getElementById('calc-hours').textContent.trim();
+  setContactInterest(`Расчёт ручной работы: ${hours} ч в месяц по введённым допущениям`, 'Напишите, какую операцию вы хотите сократить и как оценивали время.');
+});
 
 contactRequiredFields.forEach((field) => {
   field.addEventListener('invalid', () => field.setAttribute('aria-invalid', 'true'));
@@ -170,19 +196,20 @@ contactForm.addEventListener('submit', (event) => {
   contactRequiredFields.forEach((field) => field.setAttribute('aria-invalid', 'false'));
   const form = new FormData(contactForm);
   const lines = [
-    'Заявка на обсуждение пилота Corp Agents',
+    'Запрос для Corp Agents',
     '',
     `Имя: ${String(form.get('name')).trim()}`,
-    `Компания: ${String(form.get('company')).trim()}`,
     `Рабочая почта: ${String(form.get('email')).trim()}`,
+    `Компания: ${String(form.get('company')).trim() || 'не указана'}`,
     `Телефон: ${String(form.get('phone')).trim() || 'не указан'}`,
     '',
+    ...(String(form.get('interest')).trim() ? [`Интерес: ${String(form.get('interest')).trim()}`, ''] : []),
     'Задача:',
     String(form.get('task')).trim()
   ];
   draftText.value = lines.join('\n');
   draftResult.hidden = false;
-  formStatus.textContent = 'Черновик готов. Данные никуда не отправлены.';
+  formStatus.textContent = 'Текст готов. Данные никуда не отправлены.';
 });
 
 document.getElementById('copy-draft').addEventListener('click', async () => {
@@ -201,45 +228,45 @@ const securityWorkbench = document.getElementById('security-workbench');
 if (securityWorkbench) {
   const securityQuestions = {
     placement: {
-      title: 'Где будет работать ИИ?',
-      copy: 'В инфраструктуре клиента или согласованном облаке. Вариант размещения фиксируем до пилота.',
-      map: 'На схеме: ИИ-модуль и его контур',
+      title: 'Где будут обрабатываться данные?',
+      copy: 'Оцениваем инфраструктуру и требования к данным, затем согласуем вариант размещения до пилота.',
+      map: 'Размещение согласуем до доступа к данным',
       nodes: ['ai'],
       paths: ['rules', 'person']
     },
     data: {
-      title: 'Какие данные он получит?',
+      title: 'Какие источники подключим?',
       copy: 'Только те источники и поля, которые нужны для выбранной задачи. Остальные данные остаются вне контура.',
-      map: 'На схеме: 1С, CRM и документы',
+      map: 'Состав данных ограничен задачей',
       nodes: ['erp', 'crm', 'docs'],
       paths: ['sources-l', 'sources-m', 'sources-r']
     },
     audit: {
       title: 'Что проверим до запуска?',
       copy: 'Источники, ограничения, риски и действия, которые требуют отдельного подтверждения сотрудника.',
-      map: 'На схеме: правила и входной маршрут',
+      map: 'Правила согласованы до начала работы',
       nodes: ['rules'],
       paths: ['rules']
     },
     access: {
-      title: 'Кто увидит результат?',
+      title: 'Кто получит доступ к результату?',
       copy: 'Только пользователи с нужной ролью. Права на ответы и отчёты повторяют согласованную модель доступа.',
-      map: 'На схеме: результат и выходной маршрут',
+      map: 'Доступ зависит от роли сотрудника',
       nodes: ['result'],
       paths: ['result']
     },
     log: {
-      title: 'Что останется в журнале?',
+      title: 'Что запишем в журнал?',
       copy: 'Запросы, события, подтверждения и ошибки. По ним можно восстановить ход работы и разобрать отклонение.',
-      map: 'На схеме: результат и обратная связь',
+      map: 'Ход работы можно восстановить',
       nodes: ['result', 'feedback'],
       paths: ['result'],
       feedback: true
     },
     human: {
-      title: 'Кто принимает решение?',
-      copy: 'Критические действия подтверждает ответственный сотрудник. ИИ готовит результат, но не подменяет решение человека.',
-      map: 'На схеме: человек и подтверждение',
+      title: 'Кто подтвердит важное действие?',
+      copy: 'Ответственный сотрудник проверяет результат и отдельно подтверждает действия, которые команда признала важными.',
+      map: 'Подтверждение остаётся за сотрудником',
       nodes: ['human'],
       paths: ['person']
     }
@@ -262,8 +289,58 @@ if (securityWorkbench) {
   const detailTitle = document.getElementById('security-detail-title');
   const detailCopy = document.getElementById('security-detail-copy');
   const detailMap = document.getElementById('security-detail-map');
+  const detailCard = document.getElementById('security-detail');
   const questionButtons = [...securityWorkbench.querySelectorAll('[data-security-question]')];
   let svgRoot = null;
+
+  function reserveDetailHeight() {
+    const width = detailCard.getBoundingClientRect().width;
+    if (!width) return;
+
+    const sample = detailCard.cloneNode(true);
+    sample.setAttribute('aria-hidden', 'true');
+    sample.removeAttribute('aria-live');
+    sample.removeAttribute('id');
+    sample.querySelectorAll('[id]').forEach((element) => element.removeAttribute('id'));
+    Object.assign(sample.style, {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      width: `${width}px`,
+      height: 'auto',
+      minHeight: '0',
+      margin: '0',
+      visibility: 'hidden',
+      pointerEvents: 'none'
+    });
+    detailCard.parentElement.appendChild(sample);
+
+    const title = sample.querySelector('h3');
+    const copy = sample.querySelector('p');
+    const map = sample.querySelector('.security-detail-map strong');
+    const variants = [
+      ...Object.values(securityQuestions).map(({ title, copy, map }) => ({ title, copy, map })),
+      ...Object.values(securityNodes).map((node) => ({ title: node[0], copy: node[1], map: node[4] }))
+    ];
+    let maxHeight = 0;
+    variants.forEach((variant) => {
+      title.textContent = variant.title;
+      copy.textContent = variant.copy;
+      map.textContent = variant.map;
+      maxHeight = Math.max(maxHeight, sample.getBoundingClientRect().height);
+    });
+    sample.remove();
+    detailCard.style.minHeight = `${Math.ceil(maxHeight)}px`;
+  }
+
+  let detailSizingFrame;
+  function scheduleDetailSizing() {
+    cancelAnimationFrame(detailSizingFrame);
+    detailSizingFrame = requestAnimationFrame(reserveDetailHeight);
+  }
+  reserveDetailHeight();
+  window.addEventListener('resize', scheduleDetailSizing);
+  document.fonts?.ready.then(scheduleDetailSizing);
 
   function markQuestion(key) {
     questionButtons.forEach((button) => {

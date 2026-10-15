@@ -2,8 +2,8 @@ const scenarios = {
   inbox: {
     dialogTitle: 'Обращения теряются в почте',
     intro: 'Берём один входящий ящик и согласованные типы писем. Проверяем процесс на ограниченном наборе обращений.',
-    before: 'Сейчас менеджер читает письмо, вручную переносит данные в CRM и назначает ответственного.',
-    after: 'На пилоте ИИ готовит черновик карточки. Сотрудник проверяет данные и направляет обращение в работу.',
+    before: 'Менеджер читает письмо, переносит данные в CRM и назначает ответственного.',
+    after: 'ИИ готовит черновик карточки. Сотрудник проверяет данные и направляет обращение в работу.',
     metric: 'Проверяем время регистрации, полноту карточки и точность маршрута.',
     board: {
       title: 'Входящие обращения', icon: 'mail', description: 'От письма клиента до проверенной карточки в CRM.',
@@ -16,8 +16,8 @@ const scenarios = {
   catalog: {
     dialogTitle: 'В 1С много похожих позиций',
     intro: 'Выбираем одну товарную категорию. Готовим список возможных дублей и правила проверки.',
-    before: 'Сейчас похожие товары заведены под разными названиями. Сотрудники долго ищут и сопоставляют позиции.',
-    after: 'На пилоте система предлагает пары на проверку. Решение об изменении справочника подтверждает ответственный.',
+    before: 'Похожие товары заведены под разными названиями. Сотрудники долго ищут и сопоставляют позиции.',
+    after: 'Система предлагает пары на проверку. Решение об изменении справочника подтверждает ответственный.',
     metric: 'Проверяем долю дублей, точность сопоставления и время поиска.',
     board: {
       title: 'Порядок в справочнике', icon: 'database', description: 'Одна товарная категория. Кандидаты на проверку.',
@@ -30,8 +30,8 @@ const scenarios = {
   knowledge: {
     dialogTitle: 'Ответ спрятан в документах',
     intro: 'Подключаем согласованный набор регламентов и проверяем ответы на заранее подготовленных вопросах.',
-    before: 'Сейчас сотрудник ищет нужный пункт в общей папке или спрашивает коллег.',
-    after: 'На пилоте помощник показывает ответ с источником. Если данных недостаточно, он сообщает об этом.',
+    before: 'Сотрудник ищет нужный пункт в общей папке или спрашивает коллег.',
+    after: 'Помощник показывает ответ с источником. Если данных недостаточно, он сообщает об этом.',
     metric: 'Проверяем время поиска, корректность ответов и долю ответов с источником.',
     board: {
       title: 'Поиск по регламентам', icon: 'file-search', description: 'Проверяемый ответ по согласованным документам.',
@@ -44,8 +44,8 @@ const scenarios = {
   reports: {
     dialogTitle: 'Статусы живут в разных системах',
     intro: 'Выбираем один процесс и согласованные источники данных. Показываем события и отклонения в общей сводке.',
-    before: 'Сейчас руководитель запрашивает статусы в отделах и вручную собирает отчёт из нескольких систем.',
-    after: 'На пилоте сводка формируется по событиям. Просрочки и ошибки обмена вынесены отдельно.',
+    before: 'Руководитель запрашивает статусы в отделах и вручную собирает отчёт из нескольких систем.',
+    after: 'Сводка формируется по событиям. Просрочки и ошибки обмена вынесены отдельно.',
     metric: 'Проверяем время подготовки, число просрочек и ошибки обмена.',
     board: {
       title: 'Контроль процесса', icon: 'workflow', description: 'События из согласованных систем в одной сводке.',
@@ -72,29 +72,81 @@ const boardFields = {
 };
 
 const tabs = [...document.querySelectorAll('[data-board]')];
-const sidebarItems = [...document.querySelectorAll('.workspace-sidebar .sidebar-item')].slice(0, 4);
+const sidebarItems = [...document.querySelectorAll('[data-sidebar-board], [data-sidebar-view]')];
+const boardTabs = document.querySelector('.board-tabs');
+const boardPanel = document.getElementById('board-panel');
+const boardNote = document.querySelector('.board-note');
+const workspaceDetail = document.getElementById('workspace-detail');
+const detailRows = [...workspaceDetail.querySelectorAll('.workspace-detail-row')];
 const scenarioDialog = document.getElementById('scenario-dialog');
-const pilotDialog = document.getElementById('pilot-dialog');
+let activeBoardId = 'inbox';
+
+function setBoardHeading(title, icon, description) {
+  const boardIcon = document.createElement('img');
+  boardIcon.src = `./icons/${icon}.svg`;
+  boardIcon.alt = '';
+  boardIcon.setAttribute('aria-hidden', 'true');
+  document.getElementById('board-title').replaceChildren(document.createTextNode(`${title} `), boardIcon);
+  boardFields.description.textContent = description;
+}
+
+function selectSidebarItem(kind, id) {
+  sidebarItems.forEach(item => {
+    const active = item.dataset[kind] === id;
+    item.classList.toggle('is-current', active);
+    item.classList.toggle('ca-app__sidebar-item--active', active);
+    item.setAttribute('aria-pressed', String(active));
+  });
+}
 
 function selectBoard(id) {
   if (!scenarios[id]) return;
+  activeBoardId = id;
   const board = scenarios[id].board;
-  const boardIcon = document.createElement('img');
-  boardIcon.src = `./icons/${board.icon}.svg`;
-  boardIcon.alt = '';
-  boardIcon.setAttribute('aria-hidden', 'true');
-  document.getElementById('board-title').replaceChildren(document.createTextNode(`${board.title} `), boardIcon);
-  Object.entries(boardFields).forEach(([key, element]) => { element.textContent = board[key]; });
+  setBoardHeading(board.title, board.icon, board.description);
+  Object.entries(boardFields).forEach(([key, element]) => { if (key !== 'description') element.textContent = board[key]; });
+  boardTabs.hidden = false;
+  boardPanel.hidden = false;
+  boardNote.hidden = false;
+  workspaceDetail.hidden = true;
   tabs.forEach(tab => {
     const active = tab.dataset.board === id;
     tab.setAttribute('aria-selected', String(active));
     tab.tabIndex = active ? 0 : -1;
   });
-  sidebarItems.forEach((item, index) => {
-    const active = tabs[index]?.dataset.board === id;
-    item.classList.toggle('is-current', active);
-    item.classList.toggle('ca-app__sidebar-item--active', active);
+  selectSidebarItem('sidebarBoard', id);
+}
+
+function showWorkspaceDetail(view) {
+  if (!['criteria', 'history'].includes(view)) return;
+  const scenario = scenarios[activeBoardId];
+  const board = scenario.board;
+  const isCriteria = view === 'criteria';
+  const rows = isCriteria ? [
+    ['Границы', 'Один процесс', scenario.intro],
+    ['Показатели', 'Проверка результата', scenario.metric],
+    ['Контроль', 'Решение за человеком', board.note]
+  ] : [
+    ['01 · Вход', board.beforeTitle, board.beforeCopy],
+    ['02 · Подготовка', board.middleTitle, board.middleCopy],
+    ['03 · Проверка', board.afterTitle, board.afterCopy]
+  ];
+
+  setBoardHeading(
+    isCriteria ? 'Критерии пилота' : 'История действий',
+    isCriteria ? 'list-checks' : 'history',
+    isCriteria ? 'Что проверяем в выбранном сценарии.' : 'Пример последовательности действий в выбранном сценарии.'
+  );
+  detailRows.forEach((row, index) => {
+    row.querySelector('[data-detail-label]').textContent = rows[index][0];
+    row.querySelector('[data-detail-title]').textContent = rows[index][1];
+    row.querySelector('[data-detail-copy]').textContent = rows[index][2];
   });
+  boardTabs.hidden = true;
+  boardPanel.hidden = true;
+  boardNote.hidden = true;
+  workspaceDetail.hidden = false;
+  selectSidebarItem('sidebarView', view);
 }
 
 tabs.forEach((tab, index) => {
@@ -109,10 +161,26 @@ tabs.forEach((tab, index) => {
   });
 });
 
+sidebarItems.forEach(item => {
+  item.addEventListener('click', () => {
+    if (item.dataset.sidebarBoard) selectBoard(item.dataset.sidebarBoard);
+    else showWorkspaceDetail(item.dataset.sidebarView);
+  });
+});
+
+document.querySelector('[data-back-to-board]').addEventListener('click', () => {
+  selectBoard(activeBoardId);
+  const sidebarButton = document.querySelector(`[data-sidebar-board="${activeBoardId}"]`);
+  if (sidebarButton.offsetParent !== null) sidebarButton.focus();
+  else tabs.find(tab => tab.dataset.board === activeBoardId).focus();
+});
+selectBoard(activeBoardId);
+
 document.querySelectorAll('[data-scenario]').forEach(card => {
   card.addEventListener('click', () => {
     const id = card.dataset.scenario;
     const scenario = scenarios[id];
+    scenarioDialog.dataset.activeScenario = id;
     selectBoard(id);
     document.getElementById('scenario-dialog-title').textContent = scenario.dialogTitle;
     document.getElementById('dialog-intro').textContent = scenario.intro;
@@ -123,16 +191,12 @@ document.querySelectorAll('[data-scenario]').forEach(card => {
   });
 });
 
-document.querySelectorAll('[data-open-pilot]').forEach(button => {
-  button.addEventListener('click', () => pilotDialog.showModal());
-});
-
 document.querySelectorAll('[data-close-dialog]').forEach(button => {
   button.addEventListener('click', () => button.closest('dialog').close());
 });
 
-[scenarioDialog, pilotDialog].forEach(dialog => {
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+scenarioDialog.addEventListener('click', event => {
+  if (event.target === scenarioDialog) scenarioDialog.close();
 });
 
 const navDropdowns = [...document.querySelectorAll('.nav-dropdown')];
