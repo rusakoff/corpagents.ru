@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 42 1120 700" role="img" aria-labelledby="diagram-title diagram-description" class="ai-diagram">
+  <title id="diagram-title">Архитектура контролируемого ИИ-модуля</title>
+  <desc id="diagram-description">Разрешённые источники поступают в ИИ-модуль. Правила ограничивают обработку, человек подтверждает критические действия, а результаты и события остаются внутри согласованного контура.</desc>
+  <defs>
+    <marker id="arrow-muted" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1l8 4-8 4" fill="none" stroke="#819db4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-active" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1l8 4-8 4" fill="none" stroke="#0075de" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <symbol id="icon-database" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h6"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+    </symbol>
+    <symbol id="icon-cpu" viewBox="0 0 24 24">
+      <rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 1v4M15 1v4M9 19v4M15 19v4M19 9h4M19 14h4M1 9h4M1 14h4"/>
+    </symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24">
+      <path d="M4 20V10M10 20V4M16 20v-7M22 20V7"/>
+    </symbol>
+    <symbol id="icon-user-check" viewBox="0 0 24 24">
+      <circle cx="9" cy="7" r="4"/><path d="M3 21v-2a6 6 0 0 1 10.2-4.3M16 17l2 2 4-5"/>
+    </symbol>
+    <symbol id="selected-mark" viewBox="0 0 20 20">
+      <circle cx="10" cy="10" r="9" fill="#0075de" stroke="#fff" stroke-width="2"/>
+      <path d="m6.5 10 2.2 2.2 4.8-5" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+  <style>
+    .ai-diagram{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .track{fill:none;stroke:#9bb4c8;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow-muted)}
+    .flow{fill:none;stroke:#0075de;stroke-width:4.2;stroke-linecap:round;stroke-dasharray:10 90;opacity:0}
+    .flow.reverse{animation-direction:reverse}
+    .feedback-track{fill:none;stroke:#a8bed0;stroke-width:1.8;stroke-linecap:round;marker-end:url(#arrow-muted)}
+    .feedback-flow{fill:none;stroke:#0075de;stroke-width:4;stroke-linecap:round;stroke-dasharray:8 92;opacity:0}
+    .kicker{fill:#46677f;font-size:13px;font-weight:700;letter-spacing:2.5px}
+    .node-label{fill:#101820;font-size:19px;font-weight:650;letter-spacing:-.25px}
+    .node-copy{fill:#587083;font-size:14px;font-weight:450}
+    .node-surface{fill:#fff;stroke:#c9d9e5;stroke-width:1.6}
+    .icon{color:#29465d;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .core{fill:#0c73c8;stroke:#0c73c8;stroke-width:2}
+    .core-ring{fill:none;stroke:#8fc9ff;stroke-width:10;opacity:.42}
+    .core-icon{color:#fff}
+    .core-title{fill:#fff;font-size:29px;font-weight:700;letter-spacing:-.8px}
+    .core-copy{fill:#e6f4ff;font-size:15px;font-weight:450}
+    .feedback-title{fill:#0c69bd;font-size:15px;font-weight:700;letter-spacing:1.8px}
+    .feedback-copy{fill:#587083;font-size:13px}
+    .hit{fill:transparent;stroke:transparent;stroke-width:4;pointer-events:all}
+    .hotspot{cursor:pointer;outline:none}
+    .hotspot .node-surface,.hotspot .icon,.hotspot .node-label,.hotspot .node-copy,.hotspot .feedback-title,.hotspot .feedback-copy,.hotspot .core,.hotspot .core-ring,.selection-mark{transition:stroke 140ms ease-out,color 140ms ease-out,fill 140ms ease-out,opacity 140ms ease-out,transform 180ms ease-out}
+    .hotspot:hover .node-surface,.hotspot:focus-visible .node-surface{stroke:#62a8e7;stroke-width:2.4}
+    .hotspot:hover .icon,.hotspot:focus-visible .icon{color:#006fcf}
+    .hotspot:hover .node-label,.hotspot:focus-visible .node-label{fill:#075fAB}
+    .hotspot.is-active .node-surface{fill:#dceeff;stroke:#0075de;stroke-width:4}
+    .hotspot.is-active .icon{color:#0067c2}
+    .hotspot.is-active .node-label{fill:#0059a8;font-weight:750}
+    .hotspot.is-active .node-copy,.hotspot.is-active .feedback-copy{fill:#315d7a}
+    .hotspot.is-active .feedback-title{fill:#0059a8}
+    .selection-mark{opacity:0;transform:scale(.72);transform-box:fill-box;transform-origin:center;pointer-events:none}
+    .hotspot.is-active .selection-mark{opacity:1;transform:scale(1)}
+    .hotspot:focus-visible .hit{stroke:#0075de;stroke-dasharray:5 7}
+    #node-ai:hover .core,#node-ai:focus-visible .core{fill:#0868b7;stroke:#3d93df}
+    #node-ai.is-active .core{fill:#0669ba;stroke:#005faa;stroke-width:4}
+    #node-ai:hover .core-icon,#node-ai:focus-visible .core-icon,#node-ai.is-active .core-icon{color:#fff}
+    #node-ai.is-active .core-ring{stroke:#0075de;stroke-width:14;opacity:.5}
+    .selected-path .track{stroke:#0075de;stroke-width:3;marker-end:url(#arrow-active)}
+    .selected-path .flow{opacity:1;animation:data-pulse 1.8s linear 1}
+    #connector-sources-l .flow{animation-delay:-.25s}
+    #connector-sources-m .flow{animation-delay:-1.05s}
+    #connector-sources-r .flow{animation-delay:-1.85s}
+    #connector-rules .flow{animation-delay:-.45s}
+    #connector-result .flow{animation-delay:-1.25s}
+    #connector-person .flow{animation-delay:-1.7s}
+    .selected-feedback .feedback-track{stroke:#0075de;stroke-width:3;marker-end:url(#arrow-active)}
+    .selected-feedback .feedback-flow{opacity:1;animation:data-pulse 2.2s linear 1}
+    @keyframes data-pulse{to{stroke-dashoffset:-100}}
+    @media(prefers-reduced-motion:reduce){.selected-path .flow,.selected-feedback .feedback-flow{animation:none;stroke-dasharray:34 66;stroke-dashoffset:-28}.hotspot *{transition:none}}
+  </style>
+
+  <g id="feedback-loop" aria-hidden="true">
+    <path class="feedback-track" d="M989 430V492C989 590 828 666 600 666S211 590 211 492V430"/>
+    <path class="feedback-flow reverse" pathLength="100" d="M989 430V492C989 590 828 666 600 666S211 590 211 492V430"/>
+  </g>
+  <g id="connectors" aria-hidden="true">
+    <g id="connector-sources-l"><path class="track" d="M470 214v8q0 14 18 14h52q40 0 60 24"/><path class="flow" pathLength="100" d="M470 214v8q0 14 18 14h52q40 0 60 24"/></g>
+    <g id="connector-sources-m"><path class="track" d="M600 214v46"/><path class="flow" pathLength="100" d="M600 214v46"/></g>
+    <g id="connector-sources-r"><path class="track" d="M730 214v8q0 14-18 14h-52q-40 0-60 24"/><path class="flow" pathLength="100" d="M730 214v8q0 14-18 14h-52q-40 0-60 24"/></g>
+    <g id="connector-rules"><path class="track" d="M355 355h122"/><path class="flow" pathLength="100" d="M355 355h122"/></g>
+    <g id="connector-result"><path class="track" d="M723 355h147"/><path class="flow" pathLength="100" d="M723 355h147"/></g>
+    <g id="connector-person"><path class="track" d="M600 473v67"/><path class="flow reverse" pathLength="100" d="M600 473v67"/></g>
+  </g>
+
+  <text class="kicker" x="600" y="78" text-anchor="middle">РАЗРЕШЁННЫЕ ИСТОЧНИКИ</text>
+
+  <g id="node-erp" class="hotspot" data-node="erp" tabindex="0" role="button" aria-label="1С — учётные данные">
+    <rect class="hit" x="410" y="78" width="120" height="132" rx="24"/>
+    <circle class="node-surface" cx="470" cy="131" r="38"/>
+    <use class="icon" href="#icon-database" x="450" y="111" width="40" height="40"/>
+    <text class="node-label" x="470" y="196" text-anchor="middle">1С</text>
+    <use class="selection-mark" href="#selected-mark" x="491" y="93" width="20" height="20"/>
+  </g>
+  <g id="node-crm" class="hotspot" data-node="crm" tabindex="0" role="button" aria-label="CRM — данные клиентов">
+    <rect class="hit" x="540" y="78" width="120" height="132" rx="24"/>
+    <circle class="node-surface" cx="600" cy="131" r="38"/>
+    <use class="icon" href="#icon-users" x="580" y="111" width="40" height="40"/>
+    <text class="node-label" x="600" y="196" text-anchor="middle">CRM</text>
+    <use class="selection-mark" href="#selected-mark" x="621" y="93" width="20" height="20"/>
+  </g>
+  <g id="node-docs" class="hotspot" data-node="docs" tabindex="0" role="button" aria-label="Документы — база знаний">
+    <rect class="hit" x="666" y="78" width="128" height="132" rx="24"/>
+    <circle class="node-surface" cx="730" cy="131" r="38"/>
+    <use class="icon" href="#icon-file" x="710" y="111" width="40" height="40"/>
+    <text class="node-label" x="730" y="196" text-anchor="middle">Документы</text>
+    <use class="selection-mark" href="#selected-mark" x="751" y="93" width="20" height="20"/>
+  </g>
+
+  <g id="node-rules" class="hotspot" data-node="rules" tabindex="0" role="button" aria-label="Правила и ограничения">
+    <rect class="hit" x="65" y="293" width="278" height="128" rx="24"/>
+    <circle class="node-surface" cx="119" cy="355" r="38"/>
+    <use class="icon" href="#icon-shield" x="99" y="335" width="40" height="40"/>
+    <text class="node-label" x="174" y="341">Правила</text>
+    <text class="node-copy" x="174" y="369">Доступы и ограничения</text>
+    <text class="node-copy" x="174" y="392">до обработки запроса</text>
+    <use class="selection-mark" href="#selected-mark" x="140" y="317" width="20" height="20"/>
+  </g>
+
+  <g id="node-ai" class="hotspot" data-node="ai" tabindex="0" role="button" aria-label="ИИ-модуль внутри согласованного контура">
+    <circle class="hit" cx="600" cy="355" r="126"/>
+    <circle class="core-ring" cx="600" cy="355" r="122"/>
+    <circle class="core" cx="600" cy="355" r="112"/>
+    <use class="icon core-icon" href="#icon-cpu" x="575" y="285" width="50" height="50"/>
+    <text class="core-title" x="600" y="370" text-anchor="middle">ИИ-модуль</text>
+    <text class="core-copy" x="600" y="402" text-anchor="middle">Работает по правилам</text>
+    <text class="core-copy" x="600" y="424" text-anchor="middle">внутри контура</text>
+    <use class="selection-mark" href="#selected-mark" x="681" y="270" width="22" height="22"/>
+  </g>
+
+  <g id="node-result" class="hotspot" data-node="result" tabindex="0" role="button" aria-label="Результат и журнал событий">
+    <rect class="hit" x="857" y="293" width="278" height="128" rx="24"/>
+    <circle class="node-surface" cx="911" cy="355" r="38"/>
+    <use class="icon" href="#icon-chart" x="891" y="335" width="40" height="40"/>
+    <text class="node-label" x="966" y="341">Результат</text>
+    <text class="node-copy" x="966" y="369">Ответы, события</text>
+    <text class="node-copy" x="966" y="392">и журнал ошибок</text>
+    <use class="selection-mark" href="#selected-mark" x="932" y="317" width="20" height="20"/>
+  </g>
+
+  <g id="node-human" class="hotspot" data-node="human" tabindex="0" role="button" aria-label="Человек подтверждает критические действия">
+    <rect class="hit" x="478" y="535" width="244" height="120" rx="24"/>
+    <circle class="node-surface" cx="600" cy="579" r="38"/>
+    <use class="icon" href="#icon-user-check" x="580" y="559" width="40" height="40"/>
+    <text class="node-label" x="600" y="637" text-anchor="middle">Решение за человеком</text>
+    <use class="selection-mark" href="#selected-mark" x="621" y="541" width="20" height="20"/>
+  </g>
+
+  <g id="node-feedback" class="hotspot" data-node="feedback" tabindex="0" role="button" aria-label="Обратная связь уточняет правила">
+    <rect class="hit" x="430" y="682" width="340" height="50" rx="18"/>
+    <text class="feedback-title" x="600" y="704" text-anchor="middle">ОБРАТНАЯ СВЯЗЬ</text>
+    <text class="feedback-copy" x="600" y="725" text-anchor="middle">Результат уточняет правила после проверки</text>
+  </g>
+</svg>

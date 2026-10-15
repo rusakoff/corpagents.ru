@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Corp Agents помогает связать 1С, CRM, почту и документы в работающие процессы. Начинаем с одной задачи и измеримого пилота." />
+    <title>Corp Agents: меньше ручной работы между системами</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./sections.css?v=24" />
+    <script src="./script.js" defer></script>
+    <script src="./remaining.js?v=12" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="wordmark" href="#top" aria-label="Corpagents, наверх"><span class="wordmark-symbol" aria-hidden="true"><img src="./icons/asterisk.svg" alt="" /></span><span>corpagents</span></a>
+        <nav class="main-nav" aria-label="Основная навигация">
+          <details class="nav-dropdown">
+            <summary>Решения <span class="nav-chevron" aria-hidden="true"></span></summary>
+            <div class="nav-menu"><a href="#solutions">Все решения</a><a href="#scenarios">С чего начать</a><a href="#departments">Для отделов</a></div>
+          </details>
+          <details class="nav-dropdown">
+            <summary>Материалы <span class="nav-chevron" aria-hidden="true"></span></summary>
+            <div class="nav-menu"><a href="#cases">Примеры пилотов</a><a href="#economics">Экономика внедрения</a><a href="#faq">Частые вопросы</a></div>
+          </details>
+          <a href="#process">Как работаем</a>
+          <a href="#about">О нас</a>
+        </nav>
+        <div class="header-actions"><a class="header-contact" href="#contact">Контакты</a><a class="nav-action" href="#contact">Обсудить пилот</a></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="container hero-content">
+          <h1 id="hero-title">Соединим системы.<br />Сократим <span class="highlight-pill">рутину.</span></h1>
+          <p class="hero-subhead">Связываем 1С, CRM, почту и документы, затем проверяем результат на пилоте.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#scenarios">Найти свою задачу</a>
+            <button class="button button-ghost" type="button" data-open-pilot>Как устроен пилот</button>
+          </div>
+          <div class="hero-stage">
+          <span class="hero-doodle hero-doodle-spark" aria-hidden="true">✳</span>
+          <span class="hero-doodle hero-doodle-face" aria-hidden="true"><i></i><i></i><b></b></span>
+          <div class="workspace-shell" id="workspace" aria-label="Демонстрация рабочего процесса">
+            <div class="window-bar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Corp Agents</span></div>
+            <div class="workspace-layout">
+              <aside class="workspace-sidebar" aria-label="Разделы примера интерфейса">
+                <div class="workspace-identity"><span class="workspace-avatar">ca</span><span><strong>Процессы</strong></span><span class="workspace-chevron" aria-hidden="true"><img src="./icons/chevron-down.svg" alt="" /></span></div>
+                <div class="sidebar-item is-current"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span> Входящие обращения</div>
+                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/database.svg" alt="" /></span> Данные 1С</div>
+                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/files.svg" alt="" /></span> Документы</div>
+                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/workflow.svg" alt="" /></span> Статусы</div>
+                <div class="sidebar-divider"></div>
+                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/list-checks.svg" alt="" /></span> Критерии пилота</div>
+                <div class="sidebar-item"><span class="sidebar-icon" aria-hidden="true"><img src="./icons/history.svg" alt="" /></span> История действий</div>
+                <div class="sidebar-bottom"><span class="sidebar-bottom-dot"></span> Один процесс в работе</div>
+              </aside>
+
+              <div class="workspace-main">
+                <div class="workspace-heading"><div><h2 id="board-title">Входящие обращения <img src="./icons/mail.svg" alt="" aria-hidden="true" /></h2><p id="board-description">От письма клиента до проверенной карточки в CRM.</p></div><div class="workspace-people" aria-hidden="true"><span>А</span><span>М</span><span>+</span></div></div>
+                <div class="board-tabs" role="tablist" aria-label="Примеры рабочих процессов">
+                  <button type="button" role="tab" aria-selected="true" aria-controls="board-panel" data-board="inbox">Почта → CRM</button>
+                  <button type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="catalog">Справочник 1С</button>
+                  <button type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="knowledge">Документы</button>
+                  <button type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="reports">Статусы</button>
+                </div>
+                <div class="board-panel" id="board-panel" role="tabpanel" aria-live="polite">
+                  <div class="board-column"><div class="column-header"><span class="column-marker marker-coral"></span> Сейчас</div><div class="kanban-card"><span class="kanban-label label-coral" id="board-before-label">Новое письмо</span><strong id="board-before-title">Запрос на поставку</strong><p id="board-before-copy">Крепёж М10, 500 шт. Нужна цена и срок.</p></div></div>
+                  <div class="board-column"><div class="column-header"><span class="column-marker marker-yellow"></span> Подготовлено</div><div class="kanban-card"><span class="kanban-label label-yellow" id="board-middle-label">Черновик от ИИ</span><strong id="board-middle-title">Данные извлечены</strong><p id="board-middle-copy">Контакт, позиции и тип обращения собраны.</p></div></div>
+                  <div class="board-column"><div class="column-header"><span class="column-marker marker-blue"></span> В работе</div><div class="kanban-card"><span class="kanban-label label-blue" id="board-after-label">Подтверждено</span><strong id="board-after-title">Заявка в CRM</strong><p id="board-after-copy">Карточка создана, назначен ответственный.</p></div></div>
+                </div>
+                <div class="board-note"><span class="board-note-icon" aria-hidden="true"><img src="./icons/sparkles.svg" alt="" /></span><span id="board-note">Критичные действия остаются за сотрудником: ИИ готовит, человек подтверждает.</span></div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <p class="mockup-caption">Это пример интерфейса пилота, не клиентский кейс.</p>
+        </div>
+      </section>
+
+      <section class="scenarios" id="scenarios" aria-labelledby="scenarios-title">
+        <div class="container">
+          <div class="section-heading"><div><h2 id="scenarios-title">Начнём с вашей задачи.</h2></div><p>Один процесс, понятные границы и результат, который можно проверить на пилоте.</p></div>
+          <div class="scenario-grid">
+            <button class="scenario-card scenario-card-featured card-yellow" type="button" data-scenario="inbox" aria-label="Подробнее: обращения теряются в почте">
+              <span class="scenario-feature-copy"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span></span><span class="card-content"><strong>Обращения теряются<br />в почте?</strong><span>Письмо становится черновиком карточки в CRM. Сотрудник проверяет данные и направляет обращение в работу.</span></span><span class="card-bottom"><span class="card-link">Смотреть сценарий <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></span>
+              <svg class="scenario-feature-art" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 220" fill="none" aria-hidden="true" focusable="false"><g transform="rotate(-5 91 103)"><rect x="13" y="35" width="154" height="137" rx="11" fill="#fff" stroke="#111" stroke-opacity=".12"/><rect x="33" y="55" width="114" height="55" rx="7" fill="#F6F5F4"/><path d="M49 69h82v29H49zM49 70l41 25 41-25" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 126h86M34 141h62" stroke="#111" stroke-opacity=".23" stroke-width="6" stroke-linecap="round"/></g><path d="M176 106h37m-11-11 11 11-11 11" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(4 296 106)"><rect x="224" y="19" width="151" height="166" rx="11" fill="#fff" stroke="#111" stroke-opacity=".12"/><rect x="245" y="40" width="48" height="8" rx="4" fill="#111" fill-opacity=".2"/><circle cx="252" cy="72" r="9" fill="#E6F3FE"/><circle cx="252" cy="103" r="9" fill="#E6F3FE"/><circle cx="252" cy="134" r="9" fill="#E6F3FE"/><path d="m248 72 3 3 5-6m-8 34 3 3 5-6m-8 34 3 3 5-6" stroke="#0075DE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M277 72h72m-72 31h54m-54 31h65" stroke="#111" stroke-opacity=".28" stroke-width="7" stroke-linecap="round"/></g></svg>
+            </button>
+            <button class="scenario-card card-white" type="button" data-scenario="catalog" aria-label="Подробнее: дубли в 1С"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/grid-2x2.svg" alt="" /></span></span><span class="card-content"><strong>В 1С много<br />похожих позиций?</strong><span>Находим возможные дубли в одной категории и готовим список для проверки.</span></span><span class="card-bottom"><span class="card-link">Смотреть сценарий <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></button>
+            <button class="scenario-card card-white" type="button" data-scenario="knowledge" aria-label="Подробнее: поиск по документам"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/file-search.svg" alt="" /></span></span><span class="card-content"><strong>Ответ спрятан<br />в документах?</strong><span>Помощник находит нужный пункт и показывает источник для проверки.</span></span><span class="card-bottom"><span class="card-link">Смотреть сценарий <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></button>
+            <button class="scenario-card card-white" type="button" data-scenario="reports" aria-label="Подробнее: статусы между системами"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/workflow.svg" alt="" /></span></span><span class="card-content"><strong>Статусы живут<br />в разных системах?</strong><span>Собираем события в одну сводку и отдельно показываем отклонения.</span></span><span class="card-bottom"><span class="card-link">Смотреть сценарий <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section solutions-section" id="solutions" aria-labelledby="solutions-title">
+        <div class="container">
+          <div class="solutions-intro">
+            <h2 id="solutions-title">Дальше собираем<br />рабочий контур.</h2>
+            <p>Не внедряем всё сразу. Подбираем состав решения под один процесс и заранее фиксируем, как проверить результат.</p>
+          </div>
+          <div class="solution-browser">
+            <article class="solution-spotlight" aria-live="polite">
+              <img class="solution-spotlight-mark" src="./icons/database.svg" alt="" aria-hidden="true" data-solution-preview-mark />
+              <h3 data-solution-preview-title>Порядок в данных и номенклатуре 1С</h3>
+              <p class="solution-spotlight-copy" data-solution-preview-copy>Убираем дубли и разные названия, чтобы справочник снова помогал искать и сопоставлять товары.</p>
+              <dl class="solution-spotlight-facts">
+                <div><dt>Результат</dt><dd data-solution-preview-result>Единый согласованный словарь и правила ведения данных.</dd></div>
+                <div><dt>Проверяем</dt><dd data-solution-preview-metric>долю дублей, точность сопоставления и время поиска позиции.</dd></div>
+              </dl>
+              <button class="solution-detail-button" type="button" data-open-solution>Посмотреть состав пилота <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></button>
+            </article>
+            <div class="solution-index" aria-label="Направления работы">
+              <div class="solution-index-heading"><strong>Направления</strong><span>Выберите, чтобы увидеть результат</span></div>
+              <button class="solution-index-item is-active" type="button" data-solution-option="data" data-summary="Убираем дубли и разные названия, чтобы справочник снова помогал искать и сопоставлять товары." data-icon="database" aria-pressed="true"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/database.svg" alt="" /></span><strong>Порядок в данных и номенклатуре 1С</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
+              <button class="solution-index-item" type="button" data-solution-option="integrations" data-summary="Связываем заявки, заказы и статусы между 1С и CRM с контролем ошибок обмена." data-icon="arrow-right-left" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/arrow-right-left.svg" alt="" /></span><strong>1С, Битрикс24 и другие CRM</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
+              <button class="solution-index-item" type="button" data-solution-option="requests" data-summary="Превращаем письма в заполненные карточки и направляем их ответственному сотруднику." data-icon="mail" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span><strong>Входящие обращения</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
+              <button class="solution-index-item" type="button" data-solution-option="knowledge" data-summary="Даём сотрудникам проверяемые ответы по доступным документам с указанием источников." data-icon="book-open-text" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/book-open-text.svg" alt="" /></span><strong>Корпоративная база знаний</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
+              <button class="solution-index-item" type="button" data-solution-option="agents" data-summary="Создаём помощника для одной роли: подготовка материалов, сверка, поиск и черновики." data-icon="bot" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/bot.svg" alt="" /></span><strong>ИИ-агенты для сотрудников</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
+              <button class="solution-index-item" type="button" data-solution-option="training" data-summary="Закрепляем практику по ролям, шаблоны и безопасные правила работы с данными." data-icon="graduation-cap" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/graduation-cap.svg" alt="" /></span><strong>Обучение работе с ИИ</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
+              <button class="solution-index-item" type="button" data-solution-option="processes" data-summary="Настраиваем маршруты, статусы, панели показателей и сводки по одному процессу." data-icon="chart-no-axes-combined" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/chart-no-axes-combined.svg" alt="" /></span><strong>Автоматизация и аналитика</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section process-section" id="process" aria-labelledby="process-title">
+        <div class="container process-panel">
+          <div class="process-intro">
+            <h2 id="process-title">Пилот должен дать<br />решение, а не впечатление.</h2>
+            <p>Проверяем один процесс на ограниченных данных, чтобы понять: масштабировать, доработать или остановиться.</p>
+          </div>
+          <div class="process-journey">
+            <div class="process-setup">
+              <h3>До запуска убираем неизвестные.</h3>
+              <ul class="process-setup-list">
+                <li><strong>Один участок работы</strong><p>Не весь отдел и не все системы. Выбираем конкретную ручную операцию.</p></li>
+                <li><strong>Критерии результата</strong><p>Фиксируем, что сравниваем: время, точность, полноту или число ошибок.</p></li>
+                <li><strong>Доступы и границы</strong><p>Согласуем данные, риски, стоимость, сроки и ответственных.</p></li>
+              </ul>
+            </div>
+            <article class="process-pilot">
+              <p class="process-pilot-label">Ограниченный пилот</p>
+              <div class="process-duration"><strong>2-4</strong><span>недели</span></div>
+              <p>Ориентир для небольшого сценария после согласования доступов.</p>
+              <p class="process-pilot-note">Сложные интеграции оцениваем отдельно.</p>
+            </article>
+            <article class="process-decision">
+              <p class="process-decision-label">После демонстрации</p>
+              <h3>Выбираем следующий шаг.</h3>
+              <div class="process-options">
+                <div><strong>Масштабировать</strong><span>эффект подтверждён</span></div>
+                <div><strong>Доработать</strong><span>гипотеза требует настройки</span></div>
+                <div><strong>Остановиться</strong><span>эффект не оправдывает затраты</span></div>
+              </div>
+              <p class="process-decision-note">Большой проект не начинается автоматически.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section cases-section" id="cases" aria-labelledby="cases-title">
+        <div class="container">
+          <div class="cases-intro">
+            <h2 id="cases-title">Три задачи для<br />быстрого пилота.</h2>
+            <p>Берём один участок работы и проверяем на реальных данных, где автоматизация действительно даёт эффект.</p>
+          </div>
+          <div class="case-accordion">
+            <details class="case-item" name="case-start" open>
+              <summary>
+                <span class="case-source"><span class="case-icon" aria-hidden="true"><img src="./icons/receipt-text.svg" alt="" /></span><span>Закупки и бухгалтерия</span></span>
+                <span class="case-task"><strong>Найти расхождения до оплаты</strong><small>Заказ, счёт и поступление сверяются между собой</small></span>
+                <span class="case-result"><small>На выходе</small><strong>Список несовпадений</strong></span>
+                <span class="case-toggle" aria-hidden="true"><img src="./icons/chevron-down.svg" alt="" /></span>
+              </summary>
+              <div class="case-detail">
+                <div class="case-example"><span>Что делает пилот</span><p>Сравнивает позиции, количество, суммы и реквизиты в трёх документах.</p></div>
+                <div class="case-check"><span>Как оцениваем</span><p>Сколько расхождений найдено и сколько времени осталось у сотрудника.</p></div>
+              </div>
+            </details>
+            <details class="case-item" name="case-start">
+              <summary>
+                <span class="case-source"><span class="case-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span><span>Отдел продаж</span></span>
+                <span class="case-task"><strong>Собрать запрос клиента в задачу</strong><small>Письмо и вложения превращаются в заполненную карточку</small></span>
+                <span class="case-result"><small>На выходе</small><strong>Черновик в CRM</strong></span>
+                <span class="case-toggle" aria-hidden="true"><img src="./icons/chevron-down.svg" alt="" /></span>
+              </summary>
+              <div class="case-detail">
+                <div class="case-example"><span>Что делает пилот</span><p>Извлекает контакт, позиции и сроки, затем предлагает маршрут обработки.</p></div>
+                <div class="case-check"><span>Как оцениваем</span><p>Полноту карточки, точность маршрута и время регистрации обращения.</p></div>
+              </div>
+            </details>
+            <details class="case-item" name="case-start">
+              <summary>
+                <span class="case-source"><span class="case-icon" aria-hidden="true"><img src="./icons/workflow.svg" alt="" /></span><span>Руководитель процесса</span></span>
+                <span class="case-task"><strong>Показать, где работа остановилась</strong><small>Статусы из 1С и CRM собираются в один список</small></span>
+                <span class="case-result"><small>На выходе</small><strong>Причина и ответственный</strong></span>
+                <span class="case-toggle" aria-hidden="true"><img src="./icons/chevron-down.svg" alt="" /></span>
+              </summary>
+              <div class="case-detail">
+                <div class="case-example"><span>Что делает пилот</span><p>Находит заказы без движения и объясняет, на каком этапе возникла задержка.</p></div>
+                <div class="case-check"><span>Как оцениваем</span><p>Полноту списка отклонений и скорость подготовки ежедневной сводки.</p></div>
+              </div>
+            </details>
+          </div>
+          <p class="cases-note">Это примеры сценариев. Конкретную задачу и критерии пилота определяем вместе с командой.</p>
+        </div>
+      </section>
+
+      <section class="content-section economics-section" id="economics" aria-labelledby="economics-title">
+        <div class="container">
+          <div class="economics-intro">
+            <h2 id="economics-title">Сколько времени<br />можно вернуть команде?</h2>
+            <p>Введите пять исходных данных. Расчёт обновится сразу и покажет месячный ресурс, а не обещание экономии.</p>
+          </div>
+          <div class="calculator-sheet">
+            <div class="calculator-sheet-head">
+              <strong>Расчёт нагрузки</strong>
+              <span>Горизонт: 1 месяц</span>
+            </div>
+            <div class="calculator-equation" role="group" aria-label="Исходные данные для расчёта времени">
+              <label class="calc-factor">
+                <span>Сотрудники</span>
+                <span class="calc-input"><input id="calc-people" type="number" min="0" max="999" step="1" value="12" inputmode="numeric" aria-describedby="calc-people-unit" /><small id="calc-people-unit">чел.</small></span>
+              </label>
+              <span class="calc-operator" aria-hidden="true">×</span>
+              <label class="calc-factor">
+                <span>Рутина в день</span>
+                <span class="calc-input"><input id="calc-minutes" type="number" min="0" max="1440" step="1" value="45" inputmode="numeric" aria-describedby="calc-minutes-unit" /><small id="calc-minutes-unit">мин.</small></span>
+              </label>
+              <span class="calc-operator" aria-hidden="true">×</span>
+              <label class="calc-factor">
+                <span>Рабочие дни</span>
+                <span class="calc-input"><input id="calc-days" type="number" min="0" max="31" step="1" value="22" inputmode="numeric" aria-describedby="calc-days-unit" /><small id="calc-days-unit">дней</small></span>
+              </label>
+              <span class="calc-operator" aria-hidden="true">×</span>
+              <label class="calc-factor">
+                <span>Можно сократить</span>
+                <span class="calc-input"><input id="calc-share" type="number" min="0" max="100" step="1" value="40" inputmode="numeric" aria-describedby="calc-share-unit" /><small id="calc-share-unit">%</small></span>
+              </label>
+            </div>
+            <div class="calculator-summary" aria-live="polite">
+              <div class="calculator-hours">
+                <span>Можно высвободить</span>
+                <div><output id="calc-hours">79,2</output><strong id="calc-hours-unit">часа в месяц</strong></div>
+                <p>Это оценка ресурса. Высвобождённые часы сами по себе не означают сокращение расходов.</p>
+              </div>
+              <div class="calculator-value">
+                <label class="calc-rate">
+                  <span>Стоимость часа</span>
+                  <span class="calc-input"><input id="calc-rate" type="number" min="0" max="1000000" step="100" value="800" inputmode="numeric" aria-describedby="calc-rate-unit" /><small id="calc-rate-unit">₽ / ч</small></span>
+                </label>
+                <div class="calculator-money">
+                  <span>Условная стоимость времени</span>
+                  <output id="calc-money">63 360 ₽</output>
+                </div>
+              </div>
+            </div>
+            <div class="calculator-formula"><span>Как посчитано</span><output id="calc-formula">12 чел. × 45 мин. × 22 дн. × 40% ÷ 60 = 79,2 ч</output></div>
+          </div>
+          <p class="economics-note"><strong>Важно:</strong> стоимость пилота и сопровождения оцениваем отдельно. Окупаемость считаем только по подтверждённым вводным.</p>
+        </div>
+      </section>
+
+      <section class="content-section departments-section" id="departments" aria-labelledby="departments-title">
+        <div class="container">
+          <div class="section-heading"><div><h2 id="departments-title">Один подход.<br />Разные задачи команд.</h2></div><p>Помощник ускоряет конкретный участок работы. Ответственность и проверка результата остаются у сотрудника.</p></div>
+          <div class="department-grid">
+            <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/handshake.svg" alt="" /></span><h3>Продажи</h3><p>Из письма клиента: черновик карточки и ответ по ассортименту.</p></article>
+            <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/package-search.svg" alt="" /></span><h3>Снабжение</h3><p>Сопоставить позиции в предложениях поставщиков для проверки.</p></article>
+            <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/receipt-text.svg" alt="" /></span><h3>Финансы</h3><p>Подготовить сверку документов и отметить расхождения.</p></article>
+            <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/scale.svg" alt="" /></span><h3>Юристы</h3><p>Найти нужный пункт договора и подготовить черновик замечаний.</p></article>
+            <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/users-round.svg" alt="" /></span><h3>HR</h3><p>Ответить на типовой вопрос сотрудника по внутренним правилам.</p></article>
+            <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/chart-no-axes-combined.svg" alt="" /></span><h3>Руководство</h3><p>Получить сводку по статусам, отклонениям и просрочкам.</p></article>
+          </div>
+          <p class="industry-line">Подход применим в производстве, оптовой торговле, дистрибуции, логистике и сервисных компаниях.</p>
+        </div>
+      </section>
+
+      <section class="content-section security-section" id="security" aria-labelledby="security-title">
+        <div class="container">
+          <div class="security-heading">
+            <div>
+              <h2 id="security-title">Сначала задаём границы.<br />Потом подключаем ИИ.</h2>
+            </div>
+          </div>
+
+          <div class="security-workbench" id="security-workbench">
+            <div class="security-canvas">
+              <div class="security-svg-wrap" id="security-svg-wrap" aria-busy="true">
+                <object class="security-svg" id="security-svg" type="image/svg+xml" data="./assets/ai-system-interactive.svg?v=12" aria-label="Интерактивная схема согласованного контура ИИ">
+                  <img src="./assets/ai-control-loop.png" alt="Согласованные источники передают данные ИИ-модулю. Правила ограничивают обработку, человек подтверждает критические действия, а результат возвращается в контур." />
+                </object>
+                <p class="security-load-status" id="security-load-status" role="status">Загружаем схему…</p>
+              </div>
+            </div>
+
+            <aside class="security-inspector" aria-label="Решения до запуска">
+              <div class="security-questions" role="group" aria-label="Вопросы для настройки контура">
+                <button type="button" class="security-question is-active" data-security-question="placement" aria-pressed="true"><strong>Где работает?</strong></button>
+                <button type="button" class="security-question" data-security-question="data" aria-pressed="false"><strong>Какие данные получает?</strong></button>
+                <button type="button" class="security-question" data-security-question="audit" aria-pressed="false"><strong>Что проверяем до запуска?</strong></button>
+                <button type="button" class="security-question" data-security-question="access" aria-pressed="false"><strong>Кто видит результат?</strong></button>
+                <button type="button" class="security-question" data-security-question="log" aria-pressed="false"><strong>Что остаётся в журнале?</strong></button>
+                <button type="button" class="security-question" data-security-question="human" aria-pressed="false"><strong>Кто принимает решение?</strong></button>
+              </div>
+              <div class="security-detail" id="security-detail" aria-live="polite" aria-atomic="true">
+                <h3 id="security-detail-title">Где будет работать ИИ?</h3>
+                <p id="security-detail-copy">В инфраструктуре клиента или согласованном облаке. Вариант размещения фиксируем до пилота.</p>
+                <div class="security-detail-map"><span aria-hidden="true"><svg viewBox="0 0 20 20"><path d="m5.5 10 3 3 6-7" /></svg></span><strong id="security-detail-map">На схеме: ИИ-модуль и границы</strong></div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section about-section" id="about" aria-labelledby="about-title">
+        <div class="container">
+          <header class="implementation-heading">
+            <h2 id="about-title">Масштабируем только то,<br />что доказало эффект.</h2>
+            <p>У каждого этапа есть проверяемый результат и критерий перехода: продолжать, изменить гипотезу или остановиться.</p>
+          </header>
+
+          <div class="implementation-system">
+            <div class="implementation-track" role="list" aria-label="Этапы внедрения">
+              <article class="implementation-stage implementation-stage-diagnostic" role="listitem">
+                <div class="implementation-stage-head">
+                  <span>Выбираем</span>
+                  <h3>Диагностика</h3>
+                </div>
+                <p class="implementation-stage-copy">Разбираем один процесс, источники данных и ручные операции. Фиксируем исходную метрику и владельца результата.</p>
+                <div class="implementation-artifact">
+                  <span>На выходе</span>
+                  <strong>Паспорт пилота</strong>
+                  <p>Задача, данные, владелец процесса и критерий успеха.</p>
+                </div>
+              </article>
+
+              <article class="implementation-stage implementation-stage-pilot" role="listitem">
+                <div class="implementation-stage-head">
+                  <span>Доказываем</span>
+                  <h3>Пилот</h3>
+                </div>
+                <p class="implementation-stage-copy">Запускаем решение на ограниченном контуре и сравниваем результат с исходной точкой.</p>
+                <dl class="implementation-scorecard">
+                  <div><dt>Качество</dt><dd>Ошибки и исключения</dd></div>
+                  <div><dt>Время</dt><dd>До и после пилота</dd></div>
+                  <div><dt>Экономика</dt><dd>Стоимость владения</dd></div>
+                </dl>
+                <div class="implementation-artifact">
+                  <span>На выходе</span>
+                  <strong>Решение о внедрении</strong>
+                  <p>Отчёт с измерениями, ограничениями и списком рисков.</p>
+                </div>
+              </article>
+
+              <article class="implementation-stage implementation-stage-scale" role="listitem">
+                <div class="implementation-stage-head">
+                  <span>Встраиваем</span>
+                  <h3>Масштабирование</h3>
+                </div>
+                <p class="implementation-stage-copy">Подключаем рабочие системы, роли и контроль. Обучаем команду и берём решение на сопровождение.</p>
+                <div class="implementation-artifact">
+                  <span>На выходе</span>
+                  <strong>Рабочий регламент</strong>
+                  <p>Интеграции, роли, точки контроля и поддержка.</p>
+                </div>
+              </article>
+            </div>
+
+            <aside class="implementation-rule" aria-label="Правило перехода между этапами">
+              <div>
+                <span>Решение после пилота</span>
+                <strong>Внедрять, изменить гипотезу или остановиться.</strong>
+                <p>Нет подтверждённого эффекта, нет масштабирования.</p>
+              </div>
+              <div class="implementation-gates">
+                <span>Для перехода нужны</span>
+                <ul>
+                  <li>измеримый эффект</li>
+                  <li>понятная экономика</li>
+                  <li>управляемые риски</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-layout"><div class="faq-intro"><h2 id="faq-title">Важные вопросы.<br />Прямые ответы.</h2><p>Границы, риски и экономика должны быть понятны до начала работ.</p></div><div class="faq-list">
+          <details open><summary>Нужно ли менять 1С или CRM?<span aria-hidden="true"></span></summary><p>Обычно нет. Сначала изучаем интерфейсы, настройки и ограничения существующих систем. Затем предлагаем способ подключения без необходимости менять всё сразу.</p></details>
+          <details><summary>Можно ли без облачных LLM?<span aria-hidden="true"></span></summary><p>Возможно локальное или частное развёртывание, если требования к данным и доступные ресурсы позволяют. Вариант размещения выбираем после оценки задачи и инфраструктуры.</p></details>
+          <details><summary>Сколько длится пилот?<span aria-hidden="true"></span></summary><p>Зависит от объёма, доступов и состояния данных. Для небольших сценариев ориентир: 2-4 недели после диагностики и согласования границ работ.</p></details>
+          <details><summary>Кто отвечает за ошибки ИИ?<span aria-hidden="true"></span></summary><p>До запуска определяем контроль качества, роли и ответственность. Критичные действия подтверждает человек; ошибки фиксируем и разбираем по согласованным правилам.</p></details>
+          <details><summary>Как оценивается окупаемость?<span aria-hidden="true"></span></summary><p>Сравниваем метрики до и после пилота с полной стоимостью решения. Срок окупаемости рассчитываем только по подтверждённым вводным.</p></details>
+        </div></div>
+      </section>
+
+      <section class="content-section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="contact-intro">
+            <h2 id="contact-title">Опишите один процесс.<br />Остальное разберём вместе.</h2>
+            <p>Без презентации и технического задания. Достаточно пары предложений о том, что происходит сейчас.</p>
+          </div>
+          <form class="contact-brief" id="contact-form">
+            <div class="contact-brief-head"><strong>Черновик первой встречи</strong><span>Разговор: 30 минут</span></div>
+            <div class="contact-identity">
+              <label class="brief-field"><span>Имя</span><input name="name" required autocomplete="name" placeholder="Как обращаться" aria-describedby="name-error" /><small class="field-error" id="name-error">Укажите имя.</small></label>
+              <label class="brief-field"><span>Компания</span><input name="company" required autocomplete="organization" placeholder="Название компании" aria-describedby="company-error" /><small class="field-error" id="company-error">Укажите компанию.</small></label>
+              <label class="brief-field"><span>Рабочая почта</span><input name="email" type="email" required autocomplete="email" placeholder="name@company.ru" aria-describedby="email-error" /><small class="field-error" id="email-error">Проверьте адрес почты.</small></label>
+              <label class="brief-field"><span>Телефон <em>необязательно</em></span><input name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00" /></label>
+            </div>
+            <label class="contact-task-field">
+              <span>Что сотрудники делают вручную?</span>
+              <textarea name="task" rows="5" required placeholder="Например: менеджер переносит заявки из почты в CRM, затем открывает 1С и вручную проверяет остатки." aria-describedby="task-helper task-error"></textarea>
+              <small class="field-error" id="task-error">Опишите процесс в нескольких словах.</small>
+              <small class="task-helper" id="task-helper">Добавьте, где находятся данные и какой результат нужен. Конфиденциальные документы не требуются.</small>
+            </label>
+            <div class="contact-actions">
+              <p>Сейчас сайт ничего не отправляет. Он только соберёт аккуратный текст, который можно скопировать.</p>
+              <button class="button button-primary form-submit" type="submit">Собрать черновик <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></button>
+            </div>
+            <div class="draft-result" id="draft-result" hidden>
+              <div class="draft-result-head"><label for="draft-text">Готовый текст</label><button class="button button-ghost" id="copy-draft" type="button">Скопировать</button></div>
+              <textarea id="draft-text" rows="7" readonly></textarea>
+            </div>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container"><div class="footer-main"><a class="wordmark" href="#top" aria-label="Corpagents, наверх"><span class="wordmark-symbol" aria-hidden="true"><img src="./icons/asterisk.svg" alt="" /></span><span>corpagents</span></a><nav aria-label="Навигация в подвале"><a href="#solutions">Решения</a><a href="#process">Как работаем</a><a href="#cases">Примеры пилотов</a><a href="#about">О нас</a><a href="#contact">Контакты</a></nav></div></div></footer>
+
+    <dialog class="info-dialog" id="scenario-dialog" aria-labelledby="scenario-dialog-title"><div class="dialog-header"><button type="button" class="dialog-close" aria-label="Закрыть окно" data-close-dialog><img src="./icons/x.svg" alt="" aria-hidden="true" /></button></div><div class="dialog-content"><h2 id="scenario-dialog-title">Обращения теряются в почте</h2><p class="dialog-intro" id="dialog-intro">Выбираем один входящий ящик и согласованные типы писем.</p><div class="dialog-compare"><div><p id="dialog-before">Сейчас менеджер переносит данные вручную.</p></div><div><p id="dialog-after">На пилоте ИИ готовит карточку, сотрудник проверяет.</p></div></div><p class="dialog-metric" id="dialog-metric">Проверяем время регистрации и полноту карточки.</p><button class="button button-ghost dialog-next" type="button" data-close-dialog>Вернуться к сценариям</button></div></dialog>
+    <dialog class="info-dialog" id="pilot-dialog" aria-labelledby="pilot-dialog-title"><div class="dialog-header"><button type="button" class="dialog-close" aria-label="Закрыть окно" data-close-dialog><img src="./icons/x.svg" alt="" aria-hidden="true" /></button></div><div class="dialog-content"><h2 id="pilot-dialog-title">Один процесс.<br /><span class="dialog-highlight">Проверяемый результат.</span></h2><p class="dialog-intro">Сначала коротко разбираем рабочую задачу. Затем согласуем границы пилота, доступы и критерии успеха. По итогам сравниваем результат с исходным процессом.</p><ul class="pilot-steps"><li><strong>Разбираем процесс</strong><small>Что сотрудники делают вручную и где находятся данные.</small></li><li><strong>Фиксируем пилот</strong><small>Объём, ограничения, сроки и способ измерения.</small></li><li><strong>Проверяем эффект</strong><small>Показываем результат и решаем, стоит ли расширять решение.</small></li></ul><p class="dialog-prototype-note">Контактная форма пока работает в демонстрационном режиме: данные не отправляются.</p></div></dialog>
+    <dialog class="info-dialog solution-dialog" id="solution-dialog" aria-labelledby="solution-dialog-title"><div class="dialog-header"><button type="button" class="dialog-close" aria-label="Закрыть окно" data-close-dialog><img src="./icons/x.svg" alt="" aria-hidden="true" /></button></div><div class="dialog-content"><h2 id="solution-dialog-title">Порядок в данных</h2><div class="solution-dialog-grid"><p id="solution-problem"></p><p id="solution-action"></p><p id="solution-result"></p></div><div class="solution-dialog-pilot"><strong id="solution-pilot"></strong><p id="solution-metric"></p></div><a class="button button-ghost" href="#contact" data-close-dialog>Обсудить эту задачу <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></a></div></dialog>
+  </body>
+</html>
