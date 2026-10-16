@@ -2,9 +2,9 @@
 #solutions, #process, #cases, #economics, #departments, #security, #faq, #contact { scroll-margin-top: 82px; }
 
 .solutions-section { padding-top: 110px; }
-.solutions-intro { max-width: 900px; margin-bottom: 42px; }
+.solutions-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 430px); align-items: end; gap: 60px; margin-bottom: 42px; }
 .solutions-intro h2 { font-size: 62px; font-weight: 600; line-height: 1.02; letter-spacing: -2.6px; }
-.solutions-intro > p:last-child { max-width: 650px; margin-top: 21px; color: var(--color-graphite); font: 400 19px/1.55 var(--font-lyon-text); }
+.solutions-intro > p:last-child { max-width: 430px; padding-bottom: 5px; color: var(--color-graphite); font: 400 19px/1.55 var(--font-lyon-text); }
 .solution-browser { --solution-panel: #f4c9b5; --solution-ink: #211a16; --solution-accent: #d94f35; --solution-accent-soft: #fce9e1; --solution-line: rgba(33,26,22,.18); display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(420px, .88fr); overflow: hidden; min-height: 590px; border: 1px solid rgba(33,26,22,.12); border-radius: var(--radius-cards); background: #fff; }
 .solution-browser button:focus-visible { outline-color: var(--solution-accent); }
 .solution-spotlight { position: relative; isolation: isolate; display: flex; flex-direction: column; overflow: hidden; min-width: 0; padding: 42px; background: var(--solution-panel); color: var(--solution-ink); }
@@ -177,14 +177,15 @@
 .cases-note { margin-top: 18px; color: #697b8a; font-size: 14px; line-height: 1.5; }
 
 .economics-section { padding-top: 88px; }
-.economics-intro { max-width: 850px; margin-bottom: 38px; }
-.economics-intro h2 { font-size: 58px; font-weight: 600; line-height: 1.02; letter-spacing: -2.2px; text-wrap: balance; }
-.economics-intro p { max-width: 690px; margin-top: 18px; color: var(--color-graphite); font: 400 18px/1.5 var(--font-lyon-text); text-wrap: pretty; }
-.calculator-sheet { overflow: hidden; border: var(--hairline); border-radius: var(--radius-cards); background: #fff; box-shadow: 0 18px 50px rgba(53, 48, 43, .06); }
-.calculator-sheet-head { display: flex; align-items: center; justify-content: space-between; min-height: 58px; padding: 0 30px; border-bottom: var(--hairline); }
+.economics-layout { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); grid-template-areas: 'intro calculator' 'next calculator'; grid-template-rows: auto 1fr; column-gap: clamp(48px, 5vw, 84px); align-items: start; }
+.economics-intro { grid-area: intro; max-width: 420px; }
+.economics-intro h2 { font-size: 52px; font-weight: 600; line-height: 1.03; letter-spacing: -2px; text-wrap: balance; }
+.economics-intro p { max-width: 400px; margin-top: 20px; color: var(--color-graphite); font: 400 18px/1.5 var(--font-lyon-text); text-wrap: pretty; }
+.calculator-sheet { grid-area: calculator; min-width: 0; overflow: hidden; border: var(--hairline); border-radius: var(--radius-cards); background: #fff; box-shadow: 0 18px 50px rgba(53, 48, 43, .06); }
+.calculator-sheet-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 58px; padding: 0 26px; border-bottom: var(--hairline); }
 .calculator-sheet-head strong { font-size: 14px; font-weight: 600; }
 .calculator-sheet-head span { color: var(--color-stone); font-size: 12px; }
-.calculator-equation { display: grid; grid-template-columns: minmax(145px, 1fr) 34px minmax(145px, 1fr) 34px minmax(145px, 1fr) 34px minmax(145px, 1fr); align-items: end; padding: 32px 30px 36px; }
+.calculator-equation { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: end; padding: 26px; }
 .calc-factor, .calc-rate { display: flex; flex-direction: column; gap: 9px; min-width: 0; color: var(--color-graphite); font-size: 12px; }
 .calc-input { display: flex; align-items: center; min-width: 0; height: 64px; padding: 0 16px; border: 1px solid rgba(0,0,0,.09); border-radius: 8px; background: var(--color-paper-warmth); transition: border-color 120ms ease-out, background-color 120ms ease-out, box-shadow 120ms ease-out, transform 120ms ease-out; }
 .calc-input:hover { border-color: rgba(0,0,0,.2); background: #f2f1ef; }
@@ -196,35 +197,54 @@
 .calc-input input:disabled { cursor: not-allowed; }
 .calc-input:has(input:disabled) { background: #eceae7; color: rgba(0,0,0,.42); cursor: not-allowed; }
 .calc-input small { flex: none; color: rgba(0,0,0,.42); font-size: 11px; white-space: nowrap; }
-.calc-operator { align-self: center; padding-top: 20px; color: rgba(0,0,0,.24); font-size: 24px; font-weight: 400; text-align: center; }
-.calculator-summary { display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr); min-height: 255px; border-top: var(--hairline); background: #f8f7f5; }
-.calculator-hours { display: flex; flex-direction: column; padding: 32px 30px 28px; }
+.calc-operator { display: none; }
+.calculator-summary { display: grid; grid-template-columns: minmax(0, 1.16fr) minmax(270px, .84fr); min-height: 225px; border-top: 1px solid #d0e3f3; background: #e8f3ff; }
+.calculator-hours { display: flex; flex-direction: column; padding: 26px; }
 .calculator-hours > span, .calculator-money > span { color: var(--color-graphite); font-size: 12px; }
-.calculator-hours > div { display: flex; align-items: baseline; gap: 18px; margin-top: 10px; }
-.calculator-hours output { min-width: 3.1ch; color: var(--color-notion-blue); font-size: 78px; font-weight: 600; line-height: .92; letter-spacing: -.065em; font-variant-numeric: tabular-nums; }
-.calculator-hours strong { max-width: 145px; color: var(--color-charcoal); font-size: 18px; font-weight: 500; line-height: 1.18; }
-.calculator-hours p { max-width: 520px; margin-top: auto; padding-top: 22px; color: rgba(0,0,0,.48); font-size: 11px; line-height: 1.5; }
-.calculator-value { display: flex; flex-direction: column; padding: 32px 30px 28px; border-left: var(--hairline); }
+.calculator-hours > div { display: flex; align-items: baseline; gap: 12px; margin-top: 10px; }
+.calculator-hours output { min-width: 3.1ch; color: var(--color-notion-blue); font-size: 66px; font-weight: 600; line-height: .92; letter-spacing: -.065em; font-variant-numeric: tabular-nums; }
+.calculator-hours strong { max-width: 120px; color: var(--color-charcoal); font-size: 15px; font-weight: 500; line-height: 1.18; }
+.calculator-hours p { max-width: 520px; margin-top: auto; padding-top: 22px; color: #596e7d; font-size: 11px; line-height: 1.5; }
+.calculator-value { display: flex; flex-direction: column; padding: 26px; border-left: 1px solid #d0e3f3; background: #f2f8ff; }
 .calc-rate { max-width: 260px; }
 .calc-rate .calc-input { height: 54px; background: #fff; }
 .calc-rate .calc-input input { font-size: 24px; }
 .calculator-money { margin-top: auto; padding-top: 28px; }
-.calculator-money output { display: block; margin-top: 7px; color: var(--color-charcoal); font-size: 40px; font-weight: 600; line-height: 1; letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
-.calculator-formula { display: grid; grid-template-columns: 150px minmax(0, 1fr); align-items: center; min-height: 58px; padding: 12px 30px; border-top: var(--hairline); background: #fff; }
+.calculator-money output { display: block; margin-top: 7px; color: var(--color-charcoal); font-size: 36px; font-weight: 600; line-height: 1; letter-spacing: -.045em; font-variant-numeric: tabular-nums; }
+.calculator-formula { display: grid; grid-template-columns: 100px minmax(0, 1fr); align-items: center; min-height: 58px; padding: 12px 26px; border-top: var(--hairline); background: #fff; }
 .calculator-formula span { color: var(--color-stone); font-size: 11px; }
-.calculator-formula output { overflow: hidden; color: var(--color-charcoal); font-size: 14px; font-weight: 500; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.calculator-formula output { overflow: hidden; color: var(--color-charcoal); font-size: 12px; font-weight: 500; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .economics-note { max-width: 900px; margin-top: 18px; color: var(--color-graphite); font-size: 12px; line-height: 1.5; text-wrap: pretty; }
 .economics-note strong { color: var(--color-charcoal); font-weight: 600; }
-.economics-next { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 20px; }
+.economics-next { display: flex; flex-direction: column; align-items: flex-start; grid-area: next; align-self: end; gap: 18px; margin-top: 32px; }
 .economics-next p { max-width: 760px; color: var(--color-graphite); font-size: 12px; line-height: 1.5; }
 .economics-next strong { color: var(--color-charcoal); font-weight: 600; }
 .economics-next .button { flex: none; }
 
 .department-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.department-card { min-height: 202px; padding: 24px; border: var(--hairline); border-radius: var(--radius-cards); background: #fff; }
-.department-icon { display: grid; place-items: center; width: 42px; height: 42px; }
-.department-icon img { display: block; width: 42px; height: 42px; }
-.department-card h3 { margin-top: 18px; font-size: 22px; font-weight: 600; letter-spacing: -.025em; }
+.department-card {
+  --department-wash: #f1f8ff;
+  --department-icon-fill: #deefff;
+  --department-border: #dceaf7;
+  min-height: 202px;
+  padding: 24px;
+  border: 1px solid var(--department-border);
+  border-radius: var(--radius-cards);
+  background: linear-gradient(145deg, #fff 32%, var(--department-wash) 100%);
+}
+.department-card:nth-child(2), .department-card:nth-child(5) {
+  --department-wash: #fffbf1;
+  --department-icon-fill: #ffedca;
+  --department-border: #f3e8ce;
+}
+.department-card:nth-child(3), .department-card:nth-child(4) {
+  --department-wash: #fff7f3;
+  --department-icon-fill: #ffe5dc;
+  --department-border: #f2dfd8;
+}
+.department-icon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 12px; background: var(--department-icon-fill); }
+.department-icon img { display: block; width: 36px; height: 36px; }
+.department-card h3 { margin-top: 16px; font-size: 22px; font-weight: 600; letter-spacing: -.025em; }
 .department-card p { max-width: 340px; margin-top: 7px; color: var(--color-graphite); font-size: 14px; line-height: 1.47; }
 .industry-line { margin-top: 28px; padding-top: 20px; border-top: var(--hairline); color: var(--color-graphite); font-size: 14px; line-height: 1.5; }
 
@@ -266,6 +286,7 @@
 .faq-intro > p:last-child { max-width: 350px; margin-top: 18px; color: var(--color-graphite); font: 400 18px/1.5 var(--font-lyon-text); }
 .faq-list { overflow: hidden; border: var(--hairline); border-radius: var(--radius-cards); background: #fff; }
 .faq-list details + details { border-top: var(--hairline); }
+.faq-list details[open] { background: #fffaf7; }
 .faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 78px; padding: 20px 24px; font-size: 16px; font-weight: 600; list-style: none; cursor: pointer; }
 .faq-list summary::-webkit-details-marker { display: none; }
 .faq-list summary span { display: grid; place-items: center; width: 28px; height: 28px; flex: none; }
@@ -274,6 +295,7 @@
 .faq-list details p { max-width: 680px; padding: 0 24px 24px; color: var(--color-graphite); font-size: 14px; line-height: 1.55; }
 
 .contact-section { padding-top: 88px; padding-bottom: 100px; background: #fff; }
+.contact-panel.container { max-width: 1320px; padding: 52px 54px 56px; border: 1px solid #d9e9f5; border-radius: 16px; background: #fff; box-shadow: 0 22px 60px rgba(35,86,130,.07); }
 .contact-intro { max-width: 980px; }
 .contact-intro h2 { font-size: 64px; font-weight: 600; line-height: 1.01; letter-spacing: -2.5px; text-wrap: balance; }
 .contact-intro p { max-width: 700px; margin-top: 19px; color: var(--color-graphite); font: 400 18px/1.5 var(--font-lyon-text); text-wrap: pretty; }
@@ -282,7 +304,7 @@
 .contact-brief-head { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 4px 17px; }
 .contact-brief-head strong { font-size: 15px; font-weight: 600; }
 .contact-brief-head span { color: var(--color-stone); font-size: 12px; }
-.contact-identity { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 10px; border-radius: var(--radius-cards); background: var(--color-paper-warmth); }
+.contact-identity { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 10px; border: 1px solid #e2edf5; border-radius: var(--radius-cards); background: #f3f8fc; }
 .brief-field, .contact-task-field { display: flex; flex-direction: column; min-width: 0; }
 .brief-field { min-height: 78px; padding: 11px 13px 9px; border-radius: 9px; transition: background-color 120ms ease-out, box-shadow 120ms ease-out; }
 .brief-field > span, .contact-task-field > span { color: var(--color-charcoal); font-size: 12px; font-weight: 600; }
@@ -293,7 +315,7 @@
 .brief-field input::placeholder { color: rgba(0,0,0,.38); font-weight: 400; }
 .contact-task-field { margin-top: 34px; }
 .contact-task-field > span { font-size: 18px; }
-.contact-task-field textarea { width: 100%; min-width: 0; min-height: 150px; margin-top: 13px; padding: 22px 24px; resize: vertical; border: 1px solid transparent; border-radius: var(--radius-cards); outline: 0; background: var(--color-sky-tint); color: var(--color-charcoal); font: 500 18px/1.45 var(--font-notioninter); transition: border-color 120ms ease-out, box-shadow 120ms ease-out, background-color 120ms ease-out; }
+.contact-task-field textarea { width: 100%; min-width: 0; min-height: 150px; margin-top: 13px; padding: 22px 24px; resize: vertical; border: 1px solid #e2edf5; border-radius: var(--radius-cards); outline: 0; background: #f3f8fc; color: var(--color-charcoal); font: 500 18px/1.45 var(--font-notioninter); transition: border-color 120ms ease-out, box-shadow 120ms ease-out, background-color 120ms ease-out; }
 .contact-task-field textarea:hover { background: #dceefe; }
 .contact-task-field textarea:focus-visible { border-color: var(--color-notion-blue); background: #eef7ff; box-shadow: 0 0 0 3px rgba(0,117,222,.15); }
 .contact-task-field textarea::placeholder { color: rgba(0,0,0,.36); font-weight: 400; }
@@ -369,31 +391,31 @@ main > section[class] {
 
 .security-section {
   --section-from: #eff3f4;
-  --section-fill: #eef4f6;
-  --section-to: #f1f5f7;
+  --section-fill: #e5f1fa;
+  --section-to: #f1f4f1;
 }
 
 .economics-section {
-  --section-from: #f1f5f7;
-  --section-fill: #f2f5f6;
-  --section-to: #eaf0f4;
+  --section-from: #f1f4f1;
+  --section-fill: #f8f3e9;
+  --section-to: #edf1eb;
 }
 
 .departments-section {
-  --section-from: #eaf0f4;
-  --section-fill: var(--canvas-steel);
-  --section-to: #f4f5f2;
+  --section-from: #edf1eb;
+  --section-fill: #e5efe9;
+  --section-to: #f5eee9;
 }
 
 .faq-section {
-  --section-from: #f4f5f2;
-  --section-fill: #eef3f5;
-  --section-to: #edf3f6;
+  --section-from: #f5eee9;
+  --section-fill: #f9eee8;
+  --section-to: #eff5fb;
 }
 
 .contact-section {
-  --section-from: #edf3f6;
-  --section-fill: var(--canvas-cloud);
+  --section-from: #eff5fb;
+  --section-fill: #eaf5ff;
   --section-to: #f8fafb;
 }
 
@@ -419,6 +441,11 @@ main > section[class] {
 }
 
 @media (max-width: 1180px) {
+  .economics-layout { grid-template-columns: 1fr; grid-template-areas: 'intro' 'calculator' 'next'; grid-template-rows: auto; gap: 30px; }
+  .economics-intro { max-width: 850px; }
+  .economics-intro p { max-width: 690px; }
+  .economics-next { align-self: auto; flex-direction: row; align-items: center; justify-content: space-between; margin-top: 0; }
+  .contact-panel.container { padding: 44px 40px 48px; }
   .solutions-intro h2 { font-size: 54px; letter-spacing: -1.9px; }
   .solution-browser { grid-template-columns: minmax(0, 1.04fr) minmax(380px, .96fr); }
   .solution-spotlight { padding: 34px; }
@@ -449,7 +476,7 @@ main > section[class] {
   .case-flow { gap: 6px; }
   .case-flow--mail, .case-flow--status { gap: 8px; }
   .economics-intro h2 { font-size: 50px; letter-spacing: -1.9px; }
-  .calculator-equation { grid-template-columns: minmax(130px, 1fr) 26px minmax(130px, 1fr) 26px minmax(130px, 1fr) 26px minmax(130px, 1fr); padding-right: 24px; padding-left: 24px; }
+  .calculator-equation { padding-right: 24px; padding-left: 24px; }
   .calculator-sheet-head, .calculator-hours, .calculator-value, .calculator-formula { padding-right: 24px; padding-left: 24px; }
   .calculator-hours output { font-size: 70px; }
   .security-heading h2 { font-size: 50px; letter-spacing: -1.9px; }
@@ -463,6 +490,7 @@ main > section[class] {
 }
 
 @media (max-width: 980px) {
+  .contact-identity { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 16px; }
   .section-heading > p { max-width: 680px; padding-bottom: 0; }
   .scenario-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -477,6 +505,8 @@ main > section[class] {
 }
 
 @media (max-width: 1100px) {
+  .solutions-intro { grid-template-columns: 1fr; gap: 18px; }
+  .solutions-intro > p:last-child { max-width: 680px; padding-bottom: 0; }
   .cases-intro { align-items: start; }
   .cases-intro p { max-width: 300px; }
   .case-item { grid-template-columns: minmax(175px, .65fr) minmax(0, 1.35fr); row-gap: 13px; min-height: 0; padding: 20px 24px; }
@@ -494,6 +524,7 @@ main > section[class] {
 }
 
 @media (max-width: 767px) {
+  .contact-panel.container { width: calc(100% - 32px); padding: 30px 20px 34px; }
   .content-section { padding: 64px 0; }
   .scenarios { padding: 64px 0; }
   .section-heading h2 { font-size: 40px; letter-spacing: -1.4px; }
@@ -558,7 +589,7 @@ main > section[class] {
   .calculator-equation { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
   .calc-operator { display: none; }
   .calculator-summary { grid-template-columns: 1fr; }
-  .calculator-value { min-height: 220px; border-top: var(--hairline); border-left: 0; }
+  .calculator-value { min-height: 220px; border-top: 1px solid #d0e3f3; border-left: 0; }
   .calculator-formula { grid-template-columns: 1fr; gap: 5px; }
   .calculator-formula output { white-space: normal; }
   .security-heading h2 { font-size: 40px; letter-spacing: -1.4px; }

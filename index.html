@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css?v=17" />
-    <link rel="stylesheet" href="./sections.css?v=46" />
+    <link rel="stylesheet" href="./sections.css?v=55" />
     <link rel="stylesheet" href="./Hero%20block/styles.css" />
     <link rel="stylesheet" href="./hero-adaptation.css?v=9" />
       <script src="./script.js?v=6" defer></script>
@@ -307,7 +307,7 @@
 
             <div class="security-canvas">
               <div class="security-svg-wrap" id="security-svg-wrap" aria-busy="true">
-                <object class="security-svg" id="security-svg" type="image/svg+xml" data="./assets/ai-system-interactive.svg?v=13" aria-label="Интерактивная схема согласованного контура ИИ">
+                <object class="security-svg" id="security-svg" type="image/svg+xml" data="./assets/ai-system-interactive.svg?v=15" aria-label="Интерактивная схема согласованного контура ИИ">
                   <img src="./assets/ai-control-loop.png" alt="Согласованные источники передают данные ИИ-модулю. Правила ограничивают обработку, человек подтверждает критические действия, а результат возвращается в контур." />
                 </object>
                 <p class="security-load-status" id="security-load-status" role="status">Загружаем схему…</p>
@@ -318,9 +318,9 @@
       </section>
 
       <section class="content-section economics-section" id="economics" aria-labelledby="economics-title">
-        <div class="container">
+        <div class="container economics-layout">
           <div class="economics-intro">
-            <h2 id="economics-title">Оцените объём ручной<br />работы за месяц.</h2>
+            <h2 id="economics-title">Оцените объём ручной работы за месяц.</h2>
             <p>Замените пример своими числами. Расчёт покажет потенциально высвобождаемое время; фактический эффект проверяем на пилоте.</p>
           </div>
           <div class="calculator-sheet">
@@ -368,7 +368,7 @@
             </div>
             <div class="calculator-formula"><span>Как посчитано</span><output id="calc-formula">12 чел. × 45 мин. × 22 дн. × 40% ÷ 60 = 79,2 ч</output></div>
           </div>
-          <div class="economics-next"><p><strong>Важно:</strong> расчёт не учитывает стоимость пилота и сопровождения. Окупаемость считаем по подтверждённым результатам.</p><a class="button button-ghost" href="#contact" id="calculator-cta">Подготовить запрос с расчётом</a></div>
+          <div class="economics-next"><p><strong>Важно:</strong> расчёт не учитывает стоимость пилота и сопровождения. Окупаемость считаем по подтверждённым результатам.</p><a class="button button-primary" href="#contact" id="calculator-cta">Подготовить запрос с расчётом</a></div>
         </div>
       </section>
 
@@ -400,7 +400,7 @@
       </section>
 
       <section class="content-section contact-section" id="contact" aria-labelledby="contact-title">
-        <div class="container">
+        <div class="container contact-panel">
           <div class="contact-intro">
             <h2 id="contact-title">Расскажите, какую ручную<br />работу хотите сократить.</h2>
             <p>Достаточно пары предложений о процессе. Подготовим текст запроса, который можно передать без презентации и технического задания.</p>

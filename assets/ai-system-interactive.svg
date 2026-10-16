@@ -16,11 +16,6 @@
     <filter id="ambient-blur" x="-35%" y="-35%" width="170%" height="170%">
       <feGaussianBlur stdDeviation="20"/>
     </filter>
-    <radialGradient id="core-gradient" cx="30%" cy="23%" r="87%">
-      <stop stop-color="#2584ce"/>
-      <stop offset=".5" stop-color="#1378c5"/>
-      <stop offset="1" stop-color="#0a67b4"/>
-    </radialGradient>
     <filter id="core-depth" x="-20%" y="-20%" width="140%" height="150%">
       <feDropShadow dx="0" dy="7" stdDeviation="9" flood-color="#0a5d9f" flood-opacity=".18"/>
     </filter>
@@ -60,7 +55,7 @@
     .node-copy{fill:#587083;font-size:14px;font-weight:450}
     .node-surface{fill:#fff;stroke:#c9d9e5;stroke-width:1.6}
     .icon{color:#29465d;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-    .core{fill:url(#core-gradient);stroke:#0c73c8;stroke-width:2;filter:url(#core-depth)}
+    .core{fill:#0069c9;stroke:#0069c9;stroke-width:2;filter:url(#core-depth)}
     .core-ring{fill:none;stroke:#8fc9ff;stroke-width:10;opacity:.42}
     .core-icon{color:#fff}
     .core-title{fill:#fff;font-size:29px;font-weight:700;letter-spacing:-.8px}
