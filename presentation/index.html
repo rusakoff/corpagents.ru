@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corp Agents | Внедрение ИИ в отдел продаж перевозок</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main class="deck">
+  <section class="slide slide-cover" aria-label="Титульный слайд">
+    <div class="cover-grid"></div>
+    <div class="slide-inner">
+      <div class="brand brand-light"><img src="../icons/asterisk.svg" alt=""><span>corpagents</span></div>
+      <div class="cover-copy">
+        <p class="eyebrow eyebrow-light">Для отдела продаж перевозок</p>
+        <h1>ИИ для отдела<br>продаж<br><em>перевозок.</em></h1>
+        <p class="cover-lead">Письмо и вложения становятся карточкой в CRM и черновиком КП. Менеджер проверяет данные и письмо, ответственный утверждает ставку. CRM напоминает о следующем контакте.</p>
+      </div>
+      <div class="cover-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="cover-node cover-node-main"><span class="spark">✳</span><strong>ИИ</strong><small>в процессе продаж</small></div>
+        <div class="cover-node cover-node-mail"><img src="../icons/mail.svg" alt=""><span>Заявка</span></div>
+        <div class="cover-node cover-node-onec"><img src="../icons/receipt-text.svg" alt=""><span>Ставка</span></div>
+        <div class="cover-node cover-node-crm"><img src="../icons/database.svg" alt=""><span>CRM</span></div>
+        <div class="cover-node cover-node-doc"><img src="../icons/files.svg" alt=""><span>Вложения</span></div>
+        <div class="cover-pill">Цена и отправка под контролем сотрудника <b>↗</b></div>
+      </div>
+      <div class="cover-bottom"><span>Пилот внедрения для руководителя продаж</span><span>01 / 11</span></div>
+    </div>
+  </section>
+
+  <section class="slide slide-light" aria-label="Путь заявки">
+    <div class="slide-inner">
+      <header class="slide-header"><span class="kicker">01 / Процесс</span><span class="header-mark">CA • 02</span></header>
+      <h2 class="title">Где теряется время<br>между запросом и <em>КП</em></h2>
+      <p class="intro">Проверим путь типовой заявки в вашем отделе. Эта схема показывает участки для пилота и не описывает ваши внутренние процессы.</p>
+      <div class="friction-layout">
+        <div class="friction-list">
+          <div class="friction-item"><span class="friction-num">01</span><div><strong>Взять запрос в работу</strong><p>Проверим, сколько времени письмо с параметрами груза остаётся без карточки и владельца в CRM.</p></div></div>
+          <div class="friction-item"><span class="friction-num">02</span><div><strong>Подготовить ставку</strong><p>Для КП нужно найти действующие условия, получить цену и согласовать исключения.</p></div></div>
+          <div class="friction-item"><span class="friction-num">03</span><div><strong>Вернуться к клиенту</strong><p>После отправки КП нужен владелец следующего контакта и понятная дата.</p></div></div>
+        </div>
+        <div class="friction-graphic">
+          <div class="fg-label">Один запрос на перевозку</div>
+          <div class="fg-row"><span>Письмо</span><i>→</i><span>Расчёт</span><i>→</i><span>КП</span><i>→</i><span>Контакт</span></div>
+          <div class="fg-hand"><span class="hand-icon">↻</span><strong>На каждом этапе есть ручная проверка</strong></div>
+          <div class="fg-bottom">На пилоте проверим, какие действия можно подготовить автоматически и сколько времени это сэкономит.</div>
+        </div>
+      </div>
+      <footer class="slide-footer"><span>Проверяем процесс на ваших заявках</span><span>02 / 11</span></footer>
+    </div>
+  </section>
+
+  <section class="slide slide-blue" aria-label="Как ИИ-агент работает с заявкой">
+    <div class="slide-inner">
+      <header class="slide-header"><span class="kicker">02 / Решение</span><span class="header-mark">CA • 03</span></header>
+      <h2 class="title">Как ИИ-агент<br><em>работает с заявкой</em></h2>
+      <p class="intro">Подключаем один канал заявок, CRM и согласованные источники условий. Менеджер работает с черновиками в привычном маршруте.</p>
+      <div class="operation-flow">
+        <div class="op op-source"><span class="op-no">1</span><div class="op-icon"><img src="../icons/mail.svg" alt=""></div><strong>Источники</strong><p>Почта, вложения, CRM и условия перевозки</p></div>
+        <div class="op-arrow">→</div>
+        <div class="op op-prepare"><span class="op-no">2</span><div class="op-icon"><img src="../icons/sparkles.svg" alt=""></div><strong>Разбирает запрос</strong><p>Готовит карточку, отмечает пропуски; CRM назначает владельца</p></div>
+        <div class="op-arrow">→</div>
+        <div class="op op-check"><span class="op-no">3</span><div class="op-icon"><img src="../icons/receipt-text.svg" alt=""></div><strong>Готовит КП</strong><p>Собирает черновик с указанием источников</p></div>
+        <div class="op-arrow">→</div>
+        <div class="op op-result"><span class="op-no">4</span><div class="op-icon"><img src="../icons/list-checks.svg" alt=""></div><strong>Менеджер</strong><p>Проверяет цену, письмо и следующий контакт</p></div>
+      </div>
+      <div class="principle-strip"><span class="principle-dot"></span><span>Для пилота выбираем один вид перевозки. Цена и отправка КП требуют подтверждения сотрудником.</span></div>
+      <footer class="slide-footer"><span>Решение встраивается в действующий процесс продаж</span><span>03 / 11</span></footer>
+    </div>
+  </section>
+
+  <section class="slide slide-light" aria-label="Пример заявки">
+    <div class="slide-inner">
+      <header class="slide-header"><span class="kicker">03 / Разбор заявки</span><span class="header-mark">CA • 04</span></header>
+      <div class="split-heading"><div><h2 class="title">Заявка в письме.<br><em>Карточка на проверке.</em></h2><p class="intro">Условный пример: автоперевозка из Москвы в Казань, 12 палет, забор на следующей неделе.</p></div><span class="scenario-tag">Иллюстрация, не кейс клиента</span></div>
+      <div class="scenario-layout">
+        <div class="mail-window">
+          <div class="mock-top"><span class="traffic"><i></i><i></i><i></i></span><span>Входящее письмо</span><span>↗</span></div>
+          <div class="mail-body"><span class="mail-from">Клиент → отдел продаж</span><strong>Рассчитайте перевозку</strong><p>Москва → Казань. 12 палет. Забор на следующей неделе. Спецификация во вложении.</p><div class="attachments"><span>PDF • груз</span><span>Нужно уточнить вес и адрес</span></div></div>
+        </div>
+        <div class="scenario-arrow"><span>→</span><small>ИИ извлекает</small></div>
+        <div class="crm-window">
+          <div class="mock-top"><span class="crm-dot"></span><span>Карточка в CRM</span><span class="status-draft">на проверке</span></div>
+          <div class="crm-body"><div><span>Маршрут</span><strong>Москва → Казань</strong></div><div><span>Груз</span><strong>12 палет</strong></div><div><span>Дата забора</span><strong>следующая неделя</strong></div><div><span>Нужно уточнить</span><strong>вес, адрес погрузки</strong></div></div>
+          <div class="crm-confirm"><span>Менеджер проверяет и принимает запрос в работу</span><b>✓</b></div>
+        </div>
+      </div>
+      <div class="metric-line"><strong>Проверяем</strong><span>время разбора</span><span>обязательные поля</span><span>число исправлений</span></div>
+      <footer class="slide-footer"><span>Данные в карточке подтверждает менеджер</span><span>04 / 11</span></footer>
+    </div>
+  </section>
+
+  <section class="slide slide-cream" aria-label="Подготовка КП">
+    <div class="slide-inner">
+      <header class="slide-header"><span class="kicker">04 / Подготовка КП</span><span class="header-mark">CA • 05</span></header>
+      <h2 class="title">КП из проверенных<br><em>условий и ставки</em></h2>
+      <p class="intro">ИИ берёт условия из согласованных источников и показывает основание каждого пункта. Если данные расходятся, вопрос остаётся открытым.</p>
+      <div class="compare-flow">
+        <div class="document-stack"><div class="doc-card doc-one"><img src="../icons/receipt-text.svg" alt=""><strong>Ставка</strong><small>цена • срок действия</small></div><div class="doc-card doc-two"><img src="../icons/files.svg" alt=""><strong>Условия</strong><small>ограничения • услуги</small></div><div class="doc-card doc-three"><img src="../icons/database.svg" alt=""><strong>Клиент</strong><small>договорённости • CRM</small></div></div>
+        <div class="compare-center"><div class="compare-circle">→</div><span>черновик<br>на проверку</span></div>
+        <div class="difference-panel"><span class="panel-eyebrow">Коммерческое предложение</span><strong>Условия с источниками</strong><div class="difference-row"><i></i><span>Ставка и дата действия</span><b>✓</b></div><div class="difference-row"><i></i><span>Срок и ограничения</span><b>✓</b></div><div class="difference-row"><i></i><span>Исключения по заявке</span><b>?</b></div><div class="panel-note">Ответственный утверждает цену. Менеджер отправляет КП.</div></div>
+      </div>
+      <div class="metric-line"><strong>Проверяем</strong><span>время до КП</span><span>возвраты на перерасчёт</span><span>причины задержек</span></div>
+      <footer class="slide-footer"><span>Цену утверждает сотрудник; порядок согласования определяем с вами</span><span>05 / 11</span></footer>
+    </div>
+  </section>
+
+  <section class="slide slide-light" aria-label="Работа после КП">
+    <div class="slide-inner">
+      <header class="slide-header"><span class="kicker">05 / Работа с клиентом</span><span class="header-mark">CA • 06</span></header>
+      <h2 class="title">После КП есть<br><em>следующий шаг</em></h2>
+      <p class="intro">ИИ сравнивает ответ клиента с исходной заявкой. CRM напоминает о следующем контакте и сроке действия ставки.</p>
+      <div class="usecase-grid">
+        <div class="usecase"><span class="usecase-icon"><img src="../icons/list-checks.svg" alt=""></span><span class="usecase-n">01</span><strong>Нет следующего контакта</strong><p>Правило в CRM показывает отправленные КП без даты действия или владельца.</p><div><b>Менеджер</b> назначает контакт в CRM</div></div>
+        <div class="usecase"><span class="usecase-icon"><img src="../icons/files.svg" alt=""></span><span class="usecase-n">02</span><strong>Запрос изменился</strong><p>Новый груз, маршрут или дата сравниваются с версией, по которой считали ставку.</p><div><b>Менеджер</b> отправляет заявку на пересчёт</div></div>
+        <div class="usecase"><span class="usecase-icon"><img src="../icons/receipt-text.svg" alt=""></span><span class="usecase-n">03</span><strong>Ставка истекает</strong><p>Правило в CRM напоминает проверить срок цены перед повторной отправкой.</p><div><b>Менеджер</b> согласует ставку заново</div></div>
+      </div>
+      <div class="usecase-bottom">Система показывает изменения. CRM ведёт сроки и задачи. Контакт с клиентом остаётся за менеджером.</div>
+      <footer class="slide-footer"><span>Работу с повторными обращениями уточним по вашей воронке</span><span>06 / 11</span></footer>
+    </div>
+  </section>
+
+  <section class="slide slide-ink" aria-label="Измерение результата">
+    <div class="slide-inner">
+      <header class="slide-header"><span class="kicker">06 / Результат</span><span class="header-mark">CA • 07</span></header>
+      <h2 class="title">Результат проверим<br><em>на ваших заявках</em></h2>
+      <p class="intro">Берём одинаковый тип запросов до пилота и во время него. Исходные цифры фиксируем до настройки.</p>
+      <div class="economics-layout">
+        <div class="formula-card metric-board"><span class="formula-label">Что сравниваем</span><div class="board-row"><strong>Скорость</strong><span>от письма до карточки и согласованного КП</span></div><div class="board-row"><strong>Качество</strong><span>пропуски в полях, исправления, перерасчёты</span></div><div class="board-row"><strong>Воронка</strong><span>входящие без владельца, КП без следующего контакта</span></div></div>
+        <div class="example-card measurement-card"><span class="example-top">Форма итогового отчёта</span><div class="measure-head"><span>Показатель</span><span>До</span><span>Пилот</span></div><div class="measure-row"><strong>До карточки</strong><b>___</b><b>___</b></div><div class="measure-row"><strong>До КП</strong><b>___</b><b>___</b></div><div class="measure-row"><strong>КП с контактом</strong><b>___</b><b>___</b></div><p>Конверсию в договор оценим после накопления сделок. На неё влияет не только скорость работы отдела.</p></div>
+      </div>
+      <footer class="slide-footer"><span>Числа в отчёте появятся только после замеров</span><span>07 / 11</span></footer>
+    </div>
+  </section>
+
+  <section class="slide slide-light" aria-label="План пилота">
+    <div class="slide-inner">
+      <header class="slide-header"><span class="kicker">07 / План работ</span><span class="header-mark">CA • 08</span></header>
+      <h2 class="title">Как внедрим ИИ<br><em>на одном потоке</em></h2>
+      <p class="intro">Начинаем с одного вида перевозки и одного канала заявок. До старта согласуем доступы, источник ставок и критерии проверки.</p>
+      <div class="pilot-timeline">
+        <div class="pilot-step"><span class="step-top">01 / Границы</span><div class="step-dot"></div><strong>Выбираем поток</strong><p>Фиксируем исходное время, пропуски в данных и возвраты КП.</p></div>
+        <div class="pilot-step"><span class="step-top">02 / Подключение</span><div class="step-dot"></div><strong>Подключаем источники</strong><p>Почту, CRM и согласованные условия перевозки в пределах доступа.</p></div>
+        <div class="pilot-step"><span class="step-top">03 / Работа</span><div class="step-dot"></div><strong>Проверяем черновики</strong><p>Менеджеры отмечают ошибки в карточках и КП на ограниченном потоке.</p></div>
+        <div class="pilot-step"><span class="step-top">04 / Решение</span><div class="step-dot"></div><strong>Сравниваем</strong><p>Показываем замеры, исключения и стоимость расширения.</p></div>
+      </div>
+      <div class="pilot-duration"><span class="duration-number">2-4</span><span class="duration-copy"><strong>недели на настройку небольшого сценария</strong><small>после согласования доступа; точные сроки и смету дадим после оценки CRM и данных</small></span></div>
+      <footer class="slide-footer"><span>Сложность интеграции оцениваем отдельно до запуска</span><span>08 / 11</span></footer>
+    </div>
+  </section>
+
+  <section class="slide slide-cream" aria-label="Контроль цены и данных">
+    <div class="slide-inner">
+      <header class="slide-header"><span class="kicker">08 / Контроль</span><span class="header-mark">CA • 09</span></header>
+      <h2 class="title">Цена и письмо клиенту<br><em>под контролем</em></h2>
+      <p class="intro">ИИ может ошибиться в условии или ставке. Поэтому он готовит черновик, а итоговую цену и письмо клиенту подтверждает сотрудник.</p>
+      <div class="control-layout">
+        <div class="control-main"><div class="control-center"><span class="control-spark">✳</span><strong>Черновик<br>КП</strong></div><div class="control-line cl-top"></div><div class="control-line cl-right"></div><div class="control-line cl-bottom"></div><div class="control-line cl-left"></div><div class="control-sat sat-top"><b>01</b><span>Согласованные источники ставок</span></div><div class="control-sat sat-right"><b>02</b><span>Роли и доступы</span></div><div class="control-sat sat-bottom"><b>03</b><span>Журнал действий и ошибок</span></div><div class="control-sat sat-left"><b>04</b><span>Проверка сотрудником</span></div></div>
+        <div class="control-aside"><span class="aside-label">До запуска решаем</span><div><strong>Где лежат данные?</strong><p>Способ размещения и доступ согласуем с ИТ-службой.</p></div><div><strong>Кто утверждает ставку?</strong><p>Сохраняем действующий порядок согласования цены.</p></div><div><strong>Кто отправляет КП?</strong><p>Менеджер проверяет текст и подтверждает отправку.</p></div></div>
+      </div>
+      <footer class="slide-footer"><span>Интеграцию с CRM и требования к данным согласуем до пилота</span><span>09 / 11</span></footer>
+    </div>
+  </section>
+
+  <section class="slide slide-blue" aria-label="Решение после пилота">
+    <div class="slide-inner">
+      <header class="slide-header"><span class="kicker">09 / Решение</span><span class="header-mark">CA • 10</span></header>
+      <h2 class="title">Решение о расширении<br><em>по данным пилота</em></h2>
+      <p class="intro">После пилота руководитель получает данные для решения о подключении других потоков заявок.</p>
+      <div class="outcome-layout">
+        <div class="outcome-document"><div class="outcome-doc-top"><span>Итоги пилота</span><span>CA / SALES</span></div><div class="outcome-doc-body"><div><span>01</span><strong>Скорость и качество</strong><p>Время до КП, заявки без владельца и число перерасчётов.</p></div><div><span>02</span><strong>Ошибки и исключения</strong><p>Какие заявки всё ещё требуют отдельного разбора.</p></div><div><span>03</span><strong>Стоимость расширения</strong><p>Интеграция, сопровождение и другие потоки заявок.</p></div></div></div>
+        <div class="decision-list"><span class="decision-label">Возможные решения</span><div><span class="decision-symbol ds-green">↗</span><div><strong>Подключить другие потоки</strong><p>Критерии выполнены, стоимость подходит.</p></div></div><div><span class="decision-symbol ds-amber">↻</span><div><strong>Исправить правила</strong><p>Повторяющиеся ошибки требуют доработки.</p></div></div><div><span class="decision-symbol ds-dark">×</span><div><strong>Остановить</strong><p>Измеримый эффект не подтвердился.</p></div></div></div>
+      </div>
+      <footer class="slide-footer"><span>Расширение обсуждаем по итогам замеров</span><span>10 / 11</span></footer>
+    </div>
+  </section>
+
+  <section class="slide slide-final" aria-label="Следующий шаг">
+    <div class="slide-inner">
+      <div class="brand brand-light"><img src="../icons/asterisk.svg" alt=""><span>corpagents</span></div>
+      <div class="final-copy"><p class="eyebrow eyebrow-light">Следующий шаг</p><h2>Обсудим ваш<br>поток заявок<br>за <em>30 минут.</em></h2><p>Разберём один запрос на перевозку и выберем поток для пилота. После разговора попросим несколько обезличенных заявок, чтобы оценить данные и критерии.</p><div class="reply-list"><div><b>1</b><span>Как сейчас поступает запрос на перевозку?</span></div><div><b>2</b><span>Где менеджер получает ставку?</span></div><div><b>3</b><span>Как фиксируется следующий контакт?</span></div></div><div class="final-cta">Ответьте на письмо с двумя удобными вариантами времени <span>↗</span></div></div>
+      <div class="final-aside"><span class="final-aside-label">Тема встречи</span><div class="final-orbit"><span>1</span></div><p>Выберем поток заявок и критерии пилота на примере одного запроса.</p></div>
+      <div class="cover-bottom"><span>Corp Agents • Пилот для отдела продаж перевозок</span><span>11 / 11</span></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
