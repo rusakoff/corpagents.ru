@@ -156,6 +156,27 @@ h1,h2,h3,p { margin:0; }
 .usecase>div:last-child b { color:#146cf4; }
 .usecase-bottom { margin-top:12px; padding:13px 20px; border-left:3px solid #2278ef; background:#edf5ff; color:#31597e; font-size:14px; font-weight:600; }
 
+/* Request classification */
+.visually-hidden { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.requests-layout { display:grid; grid-template-columns:minmax(0, 790px) 1fr; gap:30px; margin-top:23px; }
+.request-table { width:100%; border-collapse:collapse; text-align:left; }
+.request-table thead th { padding:0 0 10px; color:var(--muted); font-size:12px; font-weight:600; }
+.request-table tbody th, .request-table td { padding:10px 0; border-top:1px solid var(--line); vertical-align:middle; }
+.request-table tbody th { width:270px; padding-right:18px; font-size:16px; font-weight:600; letter-spacing:-.025em; }
+.request-table small { display:block; margin-top:4px; color:var(--muted); font-size:12px; line-height:1.3; font-weight:400; letter-spacing:0; }
+.request-table td { color:var(--muted); font-size:15px; line-height:1.4; }
+.industry-example { padding-left:27px; border-left:1px solid var(--line); }
+.industry-example .aside-label { font-size:11px; letter-spacing:.06em; }
+.industry-number { display:block; margin-top:15px; color:var(--blue); font-size:63px; line-height:1; font-weight:600; letter-spacing:-.07em; }
+.industry-example .industry-caption { margin-top:8px; color:var(--ink); font-size:17px; line-height:1.35; }
+.industry-example p { margin-top:16px; color:var(--muted); font-size:14px; line-height:1.5; }
+.industry-source { display:block; margin-top:16px; color:var(--blue); font-size:11px; line-height:1.5; text-decoration:none; }
+.industry-source:hover { text-decoration:underline; }
+.request-channels { display:flex; gap:22px; margin-top:17px; padding:14px 18px; border-radius:8px; background:var(--sky); color:var(--muted); font-size:14px; line-height:1.4; }
+.request-channels strong { color:var(--blue); font-weight:600; }
+.slide-order-documents .usecase { height:292px; }
+.slide-order-documents .usecase>p { min-height:76px; }
+
 /* Economics */
 .economics-layout { display:grid; grid-template-columns:1.1fr .9fr; gap:22px; margin-top:43px; }
 .formula-card { height:304px; padding:27px 30px; border:1px solid rgba(200,221,255,.25); border-radius:17px; background:rgba(255,255,255,.08); }

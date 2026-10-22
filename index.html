@@ -11,11 +11,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css?v=17" />
-    <link rel="stylesheet" href="./sections.css?v=55" />
+    <link rel="stylesheet" href="./sections.css?v=56" />
     <link rel="stylesheet" href="./Hero%20block/styles.css" />
     <link rel="stylesheet" href="./hero-adaptation.css?v=9" />
       <script src="./script.js?v=6" defer></script>
-    <script src="./remaining.js?v=14" defer></script>
+    <script src="./remaining.js?v=15" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -27,7 +27,7 @@
           <a href="#process">Как проходит пилот</a>
           <details class="nav-dropdown">
             <summary>Подробнее <span class="nav-chevron" aria-hidden="true"></span></summary>
-            <div class="nav-menu"><a href="#cases">Примеры задач</a><a href="#security">Данные и доступы</a><a href="#economics">Расчёт времени</a><a href="#faq">Вопросы</a></div>
+            <div class="nav-menu"><a href="#cases">Примеры задач</a><a href="#logistics">Для логистики</a><a href="#security">Данные и доступы</a><a href="#economics">Расчёт времени</a><a href="#faq">Вопросы</a></div>
           </details>
         </nav>
         <div class="header-actions">
@@ -164,7 +164,7 @@
               <div class="solution-index-heading"><strong>Что можно сделать</strong><span>Выберите направление</span></div>
               <button class="solution-index-item is-active" type="button" data-solution-option="data" data-summary="Разбираем одну категорию справочника 1С и показываем, где записи дублируются или названы по-разному. Готовим список для проверки и правила, которые помогут поддерживать порядок дальше." data-icon="database" aria-pressed="true"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/database.svg" alt="" /></span><strong>Справочник 1С</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
               <button class="solution-index-item" type="button" data-solution-option="integrations" data-summary="Настраиваем передачу заявок, заказов и статусов между 1С и CRM. Команда видит, что передано успешно, а какие ошибки требуют внимания." data-icon="arrow-right-left" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/arrow-right-left.svg" alt="" /></span><strong>Обмен 1С и CRM</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
-              <button class="solution-index-item" type="button" data-solution-option="requests" data-summary="Из письма и вложений собираем черновик обращения: ключевые данные уже на месте, маршрут обработки понятен. Сотрудник проверяет карточку и передаёт её в работу." data-icon="mail" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span><strong>Обработка обращений</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
+              <button class="solution-index-item" type="button" data-solution-option="requests" data-summary="Из почты, Telegram и МАКС собираем обращения и вложения, определяем тип и срочность. Связываем данные и документы с заказом, готовим карточку и черновик ответа для проверки сотрудником." data-icon="mail" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span><strong>Обработка обращений</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
               <button class="solution-index-item" type="button" data-solution-option="knowledge" data-summary="Помогаем находить ответы в доступных сотруднику документах. Вместе с ответом показываем исходный пункт, чтобы его можно было быстро проверить." data-icon="book-open-text" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/book-open-text.svg" alt="" /></span><strong>Поиск по документам</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
               <button class="solution-index-item" type="button" data-solution-option="agents" data-summary="Помощник готовит черновики, сверяет данные и находит нужные сведения в рамках одной роли. Сотрудник проверяет результат и решает, что использовать дальше." data-icon="bot" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/bot.svg" alt="" /></span><strong>Помощник сотрудника</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
               <button class="solution-index-item" type="button" data-solution-option="processes" data-summary="Собираем статусы из рабочих систем в одну сводку и отдельно показываем задержки и отклонения. Ответственным проще понять, где процесс требует внимания." data-icon="chart-no-axes-combined" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/chart-no-axes-combined.svg" alt="" /></span><strong>Контроль процесса и отчёты</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
@@ -215,8 +215,49 @@
         <div class="container">
           <div class="cases-intro">
             <h2 id="cases-title">Как может выглядеть<br />пилот на вашей задаче.</h2>
-            <p>Это пример типового сценария. Под каждый бизнес мы подбираем свои данные, процессы и критерии успеха.</p>
+            <p>Под каждый бизнес подбираем данные, процессы и критерии успеха. Вот несколько задач, с которых можно начать.</p>
           </div>
+          <article class="logistics-case" id="logistics" aria-labelledby="logistics-title">
+            <header class="logistics-heading">
+              <div>
+                <p class="logistics-kicker"><img src="./icons/package-search.svg" alt="" aria-hidden="true" />Логистика и экспедирование</p>
+                <h3 id="logistics-title">Обращения и документы<br />по заказу.</h3>
+              </div>
+              <p>Клиент запрашивает ставку, уточняет статус или присылает документы. Агент определяет тип и срочность обращения, находит заказ и готовит данные для ответственного.</p>
+            </header>
+            <div class="logistics-layout">
+              <section class="logistics-requests" aria-labelledby="logistics-requests-title">
+                <h4 id="logistics-requests-title">Что приходит от клиентов</h4>
+                <p class="logistics-frequency">Порядок по предполагаемой частоте. Приоритеты проверим по истории ваших обращений.</p>
+                <ol class="logistics-request-list">
+                  <li><div><h5>Запрос ставки по направлению</h5><span>Спот, «срочно на завтра»</span></div><p>Извлекает маршрут, груз и дату, отмечает срочность для расчёта.</p></li>
+                  <li><div><h5>Статус груза</h5><span>«Где находится мой груз?»</span></div><p>Находит заказ и готовит ответ по актуальному статусу из рабочей системы.</p></li>
+                  <li><div><h5>Изменение заявки</h5></div><p>Показывает, что изменилось в маршруте, грузе или дате, для проверки и пересчёта.</p></li>
+                  <li><div><h5>Закрывающие документы</h5></div><p>Находит комплект по заказу и отмечает недостающие документы.</p></li>
+                  <li><div><h5>Рекламация</h5><span>Повреждение, недостача, срыв срока, простой</span></div><p>Собирает факты и вложения, передаёт ответственному за разбор.</p></li>
+                </ol>
+              </section>
+              <section class="logistics-documents" aria-labelledby="logistics-documents-title">
+                <p class="logistics-channels">Почта, Telegram и МАКС</p>
+                <h4 id="logistics-documents-title">Вложения становятся частью заказа.</h4>
+                <p class="logistics-formats">Excel, PDF, сканы и фото упаковочных листов.</p>
+                <ol class="logistics-document-steps">
+                  <li><strong>Извлекает данные</strong><p>Номер заказа, маршрут, вес и число мест. Сомнительные поля отмечает для проверки.</p></li>
+                  <li><strong>Связывает с заказом</strong><p>Сохраняет исходные файлы в карточке. Неоднозначную привязку проверяет сотрудник.</p></li>
+                  <li><strong>Готовит комплект</strong><p>Собирает документы по заявке, закрывающие или материалы рекламации в карточке заказа.</p></li>
+                </ol>
+                <p class="logistics-review">Сотрудник проверяет данные и ответ клиенту. Ставку и решение по рекламации утверждает ответственный.</p>
+              </section>
+            </div>
+            <div class="logistics-pilot">
+              <div><h4>Начинаем с одного типа обращений.</h4><p>Например, с запросов ставки в одном канале. Согласуем виды вложений и сравним время обработки, полноту карточек и точность классификации с текущим процессом.</p></div>
+              <a class="button button-primary" href="#contact" data-logistics-contact>Обсудить пилот для логистики <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></a>
+            </div>
+            <aside class="logistics-source" aria-label="Отраслевой пример со ссылкой на источник">
+              <strong>Отраслевой пример: ПЭК</strong>
+              <p>По словам директора по данным ПЭК Антона Слученкова, колл-центр компании принимает десятки тысяч звонков в день, а 9 из 10 запросов типовые, в том числе о статусе груза. Это данные ПЭК, частоту обращений вашей компании проверим отдельно. <a href="https://www.cfo-russia.ru/stati/?article=100199" target="_blank" rel="noopener noreferrer">CFO Russia, 22.06.2026 <span aria-hidden="true">↗</span></a></p>
+            </aside>
+          </article>
           <div class="case-list">
             <article class="case-item case-item--green">
               <div class="case-source"><span class="case-source-icon"><img src="./icons/receipt-text.svg" alt="" /></span><span>Закупки<br />и бухгалтерия</span></div>

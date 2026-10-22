@@ -1,0 +1,148 @@
+/* Corp Agents presentation theme. Values and visual rules follow ../styles.css. */
+:root {
+  --ink: #000000;
+  --navy: #111111;
+  --blue: #0075de;
+  --sky: #e6f3fe;
+  --paper: #fbfcfd;
+  --cream: #f6f5f4;
+  --line: #e1e5e8;
+  --muted: #615d59;
+  --site-mist: #f3f6f8;
+  --site-yellow: #fff1c5;
+}
+
+html { background: var(--site-mist); }
+body { color: var(--ink); }
+.slide-light { background: var(--paper); }
+.slide-blue { background: var(--sky); }
+.slide-cream { background: var(--cream); }
+.slide-ink { color: var(--ink); background: var(--sky); }
+.slide-ink::before { content: none; }
+
+.kicker, .slide-ink .kicker { color: var(--blue); letter-spacing: .09em; }
+.header-mark, .slide-ink .header-mark { color: #8b9297; }
+.slide-footer, .slide-ink .slide-footer { color: #737b80; border-color: #d9e1e6; }
+.title, .slide-ink .title { color: #000; font-weight: 600; letter-spacing: -.055em; }
+.title em, .slide-ink .title em {
+  color: inherit;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: inherit;
+}
+.intro, .slide-ink .intro { color: #615d59; font-family: "Source Serif 4", Georgia, serif; font-size: 19px; line-height: 1.45; }
+
+/* The hero uses the same black type, blue dot and pale-blue pill as the site. */
+.slide-cover { color: #000; background: radial-gradient(circle at 81% 45%, #e6f3fe 0, #fbfcfd 45%, #fff 100%); }
+.cover-grid { display: none; }
+.brand { font-size: 23px; font-weight: 700; }
+.brand img { filter: none; }
+.eyebrow-light { display: inline-flex; align-items: center; width: max-content; padding: 8px 13px; border-radius: 999px; background: #e6f3fe; color: #0068c7; font-size: 12px; letter-spacing: .05em; }
+.eyebrow-light::before { content: ""; width: 7px; height: 7px; margin-right: 9px; border-radius: 50%; background: #0075de; }
+.cover-copy h1, .final-copy h2 { color: #000; font-weight: 600; letter-spacing: -.065em; }
+.cover-copy h1 em, .final-copy h2 em {
+  display: inline-block;
+  padding: .015em .20em .10em;
+  border-radius: 999px;
+  background: #e6f3fe;
+  color: #000;
+  font-family: Inter, Arial, sans-serif;
+  font-size: .96em;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -.065em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.cover-copy h1 em::before, .final-copy h2 em::before { content: ""; display: inline-block; width: .22em; height: .22em; margin-right: .13em; border-radius: 50%; background: #0075de; vertical-align: .10em; }
+.cover-lead { color: #3f474e; }
+.orbit { border-color: rgba(0, 117, 222, .18); }
+.cover-node { border-color: #dfe7ed; background: #fff; color: #111; box-shadow: 0 12px 28px rgba(17, 39, 57, .10); }
+.cover-node-main { border-color: #b5dfff; background: #e6f3fe; color: #000; box-shadow: 0 0 0 12px rgba(230,243,254,.7), 0 22px 42px rgba(17,39,57,.10); }
+.cover-node-main .spark { color: #0075de; }
+.cover-pill { border-color: #b9dffb; background: #fff; color: #1962a5; }
+.cover-bottom { border-color: #d9e1e6; color: #727b81; }
+
+/* White product cards, quiet lines and restrained shadows match the site UI. */
+.friction-item p, .op p, .mail-body p, .usecase>p, .pilot-step p,
+.control-aside p, .outcome-doc-body p, .decision-list p { color: #615d59; }
+.friction-graphic { border-color: #e0e7eb; background: #fff; box-shadow: 0 12px 32px rgba(0,0,0,.065); }
+.fg-label, .fg-bottom { color: #615d59; }
+.fg-row span { border-color: #e1e5e8; }
+.fg-row i, .fg-hand { color: #0075de; }
+.hand-icon { background: #e6f3fe; }
+.fg-bottom { border-color: #e1e5e8; }
+.op { border-color: #dfe6eb; background: #fff; box-shadow: 0 12px 26px rgba(0,0,0,.065); }
+.op-prepare { border-color: #0075de; background: #0075de; color: #fff; box-shadow: 0 17px 30px rgba(0,117,222,.20); }
+.op-prepare p { color: #e6f3fe; }
+.op-icon, .usecase-icon { background: #e6f3fe; }
+.op-arrow { color: #0075de; }
+.principle-strip { background: #d4eafa; color: #135d9f; }
+.principle-dot { background: #0075de; }
+.scenario-tag { border-color: #c8e2f9; background: #e6f3fe; color: #075eae; }
+.mail-window, .crm-window, .doc-card, .usecase, .outcome-document { border-color: #e1e5e8; box-shadow: 0 12px 30px rgba(0,0,0,.065); }
+.mock-top, .mail-from, .crm-body span, .doc-card small { color: #757575; }
+.attachments span { background: #f3f6f8; color: #4a667b; }
+.scenario-arrow, .status-draft, .compare-center, .panel-eyebrow { color: #0075de; }
+.crm-dot { background: #0075de; }
+.metric-line { background: #e6f3fe; color: #2b587b; }
+.metric-line strong { color: #0075de; }
+.metric-line span::before { color: #0075de; }
+.compare-circle { border-color: #b8ddfb; background: #e6f3fe; }
+.difference-panel { border-color: #e1e5e8; box-shadow: 0 12px 30px rgba(0,0,0,.065); }
+.difference-row, .panel-note { color: #615d59; }
+.difference-row i { background: #ffb110; }
+.difference-row b { color: #c58400; }
+.usecase-n { color: #9ca5ab; }
+.usecase>div:last-child { border-color: #e1e5e8; color: #615d59; }
+.usecase>div:last-child b { color: #0075de; }
+.usecase-bottom { border-color: #0075de; background: #e6f3fe; color: #2b587b; }
+
+/* The comparison slide adopts the site's pale-blue and warm-yellow pilot palette. */
+.formula-card { border-color: #d9e2e8; background: #fff; box-shadow: 0 12px 30px rgba(0,0,0,.065); }
+.formula-label, .example-top { color: #0075de; }
+.board-row { border-color: #e1e5e8; }
+.board-row strong { color: #111; }
+.board-row span { color: #615d59; }
+.example-card { border: 1px solid #eadfaa; background: #fff4cd; color: #111; box-shadow: 0 12px 30px rgba(0,0,0,.055); }
+.measure-head { border-color: #dacd9d; color: #6e674e; }
+.measure-row { border-color: #e9dcaf; }
+.measure-row b { color: #0075de; }
+.measurement-card p { color: #665f4a; }
+
+.pilot-timeline::before { background: #b5dfff; }
+.step-top { color: #0075de; }
+.step-dot { border-color: #0075de; box-shadow: 0 0 0 6px #e6f3fe; }
+.pilot-duration { background: #e6f3fe; }
+.duration-number { color: #0075de; }
+.duration-copy small { color: #615d59; }
+.control-main { border-color: #e1e5e8; background: radial-gradient(circle at 50% 48%, #e6f3fe, #fff 70%); }
+.control-center { background: #0075de; }
+.control-line { background: #a7d4f7; }
+.control-sat { border-color: #d8e6f0; color: #3f474e; }
+.control-sat b, .aside-label { color: #0075de; }
+.control-aside div { border-color: #dce2e6; }
+.outcome-doc-top, .outcome-doc-body span, .decision-label { color: #0075de; }
+.decision-list>div { border-color: #d9e4ec; }
+
+/* The close repeats the site's light hero and primary blue button. */
+.slide-final { color: #000; background: radial-gradient(circle at 80% 48%, #e6f3fe 0, #fbfcfd 55%, #fff 100%); }
+.slide-final::before { content: none; }
+.final-copy>p:not(.eyebrow) { color: #454e54; }
+.reply-list>div { color: #252a2d; }
+.reply-list b { background: #e6f3fe; color: #0075de; }
+.final-cta { background: #0075de; color: #fff; font-weight: 600; box-shadow: 0 10px 24px rgba(0,117,222,.18); }
+.final-aside { border-color: #dce5e9; background: #fff; box-shadow: 0 14px 34px rgba(0,0,0,.065); }
+.final-aside-label { color: #0075de; }
+.final-orbit { border-color: #add5f3; }
+.final-orbit span { background: #e6f3fe; color: #0075de; box-shadow: 0 0 0 11px rgba(230,243,254,.6); }
+.final-aside p { color: #615d59; }
+
+@media print {
+  .cover-node, .cover-node-main, .friction-graphic, .op, .mail-window,
+  .crm-window, .doc-card, .difference-panel, .usecase, .control-center,
+  .control-sat, .outcome-document { filter: drop-shadow(0 7px 11px rgba(0,0,0,.09)); }
+  .cover-node-main, .op-prepare, .control-center { filter: drop-shadow(0 9px 14px rgba(0,117,222,.15)); }
+}
