@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
-    <meta name="description" content="Corp Agents сокращает ручную работу между 1С, CRM, почтой и документами. Соединяем системы, применяем ИИ к повторяющимся операциям и проверяем эффект на пилоте." />
+    <meta name="description" content="Corp Agents связывает 1С и CRM с почтой, мессенджерами и телефонией. ИИ разбирает обращения и документы. Эффект проверяем на пилоте." />
     <title>Corp Agents — автоматизация работы между 1С, CRM и документами</title>
     <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="./sections.css?v=56" />
     <link rel="stylesheet" href="./Hero%20block/styles.css" />
     <link rel="stylesheet" href="./hero-adaptation.css?v=9" />
-      <script src="./script.js?v=6" defer></script>
-    <script src="./remaining.js?v=15" defer></script>
+      <script src="./script.js?v=7" defer></script>
+    <script src="./remaining.js?v=16" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -42,7 +42,7 @@
         <div class="container hero-content">
           <p class="hero-eyebrow">Для команд, которые работают с 1С и CRM</p>
           <h1 id="hero-title">Убираем ручную работу<br />между <span class="highlight-pill">системами.</span></h1>
-          <p class="hero-subhead">Связываем 1С, CRM, почту и документы. ИИ готовит данные и черновики, сотрудник проверяет важные действия. Эффект оцениваем на одном процессе.</p>
+          <p class="hero-subhead">Связываем 1С и CRM с почтой, мессенджерами и телефонией. ИИ готовит данные и черновики, сотрудник проверяет важные действия. Эффект оцениваем на одном процессе.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#contact">Подготовить запрос</a>
             <a class="button button-ghost" href="#scenarios">Посмотреть примеры</a>
@@ -97,15 +97,15 @@
               </aside>
 
               <div class="workspace-main ca-app__main">
-                <div class="workspace-heading ca-app__heading-row"><div class="ca-app__heading-text"><h2 id="board-title">Входящие обращения <img src="./icons/mail.svg" alt="" aria-hidden="true" /></h2><p id="board-description">От письма клиента до проверенной карточки в CRM.</p></div><div class="workspace-people ca-app__users" aria-hidden="true"><span>А</span><span>М</span><span>+</span></div></div>
+                <div class="workspace-heading ca-app__heading-row"><div class="ca-app__heading-text"><h2 id="board-title">Входящие обращения <img src="./icons/mail.svg" alt="" aria-hidden="true" /></h2><p id="board-description">От обращения клиента до проверенной карточки в CRM.</p></div><div class="workspace-people ca-app__users" aria-hidden="true"><span>А</span><span>М</span><span>+</span></div></div>
                 <div class="board-tabs ca-app__tabs" role="tablist" aria-label="Примеры рабочих процессов">
-                  <button class="ca-app__tab" type="button" role="tab" aria-selected="true" aria-controls="board-panel" data-board="inbox">Почта → CRM</button>
+                  <button class="ca-app__tab" type="button" role="tab" aria-selected="true" aria-controls="board-panel" data-board="inbox">Обращения → CRM</button>
                   <button class="ca-app__tab" type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="catalog">Справочник 1С</button>
                   <button class="ca-app__tab" type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="knowledge">Документы</button>
                   <button class="ca-app__tab" type="button" role="tab" aria-selected="false" aria-controls="board-panel" data-board="reports">Статусы</button>
                 </div>
                 <div class="board-panel ca-app__lanes" id="board-panel" role="tabpanel" aria-live="polite">
-                  <div class="board-column ca-lane"><div class="column-header ca-lane__status"><span class="column-marker marker-coral ca-lane__status-dot ca-lane__status-dot--red"></span> Сейчас</div><div class="kanban-card ca-ticket"><span class="kanban-label label-coral ca-ticket__badge ca-ticket__badge--red" id="board-before-label">Новое письмо</span><strong id="board-before-title">Запрос на поставку</strong><p id="board-before-copy">Крепёж М10, 500 шт. Нужна цена и срок.</p><span class="ca-ticket__arrow" aria-hidden="true">→</span></div></div>
+                  <div class="board-column ca-lane"><div class="column-header ca-lane__status"><span class="column-marker marker-coral ca-lane__status-dot ca-lane__status-dot--red"></span> Сейчас</div><div class="kanban-card ca-ticket"><span class="kanban-label label-coral ca-ticket__badge ca-ticket__badge--red" id="board-before-label">Новое обращение</span><strong id="board-before-title">Запрос на поставку</strong><p id="board-before-copy">Крепёж М10, 500 шт. Нужна цена и срок.</p><span class="ca-ticket__arrow" aria-hidden="true">→</span></div></div>
                   <div class="board-column ca-lane"><div class="column-header ca-lane__status"><span class="column-marker marker-yellow ca-lane__status-dot ca-lane__status-dot--amber"></span> Подготовлено</div><div class="kanban-card ca-ticket"><span class="kanban-label label-yellow ca-ticket__badge ca-ticket__badge--amber" id="board-middle-label">Черновик от ИИ</span><strong id="board-middle-title">Данные извлечены</strong><p id="board-middle-copy">Контакт, позиции и тип обращения собраны.</p><span class="ca-ticket__arrow" aria-hidden="true">→</span></div></div>
                   <div class="board-column ca-lane"><div class="column-header ca-lane__status"><span class="column-marker marker-blue ca-lane__status-dot ca-lane__status-dot--blue"></span> В работе</div><div class="kanban-card ca-ticket"><span class="kanban-label label-blue ca-ticket__badge ca-ticket__badge--blue" id="board-after-label">Подтверждено</span><strong id="board-after-title">Заявка в CRM</strong><p id="board-after-copy">Карточка создана, назначен ответственный.</p><span class="ca-ticket__arrow" aria-hidden="true">→</span></div></div>
                 </div>
@@ -132,8 +132,8 @@
         <div class="container">
           <div class="section-heading"><div><h2 id="scenarios-title">Какая ручная работа забирает время?</h2></div><p>Выберите похожую задачу: покажем, что можно автоматизировать и как проверить результат.</p></div>
           <div class="scenario-grid">
-            <button class="scenario-card scenario-card-featured" type="button" data-scenario="inbox" aria-label="Подробнее: разбор заявок из почты">
-              <span class="scenario-feature-copy"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span></span><span class="card-content"><strong>Разбор заявок<br />из почты</strong><span>ИИ собирает данные из письма и вложений в черновик сделки. Сотрудник проверяет их и создаёт сделку в CRM.</span></span><span class="card-bottom"><span class="card-link">Как это работает <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></span>
+            <button class="scenario-card scenario-card-featured" type="button" data-scenario="inbox" aria-label="Подробнее: обращения из разных каналов">
+              <span class="scenario-feature-copy"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span></span><span class="card-content"><strong>Обращения<br />из разных каналов</strong><span>Почта, мессенджеры и телефония. ИИ собирает данные из сообщений, вложений и расшифровок звонков в черновик сделки. Сотрудник проверяет результат и создаёт сделку в CRM.</span></span><span class="card-bottom"><span class="card-link">Как это работает <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></span>
               <img class="scenario-feature-art" src="./assets/inbox-to-crm.png?v=3" width="1654" height="951" alt="" aria-hidden="true" decoding="async" />
             </button>
             <button class="scenario-card card-white" type="button" data-scenario="catalog" aria-label="Подробнее: проверка дублей в 1С"><span class="card-top"><span class="card-symbol" aria-hidden="true"><img src="./icons/grid-2x2.svg" alt="" /></span></span><span class="card-content"><strong>Проверка дублей<br />в 1С</strong><span>Система предлагает возможные дубли. Ответственный решает, какие записи объединять.</span></span><span class="card-bottom"><span class="card-link">Как это работает <img src="./icons/arrow-up-right.svg" alt="" aria-hidden="true" /></span></span></button>
@@ -164,7 +164,7 @@
               <div class="solution-index-heading"><strong>Что можно сделать</strong><span>Выберите направление</span></div>
               <button class="solution-index-item is-active" type="button" data-solution-option="data" data-summary="Разбираем одну категорию справочника 1С и показываем, где записи дублируются или названы по-разному. Готовим список для проверки и правила, которые помогут поддерживать порядок дальше." data-icon="database" aria-pressed="true"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/database.svg" alt="" /></span><strong>Справочник 1С</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
               <button class="solution-index-item" type="button" data-solution-option="integrations" data-summary="Настраиваем передачу заявок, заказов и статусов между 1С и CRM. Команда видит, что передано успешно, а какие ошибки требуют внимания." data-icon="arrow-right-left" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/arrow-right-left.svg" alt="" /></span><strong>Обмен 1С и CRM</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
-              <button class="solution-index-item" type="button" data-solution-option="requests" data-summary="Из почты, Telegram и МАКС собираем обращения и вложения, определяем тип и срочность. Связываем данные и документы с заказом, готовим карточку и черновик ответа для проверки сотрудником." data-icon="mail" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span><strong>Обработка обращений</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
+              <button class="solution-index-item" type="button" data-solution-option="requests" data-summary="Объединяем обращения из почты, мессенджеров, телефонии и форм на сайте. Определяем тип и срочность, связываем данные с заказом, готовим карточку и черновик ответа для проверки сотрудником." data-icon="mail" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/mail.svg" alt="" /></span><strong>Обработка обращений</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
               <button class="solution-index-item" type="button" data-solution-option="knowledge" data-summary="Помогаем находить ответы в доступных сотруднику документах. Вместе с ответом показываем исходный пункт, чтобы его можно было быстро проверить." data-icon="book-open-text" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/book-open-text.svg" alt="" /></span><strong>Поиск по документам</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
               <button class="solution-index-item" type="button" data-solution-option="agents" data-summary="Помощник готовит черновики, сверяет данные и находит нужные сведения в рамках одной роли. Сотрудник проверяет результат и решает, что использовать дальше." data-icon="bot" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/bot.svg" alt="" /></span><strong>Помощник сотрудника</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
               <button class="solution-index-item" type="button" data-solution-option="processes" data-summary="Собираем статусы из рабочих систем в одну сводку и отдельно показываем задержки и отклонения. Ответственным проще понять, где процесс требует внимания." data-icon="chart-no-axes-combined" aria-pressed="false"><span class="solution-index-icon" aria-hidden="true"><img src="./icons/chart-no-axes-combined.svg" alt="" /></span><strong>Контроль процесса и отчёты</strong><span class="solution-index-arrow" aria-hidden="true">→</span></button>
@@ -238,9 +238,9 @@
                 </ol>
               </section>
               <section class="logistics-documents" aria-labelledby="logistics-documents-title">
-                <p class="logistics-channels">Почта, Telegram и МАКС</p>
+                <p class="logistics-channels">Почта, мессенджеры, телефония и формы сайта</p>
                 <h4 id="logistics-documents-title">Вложения становятся частью заказа.</h4>
-                <p class="logistics-formats">Excel, PDF, сканы и фото упаковочных листов.</p>
+                <p class="logistics-formats">Сообщения из Telegram и МАКС, расшифровки звонков, Excel, PDF, сканы и фото упаковочных листов.</p>
                 <ol class="logistics-document-steps">
                   <li><strong>Извлекает данные</strong><p>Номер заказа, маршрут, вес и число мест. Сомнительные поля отмечает для проверки.</p></li>
                   <li><strong>Связывает с заказом</strong><p>Сохраняет исходные файлы в карточке. Неоднозначную привязку проверяет сотрудник.</p></li>
@@ -271,9 +271,9 @@
             </article>
             <article class="case-item case-item--blue">
               <div class="case-source"><span class="case-source-icon"><img src="./icons/mail.svg" alt="" /></span><span>Отдел<br />продаж</span></div>
-              <div class="case-task"><h3>Собрать запрос из письма</h3><p>Из письма и вложений готовим карточку: контакт, позиции, сроки и маршрут.</p></div>
-              <div class="case-flow case-flow--mail" aria-label="Запрос из письма превращается в черновик карточки CRM">
-                <div class="case-mail-card"><span class="case-mail-mark" aria-hidden="true">M</span><span class="case-mail-copy"><strong>Запрос на поставку</strong><small>client@company.ru</small></span><span class="case-attachments">♧&nbsp; 3 вложения</span></div>
+              <div class="case-task"><h3>Собрать обращение в CRM</h3><p>Из сообщения, вложений или расшифровки звонка готовим карточку: контакт, запрос, сроки и маршрут.</p></div>
+              <div class="case-flow case-flow--mail" aria-label="Обращение из почты, чата или телефонии превращается в черновик карточки CRM">
+                <div class="case-mail-card"><span class="case-mail-mark" aria-hidden="true">M</span><span class="case-mail-copy"><strong>Запрос на поставку</strong><small>Почта / чат / звонок</small></span><span class="case-attachments">Данные запроса</span></div>
                 <span class="case-arrow" aria-hidden="true">→</span>
                 <div class="case-crm-card"><span class="case-crm-title"><span class="case-crm-icon">▣</span> Карточка в CRM</span><span class="case-skeleton case-skeleton--long"></span><span class="case-skeleton"></span><span class="case-crm-create">Создать</span></div>
               </div>
@@ -417,7 +417,7 @@
         <div class="container">
           <div class="section-heading"><div><h2 id="departments-title">Что меняется в работе<br />разных команд.</h2></div><p>Автоматизируем конкретную операцию и показываем сотруднику подготовленный результат для проверки.</p></div>
           <div class="department-grid">
-            <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/handshake.svg" alt="" /></span><h3>Продажи</h3><p>Письмо и вложения → черновик обращения в CRM.</p></article>
+            <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/handshake.svg" alt="" /></span><h3>Продажи</h3><p>Почта, чаты и звонки → черновик обращения в CRM.</p></article>
             <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/package-search.svg" alt="" /></span><h3>Снабжение</h3><p>Предложения поставщиков → список сопоставленных позиций.</p></article>
             <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/receipt-text.svg" alt="" /></span><h3>Финансы</h3><p>Заказ, счёт и поступление → список расхождений.</p></article>
             <article class="department-card"><span class="department-icon" aria-hidden="true"><img src="./icons/scale.svg" alt="" /></span><h3>Юристы</h3><p>Договор → нужный пункт и черновик замечаний.</p></article>
@@ -457,7 +457,7 @@
             </div>
             <label class="contact-task-field">
               <span>Что происходит сейчас и что хотите изменить?</span>
-              <textarea name="task" rows="4" required placeholder="Например: менеджер переносит заявки из почты в CRM и вручную проверяет остатки в 1С." aria-describedby="task-helper task-error"></textarea>
+              <textarea name="task" rows="4" required placeholder="Например: менеджер собирает заявки из почты, чатов и звонков, переносит их в CRM и вручную проверяет остатки в 1С." aria-describedby="task-helper task-error"></textarea>
               <small class="field-error" id="task-error">Опишите задачу в нескольких словах.</small>
               <small class="task-helper" id="task-helper">Можно указать, где находятся данные. Конфиденциальные документы не нужны.</small>
             </label>
@@ -481,11 +481,11 @@
     <dialog class="info-dialog" id="scenario-dialog" aria-labelledby="scenario-dialog-title">
       <button type="button" class="dialog-close" aria-label="Закрыть окно" data-close-dialog><img src="./icons/x.svg" alt="" aria-hidden="true" /></button>
       <div class="dialog-content">
-        <h2 id="scenario-dialog-title">Разбор заявок из почты</h2>
-        <p class="dialog-intro" id="dialog-intro">Выбираем один входящий ящик и согласованные типы заявок.</p>
+        <h2 id="scenario-dialog-title">Разбор входящих обращений</h2>
+        <p class="dialog-intro" id="dialog-intro">Выбираем один канал: почту, мессенджер, телефонию или форму на сайте. Проверяем один тип обращений на ограниченном потоке.</p>
         <div class="dialog-compare">
-          <div><span>Сейчас</span><p id="dialog-before">Менеджер вручную переносит данные из письма в карточку сделки.</p></div>
-          <div><span>На пилоте</span><p id="dialog-after">ИИ готовит черновик сделки, сотрудник проверяет данные.</p></div>
+          <div><span>Сейчас</span><p id="dialog-before">Менеджер собирает данные из переписки, вложений и записей звонков, затем вручную переносит их в CRM.</p></div>
+          <div><span>На пилоте</span><p id="dialog-after">ИИ извлекает данные из сообщений, документов и расшифровок звонков, готовит черновик сделки. Менеджер проверяет результат и создаёт сделку в CRM.</p></div>
         </div>
         <div class="dialog-measure"><span>Что проверяем</span><p id="dialog-metric">Время создания сделки и полноту карточки.</p></div>
         <a class="button button-primary dialog-next" href="#contact" data-scenario-contact data-close-dialog>Подготовить запрос по этой задаче</a>
